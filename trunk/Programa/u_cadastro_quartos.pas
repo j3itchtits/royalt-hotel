@@ -31,7 +31,6 @@ type
     DBGrid1: TDBGrid;
     Label6: TLabel;
     Label7: TLabel;
-    procedure ds_quartoDataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
   public
@@ -45,16 +44,5 @@ implementation
 
 {$R *.dfm}
 
-procedure Tf_cadastro_quartos.ds_quartoDataChange(Sender: TObject;
-  Field: TField);
-begin
-with QUERY do
-  begin
-  Close;
-  SQL.Clear;
-  sql.Add('select * from TABELA where TIPOQUARTO like '''+COMBOBOX.text+'%''');
-  Open;
-  end;
-end;
 
 end.
