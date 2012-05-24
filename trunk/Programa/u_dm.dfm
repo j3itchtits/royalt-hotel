@@ -3,20 +3,18 @@ object dm: Tdm
   Height = 499
   Width = 623
   object conexao: TADOConnection
-    Connected = True
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=admin;Data Source=C:\Us' +
-      'ers\Isabella\Desktop\royalt-hotel\Programa\banco\banco.mdb;Mode=' +
-      'Share Deny None;Persist Security Info=False;Jet OLEDB:System dat' +
-      'abase="";Jet OLEDB:Registry Path="";Jet OLEDB:Database Password=' +
-      'systemhotel;Jet OLEDB:Engine Type=5;Jet OLEDB:Database Locking M' +
-      'ode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB:Global Bulk ' +
-      'Transactions=1;Jet OLEDB:New Database Password="";Jet OLEDB:Crea' +
-      'te System Database=False;Jet OLEDB:Encrypt Database=False;Jet OL' +
-      'EDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Compact Without' +
-      ' Replica Repair=False;Jet OLEDB:SFP=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=admin;Data Source=C:\Ro' +
+      'yalt Hotel\banco\banco.mdb;Mode=Share Deny None;Persist Security' +
+      ' Info=False;Jet OLEDB:System database="";Jet OLEDB:Registry Path' +
+      '="";Jet OLEDB:Database Password=systemhotel;Jet OLEDB:Engine Typ' +
+      'e=5;Jet OLEDB:Database Locking Mode=1;Jet OLEDB:Global Partial B' +
+      'ulk Ops=2;Jet OLEDB:Global Bulk Transactions=1;Jet OLEDB:New Dat' +
+      'abase Password="";Jet OLEDB:Create System Database=False;Jet OLE' +
+      'DB:Encrypt Database=False;Jet OLEDB:Don'#39't Copy Locale on Compact' +
+      '=False;Jet OLEDB:Compact Without Replica Repair=False;Jet OLEDB:' +
+      'SFP=False'
     LoginPrompt = False
-    Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 24
     Top = 16
@@ -76,7 +74,6 @@ object dm: Tdm
     Top = 72
   end
   object t_quarto: TADOTable
-    Active = True
     Connection = conexao
     CursorType = ctStatic
     TableName = 'quarto'
