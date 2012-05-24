@@ -5,9 +5,8 @@ object dm: Tdm
   object conexao: TADOConnection
     Connected = True
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=admin;Data Source=C:\Sy' +
-      'stem Hotel\banco\banco.mdb;Persist Security Info=False;Jet OLEDB' +
-      ':Database Password=systemhotel'
+      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=admin;Data Source=C:\Ro' +
+      'yalt Hotel\banco\banco.mdb;Persist Security Info=False'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
@@ -34,17 +33,46 @@ object dm: Tdm
       FieldName = 'nome'
       Size = 255
     end
-    object t_clientetelefone: TWideStringField
-      FieldName = 'telefone'
+    object t_clientetelefone_celular: TWideStringField
+      FieldName = 'telefone_celular'
       EditMask = '(00)0000-0000;0;_'
+      Size = 255
+    end
+    object t_clienteemail: TWideStringField
+      FieldName = 'email'
+      Size = 255
+    end
+    object t_clienteendereco: TWideStringField
+      FieldName = 'endereco'
+      Size = 255
+    end
+    object t_clientecomplemento: TWideStringField
+      FieldName = 'complemento'
+      Size = 255
+    end
+    object t_clientebairro: TWideStringField
+      FieldName = 'bairro'
+      Size = 255
+    end
+    object t_clientecidade: TWideStringField
+      FieldName = 'cidade'
       Size = 255
     end
     object t_clienteestado: TWideStringField
       FieldName = 'estado'
       Size = 255
     end
-    object t_clientecidade: TWideStringField
-      FieldName = 'cidade'
+    object t_clientecep: TWideStringField
+      FieldName = 'cep'
+      Size = 255
+    end
+    object t_clientepais: TWideStringField
+      FieldName = 'pais'
+      Size = 255
+    end
+    object t_clientetelefone_residencial: TWideStringField
+      FieldName = 'telefone_residencial'
+      EditMask = '(00)0000-0000;0;_'
       Size = 255
     end
   end
@@ -55,7 +83,6 @@ object dm: Tdm
     Top = 72
   end
   object q_cliente: TADOQuery
-    Active = True
     Connection = conexao
     CursorType = ctStatic
     Parameters = <>
