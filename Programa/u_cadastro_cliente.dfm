@@ -1080,9 +1080,9 @@ object f_cadastro_cliente: Tf_cadastro_cliente
   object db_telefone: TDBEdit
     Left = 88
     Top = 120
-    Width = 121
+    Width = 117
     Height = 21
-    DataField = 'telefone'
+    DataField = 'telefone_residencial'
     DataSource = dm.ds_cliente
     MaxLength = 13
     TabOrder = 2
