@@ -1073,14 +1073,25 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     ParentFont = False
     TabOrder = 0
   end
-  object DBComboBox1: TDBComboBox
+  object TDBComboBox
     Left = 128
     Top = 64
     Width = 145
     Height = 21
+    Items.Strings = (
+      '1'#176' andar'
+      '2'#176' andar'
+      '3'#176' andar'
+      '4'#176' andar'
+      '5'#176' andar'
+      '6'#176' andar'
+      '7'#176' andar'
+      '8'#176' andar'
+      '9'#176' andar'
+      '10'#176' andar')
     TabOrder = 1
   end
-  object DBEdit1: TDBEdit
+  object TDBEdit
     Left = 128
     Top = 96
     Width = 121
@@ -1140,6 +1151,54 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'ID do quarto'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'N'#176' do quarto'
+          Width = 65
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Andar do quarto'
+          Width = 85
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Tipo do quarto'
+          Width = 150
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Valor da di'#225'ria'
+          Width = 75
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Informa'#231#245'es adicionais'
+          Width = 279
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Status de limpeza'
+          Width = 88
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Status de ocupa'#231#227'o'
+          Width = 100
+          Visible = True
+        end>
     end
   end
 end
