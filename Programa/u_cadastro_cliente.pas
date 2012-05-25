@@ -11,7 +11,7 @@ type
   Tf_cadastro_cliente = class(TForm)
     db_cpf: TDBEdit;
     db_nome: TDBEdit;
-    db_telefone: TDBEdit;
+    db_telefone_residencial: TDBEdit;
     db_cidade: TDBEdit;
     Label1: TLabel;
     Label2: TLabel;
@@ -33,6 +33,20 @@ type
     Label6: TLabel;
     Label7: TLabel;
     b_listar_todos: TPngSpeedButton;
+    Label8: TLabel;
+    db_telefone_celular: TDBEdit;
+    db_cep: TDBEdit;
+    Label9: TLabel;
+    Label10: TLabel;
+    db_email: TDBEdit;
+    Label11: TLabel;
+    db_complemento: TDBEdit;
+    db_endereco: TDBEdit;
+    Label12: TLabel;
+    db_bairro: TDBEdit;
+    Label13: TLabel;
+    Label14: TLabel;
+    db_pais: TDBComboBox;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
     procedure b_alterarClick(Sender: TObject);
@@ -45,6 +59,7 @@ type
     procedure b_listar_todosClick(Sender: TObject);
     procedure t_cpfChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBGrid1TitleClick(Column: TColumn);
   private
     { Private declarations }
   public
@@ -65,7 +80,14 @@ procedure Tf_cadastro_cliente.b_alterarClick(Sender: TObject);
 begin
 db_nome.Enabled:=true;
 db_cpf.Enabled:=true;
-db_telefone.Enabled:=true;
+db_bairro.enabled:=true;
+db_cep.enabled:=true;
+db_complemento.enabled:=true;
+db_email.enabled:=true;
+db_endereco.enabled:=true;
+db_pais.enabled:=true;
+db_telefone_celular.enabled:=true;
+db_telefone_residencial.enabled:=true;
 db_cidade.Enabled:=true;
 db_estado.Enabled:=true;
 b_salvar.Enabled:=true;
@@ -84,7 +106,14 @@ begin
 dm.t_cliente.Cancel;
 db_nome.Enabled:=false;
 db_cpf.Enabled:=false;
-db_telefone.Enabled:=false;
+db_bairro.enabled:=false;
+db_cep.enabled:=false;
+db_complemento.enabled:=false;
+db_email.enabled:=false;
+db_endereco.enabled:=false;
+db_pais.enabled:=false;
+db_telefone_celular.enabled:=false;
+db_telefone_residencial.enabled:=false;
 db_cidade.Enabled:=false;
 db_estado.Enabled:=false;
 b_salvar.Enabled:=false;
@@ -111,7 +140,14 @@ begin
 dm.t_cliente.Delete;
 db_nome.Enabled:=false;
 db_cpf.Enabled:=false;
-db_telefone.Enabled:=false;
+db_bairro.enabled:=false;
+db_cep.enabled:=false;
+db_complemento.enabled:=false;
+db_email.enabled:=false;
+db_endereco.enabled:=false;
+db_pais.enabled:=false;
+db_telefone_celular.enabled:=false;
+db_telefone_residencial.enabled:=false;
 db_cidade.Enabled:=false;
 db_estado.Enabled:=false;
 dm.q_cliente.Active:=false;
@@ -132,7 +168,14 @@ begin
 dm.t_cliente.Cancel;
 db_nome.Enabled:=false;
 db_cpf.Enabled:=false;
-db_telefone.Enabled:=false;
+db_bairro.enabled:=false;
+db_cep.enabled:=false;
+db_complemento.enabled:=false;
+db_email.enabled:=false;
+db_endereco.enabled:=false;
+db_pais.enabled:=false;
+db_telefone_celular.enabled:=false;
+db_telefone_residencial.enabled:=false;
 db_cidade.Enabled:=false;
 db_estado.Enabled:=false;
 b_salvar.Enabled:=false;
@@ -160,7 +203,14 @@ procedure Tf_cadastro_cliente.b_novoClick(Sender: TObject);
 begin
 db_nome.Enabled:=true;
 db_cpf.Enabled:=true;
-db_telefone.Enabled:=true;
+db_bairro.enabled:=true;
+db_cep.enabled:=true;
+db_complemento.enabled:=true;
+db_email.enabled:=true;
+db_endereco.enabled:=true;
+db_pais.enabled:=true;
+db_telefone_celular.enabled:=true;
+db_telefone_residencial.enabled:=true;
 db_cidade.Enabled:=true;
 db_estado.Enabled:=true;
 b_novo.Enabled:=false;
@@ -214,7 +264,14 @@ with dm.q_cliente do
     showmessage('Cadastro efetuado com sucesso!');
     db_nome.Enabled:=false;
     db_cpf.Enabled:=false;
-    db_telefone.Enabled:=false;
+    db_bairro.enabled:=false;
+    db_cep.enabled:=false;
+    db_complemento.enabled:=false;
+    db_email.enabled:=false;
+    db_endereco.enabled:=false;
+    db_pais.enabled:=false;
+    db_telefone_celular.enabled:=false;
+    db_telefone_residencial.enabled:=false;
     db_cidade.Enabled:=false;
     db_estado.Enabled:=false;
     b_salvar.Enabled:=false;
@@ -244,7 +301,14 @@ dm.t_cliente.Post;
 showmessage('Cadastro alterado com sucesso!');
 db_nome.Enabled:=false;
 db_cpf.Enabled:=false;
-db_telefone.Enabled:=false;
+db_bairro.enabled:=false;
+db_cep.enabled:=false;
+db_complemento.enabled:=false;
+db_email.enabled:=false;
+db_endereco.enabled:=false;
+db_pais.enabled:=false;
+db_telefone_celular.enabled:=false;
+db_telefone_residencial.enabled:=false;
 db_cidade.Enabled:=false;
 db_estado.Enabled:=false;
 b_salvar.Enabled:=false;
@@ -271,6 +335,14 @@ resultado := dm.q_cliente.fieldbyname('id').asinteger;
 dm.t_cliente.Locate('id',resultado,[loCaseInsensitive, loPartialKey]);
 end;
 
+procedure Tf_cadastro_cliente.DBGrid1TitleClick(Column: TColumn);
+begin
+if (dm.q_cliente.Sort<>column.FieldName+' ASC') then
+dm.q_cliente.Sort:=column.FieldName+' ASC'
+else
+dm.q_cliente.sort:=column.fieldname+' DESC';
+end;
+
 procedure Tf_cadastro_cliente.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
@@ -281,7 +353,14 @@ procedure Tf_cadastro_cliente.FormShow(Sender: TObject);
 begin
 db_nome.Enabled:=false;
 db_cpf.Enabled:=false;
-db_telefone.Enabled:=false;
+db_bairro.enabled:=false;
+db_cep.enabled:=false;
+db_complemento.enabled:=false;
+db_email.enabled:=false;
+db_endereco.enabled:=false;
+db_pais.enabled:=false;
+db_telefone_celular.enabled:=false;
+db_telefone_residencial.enabled:=false;
 db_cidade.Enabled:=false;
 db_estado.Enabled:=false;
 b_salvar.Enabled:=false;
