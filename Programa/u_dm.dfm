@@ -104,6 +104,7 @@ object dm: Tdm
     Top = 72
   end
   object t_quarto: TADOTable
+    Active = True
     Connection = conexao
     CursorType = ctStatic
     TableName = 'quarto'
@@ -120,11 +121,12 @@ object dm: Tdm
     Connection = conexao
     CursorType = ctStatic
     Parameters = <>
+    SQL.Strings = (
+      'select * from quarto')
     Left = 152
     Top = 144
   end
   object ds_quarto_grid: TDataSource
-    AutoEdit = False
     DataSet = q_quarto
     Left = 216
     Top = 144
