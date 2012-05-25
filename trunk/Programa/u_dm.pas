@@ -28,6 +28,14 @@ type
     t_clientecep: TWideStringField;
     t_clientepais: TWideStringField;
     t_clientetelefone_residencial: TWideStringField;
+    t_quartoid: TAutoIncField;
+    t_quartotipo: TWideStringField;
+    t_quartolimpo: TBooleanField;
+    t_quartoocupado: TBooleanField;
+    t_quartoandar: TIntegerField;
+    t_quartonumero: TIntegerField;
+    t_quartoinfo_add: TWideStringField;
+    t_quartodiaria: TIntegerField;
   private
     { Private declarations }
   public
