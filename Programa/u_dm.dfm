@@ -109,6 +109,33 @@ object dm: Tdm
     TableName = 'quarto'
     Left = 24
     Top = 144
+    object t_quartoid: TAutoIncField
+      FieldName = 'id'
+      ReadOnly = True
+    end
+    object t_quartotipo: TWideStringField
+      FieldName = 'tipo'
+      Size = 255
+    end
+    object t_quartolimpo: TBooleanField
+      FieldName = 'limpo'
+    end
+    object t_quartoocupado: TBooleanField
+      FieldName = 'ocupado'
+    end
+    object t_quartoandar: TIntegerField
+      FieldName = 'andar'
+    end
+    object t_quartonumero: TIntegerField
+      FieldName = 'numero'
+    end
+    object t_quartoinfo_add: TWideStringField
+      FieldName = 'info_add'
+      Size = 255
+    end
+    object t_quartodiaria: TIntegerField
+      FieldName = 'diaria'
+    end
   end
   object ds_quarto: TDataSource
     AutoEdit = False
@@ -117,9 +144,12 @@ object dm: Tdm
     Top = 144
   end
   object q_quarto: TADOQuery
+    Active = True
     Connection = conexao
     CursorType = ctStatic
     Parameters = <>
+    SQL.Strings = (
+      'select * from quarto')
     Left = 152
     Top = 144
   end
