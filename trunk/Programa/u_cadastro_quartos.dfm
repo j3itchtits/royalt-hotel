@@ -1043,20 +1043,6 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       98FE6B5E5380963BEEDD4920754D59E2BF9EC94C58FF0142BB5EFDC91ACBDC00
       00000049454E44AE426082}
   end
-  object Label6: TLabel
-    Left = 92
-    Top = 187
-    Width = 31
-    Height = 13
-    Caption = 'Limpo:'
-  end
-  object Label7: TLabel
-    Left = 76
-    Top = 206
-    Width = 47
-    Height = 13
-    Caption = 'Ocupado:'
-  end
   object Panel1: TPanel
     Left = -3
     Top = -3
@@ -1073,7 +1059,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     ParentFont = False
     TabOrder = 0
   end
-  object TDBComboBox
+  object db_andar: TDBComboBox
     Left = 128
     Top = 64
     Width = 145
@@ -1088,24 +1074,124 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       '7'#176' andar'
       '8'#176' andar'
       '9'#176' andar'
-      '10'#176' andar')
+      '10'#176' andar'
+      '11'#176' andar'
+      '12'#176' andar'
+      '13'#176' andar'
+      '14'#176' andar'
+      '15'#176' andar'
+      '16'#176' andar'
+      '17'#176' andar'
+      '18'#176' andar'
+      '19'#176' andar'
+      '20'#176' andar'
+      '21'#176' andar'
+      '22'#176' andar'
+      '23'#176' andar'
+      '24'#176' andar'
+      '25'#176' andar'
+      '26'#176' andar'
+      '27'#176' andar'
+      '28'#176' andar'
+      '29'#176' andar'
+      '30'#176' andar'
+      '31'#176' andar'
+      '32'#176' andar'
+      '33'#176' andar'
+      '34'#176' andar'
+      '35'#176' andar'
+      '36'#176' andar'
+      '37'#176' andar'
+      '38'#176' andar'
+      '39'#176' andar'
+      '40'#176' andar'
+      '41'#176' andar'
+      '42'#176' andar'
+      '43'#176' andar'
+      '44'#176' andar'
+      '45'#176' andar'
+      '46'#176' andar'
+      '47'#176' andar'
+      '48'#176' andar'
+      '49'#176' andar'
+      '50'#176' andar'
+      '51'#176' andar'
+      '52'#176' andar'
+      '53'#176' andar'
+      '54'#176' andar'
+      '55'#176' andar'
+      '56'#176' andar'
+      '57'#176' andar'
+      '58'#176' andar'
+      '59'#176' andar'
+      '60'#176' andar'
+      '61'#176' andar'
+      '62'#176' andar'
+      '63'#176' andar'
+      '64'#176' andar'
+      '65'#176' andar'
+      '66'#176' andar'
+      '67'#176' andar'
+      '68'#176' andar'
+      '69'#176' andar'
+      '70'#176' andar'
+      '71'#176' andar'
+      '72'#176' andar'
+      '73'#176' andar'
+      '74'#176' andar'
+      '75'#176' andar'
+      '76'#176' andar'
+      '77'#176' andar'
+      '78'#176' andar'
+      '79'#176' andar'
+      '80'#176' andar'
+      '81'#176' andar'
+      '82'#176' andar'
+      '83'#176' andar'
+      '84'#176' andar'
+      '85'#176' andar'
+      '86'#176' andar'
+      '87'#176' andar'
+      '88'#176' andar'
+      '89'#176' andar'
+      '90'#176' andar'
+      '91'#176' andar'
+      '92'#176' andar'
+      '93'#176' andar'
+      '94'#176' andar'
+      '95'#176' andar'
+      '96'#176' andar'
+      '97'#176' andar'
+      '98'#176' andar'
+      '99'#176' andar'
+      '100'#176' andar')
     TabOrder = 1
   end
-  object TDBEdit
+  object db_numero: TDBEdit
     Left = 128
     Top = 96
     Width = 121
     Height = 21
     TabOrder = 2
   end
-  object DBComboBox2: TDBComboBox
+  object db_tipo: TDBComboBox
     Left = 128
     Top = 123
-    Width = 145
+    Width = 385
     Height = 21
+    Items.Strings = (
+      'Quarto duplo (Uma cama de casal)'
+      'Quarto triplo (Uma cama de casal mais uma cama de solteiro)'
+      'Quarto qu'#225'druplo (Uma cama de casal mais duas camas de solteiro)'
+      'Quarto qu'#237'ntuplo (Uma cama de casal mais tr'#234's camas de solteiro)'
+      'Alojamento single (Uma cama de solteiro)'
+      'Alojamento duplo (Duas camas de solteiro)'
+      'Alojamento triplo (Tr'#234's camas de solteiro)'
+      'Alojamento qu'#225'druplo (Quatro camas de solteiro)'
+      'Alojamento qu'#237'ntuplo (Cinco camas de solteiro)')
     TabOrder = 3
   end
-  object DBEdit2: TDBEdit
+  object db_diaria: TDBEdit
     Left = 128
     Top = 160
     Width = 121
@@ -1126,7 +1212,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       Height = 13
       Caption = 'Pesquisar por:'
     end
-    object ComboBox1: TComboBox
+    object db_pesquisar_por: TComboBox
       Left = 112
       Top = 40
       Width = 145
@@ -1199,6 +1285,13 @@ object f_cadastro_quartos: Tf_cadastro_quartos
           Width = 100
           Visible = True
         end>
+    end
+    object db_pesquisar: TDBEdit
+      Left = 280
+      Top = 40
+      Width = 121
+      Height = 21
+      TabOrder = 2
     end
   end
 end
