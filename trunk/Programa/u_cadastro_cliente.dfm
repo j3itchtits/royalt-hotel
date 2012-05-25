@@ -2,8 +2,8 @@ object f_cadastro_cliente: Tf_cadastro_cliente
   Left = 0
   Top = 0
   Caption = 'Cadastro de cliente'
-  ClientHeight = 604
-  ClientWidth = 637
+  ClientHeight = 668
+  ClientWidth = 634
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,43 +17,43 @@ object f_cadastro_cliente: Tf_cadastro_cliente
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 59
-    Top = 63
+    Left = 61
+    Top = 70
     Width = 23
     Height = 13
     Caption = 'CPF:'
   end
   object Label2: TLabel
-    Left = 51
-    Top = 93
+    Left = 53
+    Top = 100
     Width = 31
     Height = 13
     Caption = 'Nome:'
   end
   object Label3: TLabel
-    Left = 36
-    Top = 123
-    Width = 46
+    Left = 13
+    Top = 220
+    Width = 71
     Height = 13
-    Caption = 'Telefone:'
+    Caption = 'Telefone Res.:'
   end
   object Label4: TLabel
-    Left = 45
-    Top = 153
+    Left = 301
+    Top = 160
     Width = 37
     Height = 13
     Caption = 'Cidade:'
   end
   object Label5: TLabel
-    Left = 45
-    Top = 183
+    Left = 227
+    Top = 190
     Width = 37
     Height = 13
     Caption = 'Estado:'
   end
   object b_novo: TPngSpeedButton
-    Left = 48
-    Top = 224
+    Left = 28
+    Top = 296
     Width = 49
     Height = 57
     Caption = '&Novo'
@@ -224,8 +224,8 @@ object f_cadastro_cliente: Tf_cadastro_cliente
       FDA8EA0D300000000049454E44AE426082}
   end
   object b_alterar: TPngSpeedButton
-    Left = 184
-    Top = 224
+    Left = 164
+    Top = 296
     Width = 49
     Height = 57
     Caption = '&Alterar'
@@ -396,8 +396,8 @@ object f_cadastro_cliente: Tf_cadastro_cliente
       0049454E44AE426082}
   end
   object b_excluir: TPngSpeedButton
-    Left = 256
-    Top = 224
+    Left = 236
+    Top = 296
     Width = 49
     Height = 57
     Caption = '&Excluir'
@@ -558,8 +558,8 @@ object f_cadastro_cliente: Tf_cadastro_cliente
       CAF2B7BD93A5B4FE0F36CD08FDB48CF07E0000000049454E44AE426082}
   end
   object b_cancelar: TPngSpeedButton
-    Left = 328
-    Top = 224
+    Left = 308
+    Top = 296
     Width = 49
     Height = 57
     Caption = '&Cancelar'
@@ -884,8 +884,8 @@ object f_cadastro_cliente: Tf_cadastro_cliente
       A02AFC0000000049454E44AE426082}
   end
   object b_salvar: TPngSpeedButton
-    Left = 117
-    Top = 224
+    Left = 97
+    Top = 296
     Width = 49
     Height = 57
     Caption = '&Salvar'
@@ -1058,9 +1058,58 @@ object f_cadastro_cliente: Tf_cadastro_cliente
       6B8B0116C6053396DCC3BDB4FE03703944FD75E3446E0000000049454E44AE42
       6082}
   end
+  object Label8: TLabel
+    Left = 227
+    Top = 220
+    Width = 68
+    Height = 13
+    Caption = 'Telefone Cel.:'
+  end
+  object Label9: TLabel
+    Left = 52
+    Top = 250
+    Width = 32
+    Height = 13
+    Caption = 'E-mail:'
+  end
+  object Label10: TLabel
+    Left = 61
+    Top = 190
+    Width = 23
+    Height = 13
+    Caption = 'CEP:'
+  end
+  object Label11: TLabel
+    Left = 301
+    Top = 130
+    Width = 69
+    Height = 13
+    Caption = 'Complemento:'
+  end
+  object Label12: TLabel
+    Left = 35
+    Top = 130
+    Width = 49
+    Height = 13
+    Caption = 'Endere'#231'o:'
+  end
+  object Label13: TLabel
+    Left = 52
+    Top = 160
+    Width = 32
+    Height = 13
+    Caption = 'Bairro:'
+  end
+  object Label14: TLabel
+    Left = 435
+    Top = 190
+    Width = 23
+    Height = 13
+    Caption = 'Pa'#237's:'
+  end
   object db_cpf: TDBEdit
-    Left = 88
-    Top = 60
+    Left = 90
+    Top = 70
     Width = 115
     Height = 21
     DataField = 'cpf'
@@ -1069,36 +1118,36 @@ object f_cadastro_cliente: Tf_cadastro_cliente
     TabOrder = 0
   end
   object db_nome: TDBEdit
-    Left = 88
-    Top = 90
+    Left = 90
+    Top = 100
     Width = 257
     Height = 21
     DataField = 'nome'
     DataSource = dm.ds_cliente
     TabOrder = 1
   end
-  object db_telefone: TDBEdit
-    Left = 88
-    Top = 120
+  object db_telefone_residencial: TDBEdit
+    Left = 90
+    Top = 220
     Width = 117
     Height = 21
     DataField = 'telefone_residencial'
     DataSource = dm.ds_cliente
     MaxLength = 13
-    TabOrder = 2
+    TabOrder = 9
   end
   object db_cidade: TDBEdit
-    Left = 88
-    Top = 150
-    Width = 177
+    Left = 344
+    Top = 157
+    Width = 217
     Height = 21
     DataField = 'cidade'
     DataSource = dm.ds_cliente
-    TabOrder = 3
+    TabOrder = 5
   end
   object db_estado: TDBComboBox
-    Left = 88
-    Top = 180
+    Left = 270
+    Top = 190
     Width = 145
     Height = 21
     Style = csDropDownList
@@ -1133,7 +1182,7 @@ object f_cadastro_cliente: Tf_cadastro_cliente
       'Sergipe'
       'Tocantins'
       'Outro pa'#237's')
-    TabOrder = 4
+    TabOrder = 7
   end
   object Panel1: TPanel
     Left = -12
@@ -1149,32 +1198,32 @@ object f_cadastro_cliente: Tf_cadastro_cliente
     Font.Style = []
     ParentBackground = False
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 12
   end
   object group_pesquisar: TGroupBox
-    Left = 48
-    Top = 320
-    Width = 553
-    Height = 265
+    Left = 29
+    Top = 375
+    Width = 577
+    Height = 273
     Caption = 'Pesquisar cliente'
-    TabOrder = 6
+    TabOrder = 13
     object Label6: TLabel
-      Left = 40
-      Top = 41
+      Left = 56
+      Top = 33
       Width = 79
       Height = 13
       Caption = 'Pesquisar nome:'
     end
     object Label7: TLabel
-      Left = 208
-      Top = 41
+      Left = 224
+      Top = 33
       Width = 68
       Height = 13
       Caption = 'Pesquisar cpf:'
     end
     object b_listar_todos: TPngSpeedButton
-      Left = 344
-      Top = 24
+      Left = 360
+      Top = 16
       Width = 89
       Height = 57
       Caption = 'Listar todos'
@@ -1346,8 +1395,8 @@ object f_cadastro_cliente: Tf_cadastro_cliente
         EE66EB7F6B1F11FD1777C0730000000049454E44AE426082}
     end
     object DBGrid1: TDBGrid
-      Left = 11
-      Top = 96
+      Left = 27
+      Top = 88
       Width = 526
       Height = 153
       DataSource = dm.ds_cliente_grid
@@ -1358,58 +1407,432 @@ object f_cadastro_cliente: Tf_cadastro_cliente
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
       OnCellClick = DBGrid1CellClick
+      OnTitleClick = DBGrid1TitleClick
       Columns = <
         item
           Expanded = False
           FieldName = 'cpf'
           Title.Caption = 'CPF'
-          Width = 100
+          Width = 80
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'nome'
           Title.Caption = 'Nome'
-          Width = 200
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'telefone'
-          Title.Caption = 'Telefone'
-          Width = 100
+          Width = 180
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'cidade'
           Title.Caption = 'Cidade'
-          Width = 200
+          Width = 100
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'estado'
           Title.Caption = 'Estado'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'telefone_celular'
+          Title.Caption = 'Telefone celular'
           Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'email'
+          Title.Caption = 'E-mail'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'endereco'
+          Title.Caption = 'Endere'#231'o'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'complemento'
+          Title.Caption = 'Complemento'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'bairro'
+          Title.Caption = 'Bairro'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'cep'
+          Title.Caption = 'CEP'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'pais'
+          Title.Caption = 'Pa'#237's'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'telefone_residencial'
+          Title.Caption = 'Telefone residencial'
+          Width = 100
           Visible = True
         end>
     end
     object t_cpf: TEdit
-      Left = 192
-      Top = 60
+      Left = 208
+      Top = 52
       Width = 121
       Height = 21
       TabOrder = 1
       OnChange = t_cpfChange
     end
     object t_nome: TEdit
-      Left = 40
-      Top = 60
+      Left = 56
+      Top = 52
       Width = 121
       Height = 21
       TabOrder = 2
       OnChange = t_nomeChange
     end
+  end
+  object db_telefone_celular: TDBEdit
+    Left = 301
+    Top = 217
+    Width = 114
+    Height = 21
+    DataField = 'telefone_celular'
+    DataSource = dm.ds_cliente
+    MaxLength = 13
+    TabOrder = 10
+  end
+  object db_cep: TDBEdit
+    Left = 90
+    Top = 190
+    Width = 119
+    Height = 21
+    DataField = 'cep'
+    DataSource = dm.ds_cliente
+    MaxLength = 9
+    TabOrder = 6
+  end
+  object db_email: TDBEdit
+    Left = 90
+    Top = 250
+    Width = 205
+    Height = 21
+    DataField = 'email'
+    DataSource = dm.ds_cliente
+    TabOrder = 11
+  end
+  object db_complemento: TDBEdit
+    Left = 376
+    Top = 130
+    Width = 185
+    Height = 21
+    DataField = 'complemento'
+    DataSource = dm.ds_cliente
+    TabOrder = 3
+  end
+  object db_endereco: TDBEdit
+    Left = 90
+    Top = 130
+    Width = 192
+    Height = 21
+    DataField = 'endereco'
+    DataSource = dm.ds_cliente
+    TabOrder = 2
+  end
+  object db_bairro: TDBEdit
+    Left = 90
+    Top = 160
+    Width = 167
+    Height = 21
+    DataField = 'bairro'
+    DataSource = dm.ds_cliente
+    TabOrder = 4
+  end
+  object db_pais: TDBComboBox
+    Left = 464
+    Top = 190
+    Width = 97
+    Height = 21
+    Style = csDropDownList
+    DataField = 'pais'
+    DataSource = dm.ds_cliente
+    Items.Strings = (
+      'Brasil'
+      'Afeganist'#227'o'
+      #193'frica do Sul'
+      'Akrotiri'
+      'Alb'#226'nia'
+      'Alemanha'
+      'Andorra'
+      'Angola'
+      'Anguila'
+      'Ant'#225'rctida'
+      'Ant'#237'gua e Barbuda'
+      'Antilhas Neerlandesas'
+      'Ar'#225'bia Saudita'
+      'Arctic Ocean'
+      'Arg'#233'lia'
+      'Argentina'
+      'Arm'#233'nia'
+      'Aruba'
+      'Ashmore and Cartier Islands'
+      'Atlantic Ocean'
+      'Austr'#225'lia'
+      #193'ustria'
+      'Azerbaij'#227'o'
+      'Baamas'
+      'Bangladeche'
+      'Barbados'
+      'Bar'#233'm'
+      'B'#233'lgica'
+      'Belize'
+      'Benim'
+      'Bermudas'
+      'Bielorr'#250'ssia'
+      'Birm'#226'nia'
+      'Bol'#237'via'
+      'B'#243'snia e Herzegovina'
+      'Botsuana'
+      'Brasil'
+      'Brunei'
+      'Bulg'#225'ria'
+      'Burquina Faso'
+      'Bur'#250'ndi'
+      'But'#227'o'
+      'Cabo Verde'
+      'Camar'#245'es'
+      'Camboja'
+      'Canad'#225
+      'Catar'
+      'Cazaquist'#227'o'
+      'Chade'
+      'Chile'
+      'China'
+      'Chipre'
+      'Clipperton Island'
+      'Col'#244'mbia'
+      'Comores'
+      'Congo-Brazzaville'
+      'Congo-Kinshasa'
+      'Coral Sea Islands'
+      'Coreia do Norte'
+      'Coreia do Sul'
+      'Costa do Marfim'
+      'Costa Rica'
+      'Cro'#225'cia'
+      'Cuba'
+      'Dhekelia'
+      'Dinamarca'
+      'Dom'#237'nica'
+      'Egipto'
+      'Emiratos '#193'rabes Unidos'
+      'Equador'
+      'Eritreia'
+      'Eslov'#225'quia'
+      'Eslov'#233'nia'
+      'Espanha'
+      'Estados Unidos'
+      'Est'#243'nia'
+      'Eti'#243'pia'
+      'Faro'#233
+      'Fiji'
+      'Filipinas'
+      'Finl'#226'ndia'
+      'Fran'#231'a'
+      'Gab'#227'o'
+      'G'#226'mbia'
+      'Gana'
+      'Gaza Strip'
+      'Ge'#243'rgia'
+      'Ge'#243'rgia do Sul e Sandwich do Sul'
+      'Gibraltar'
+      'Granada'
+      'Gr'#233'cia'
+      'Gronel'#226'ndia'
+      'Guame'
+      'Guatemala'
+      'Guernsey'
+      'Guiana'
+      'Guin'#233
+      'Guin'#233' Equatorial'
+      'Guin'#233'-Bissau'
+      'Haiti'
+      'Honduras'
+      'Hong Kong'
+      'Hungria'
+      'I'#233'men'
+      'Ilha Bouvet'
+      'Ilha do Natal'
+      'Ilha Norfolk'
+      'Ilhas Caim'#227'o'
+      'Ilhas Cook'
+      'Ilhas dos Cocos'
+      'Ilhas Falkland'
+      'Ilhas Heard e McDonald'
+      'Ilhas Marshall'
+      'Ilhas Salom'#227'o'
+      'Ilhas Turcas e Caicos'
+      'Ilhas Virgens Americanas'
+      'Ilhas Virgens Brit'#226'nicas'
+      #205'ndia'
+      'Indian Ocean'
+      'Indon'#233'sia'
+      'Ir'#227'o'
+      'Iraque'
+      'Irlanda'
+      'Isl'#226'ndia'
+      'Israel'
+      'It'#225'lia'
+      'Jamaica'
+      'Jan Mayen'
+      'Jap'#227'o'
+      'Jersey'
+      'Jibuti'
+      'Jord'#226'nia'
+      'Kuwait'
+      'Laos'
+      'Lesoto'
+      'Let'#243'nia'
+      'L'#237'bano'
+      'Lib'#233'ria'
+      'L'#237'bia'
+      'Listenstaine'
+      'Litu'#226'nia'
+      'Luxemburgo'
+      'Macau'
+      'Maced'#243'nia'
+      'Madag'#225'scar'
+      'Mal'#225'sia'
+      'Mal'#225'vi'
+      'Maldivas'
+      'Mali'
+      'Malta'
+      'Man, Isle of'
+      'Marianas do Norte'
+      'Marrocos'
+      'Maur'#237'cia'
+      'Maurit'#226'nia'
+      'Mayotte'
+      'M'#233'xico'
+      'Micron'#233'sia'
+      'Mo'#231'ambique'
+      'Mold'#225'via'
+      'M'#243'naco'
+      'Mong'#243'lia'
+      'Monserrate'
+      'Montenegro'
+      'Mundo'
+      'Nam'#237'bia'
+      'Nauru'
+      'Navassa Island'
+      'Nepal'
+      'Nicar'#225'gua'
+      'N'#237'ger'
+      'Nig'#233'ria'
+      'Niue'
+      'Noruega'
+      'Nova Caled'#243'nia'
+      'Nova Zel'#226'ndia'
+      'Om'#227
+      'Pacific Ocean'
+      'Pa'#237'ses Baixos'
+      'Palau'
+      'Panam'#225
+      'Papua-Nova Guin'#233
+      'Paquist'#227'o'
+      'Paracel Islands'
+      'Paraguai'
+      'Peru'
+      'Pitcairn'
+      'Polin'#233'sia Francesa'
+      'Pol'#243'nia'
+      'Porto Rico'
+      'Portugal'
+      'Qu'#233'nia'
+      'Quirguizist'#227'o'
+      'Quirib'#225'ti'
+      'Reino Unido'
+      'Rep'#250'blica Centro-Africana'
+      'Rep'#250'blica Checa'
+      'Rep'#250'blica Dominicana'
+      'Rom'#233'nia'
+      'Ruanda'
+      'R'#250'ssia'
+      'Salvador'
+      'Samoa'
+      'Samoa Americana'
+      'Santa Helena'
+      'Santa L'#250'cia'
+      'S'#227'o Crist'#243'v'#227'o e Neves'
+      'S'#227'o Marinho'
+      'S'#227'o Pedro e Miquelon'
+      'S'#227'o Tom'#233' e Pr'#237'ncipe'
+      'S'#227'o Vicente e Granadinas'
+      'Sara Ocidental'
+      'Seicheles'
+      'Senegal'
+      'Serra Leoa'
+      'S'#233'rvia'
+      'Singapura'
+      'S'#237'ria'
+      'Som'#225'lia'
+      'Southern Ocean'
+      'Spratly Islands'
+      'Sri Lanca'
+      'Suazil'#226'ndia'
+      'Sud'#227'o'
+      'Su'#233'cia'
+      'Su'#237#231'a'
+      'Suriname'
+      'Svalbard e Jan Mayen'
+      'Tail'#226'ndia'
+      'Taiwan'
+      'Tajiquist'#227'o'
+      'Tanz'#226'nia'
+      'Territ'#243'rio Brit'#226'nico do Oceano '#205'ndico'
+      'Territ'#243'rios Austrais Franceses'
+      'Timor Leste'
+      'Togo'
+      'Tokelau'
+      'Tonga'
+      'Trindade e Tobago'
+      'Tun'#237'sia'
+      'Turquemenist'#227'o'
+      'Turquia'
+      'Tuvalu'
+      'Ucr'#226'nia'
+      'Uganda'
+      'Uni'#227'o Europeia'
+      'Uruguai'
+      'Usbequist'#227'o'
+      'Vanuatu'
+      'Vaticano'
+      'Venezuela'
+      'Vietname'
+      'Wake Island'
+      'Wallis e Futuna'
+      'West Bank'
+      'Z'#226'mbia'
+      'Zimbabu'#233)
+    TabOrder = 8
   end
 end
