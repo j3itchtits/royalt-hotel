@@ -15,8 +15,8 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    DBComboBox2: TDBComboBox;
-    DBEdit2: TDBEdit;
+    db_tipo: TDBComboBox;
+    db_diaria: TDBEdit;
     b_fechar: TPngSpeedButton;
     b_novo: TPngSpeedButton;
     PngSpeedButton2: TPngSpeedButton;
@@ -24,11 +24,12 @@ type
     PngSpeedButton4: TPngSpeedButton;
     PngSpeedButton5: TPngSpeedButton;
     group_pesquisar: TGroupBox;
-    ComboBox1: TComboBox;
+    db_pesquisar_por: TComboBox;
     Label5: TLabel;
     DBGrid1: TDBGrid;
-    Label6: TLabel;
-    Label7: TLabel;
+    db_andar: TDBComboBox;
+    db_numero: TDBEdit;
+    db_pesquisar: TDBEdit;
   private
     { Private declarations }
   public
