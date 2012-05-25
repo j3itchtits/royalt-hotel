@@ -35,7 +35,7 @@
 			<DCC_K>false</DCC_K>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1)'!=''">
-			<DCC_UnitSearchPath>C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\lib\pngcomponents\D15\Release;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_UnitSearchPath>C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\lib\pngcomponents\D15\Release;C:\Program Files\Embarcadero\RAD Studio\8.0\lib\pngcomponents\D15\Release;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
 			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
 			<DCC_Optimize>false</DCC_Optimize>
 			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
@@ -50,37 +50,37 @@
 			<DelphiCompile Include="Royalt_Hotel.dpr">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
-			<DCCReference Include="C:\Royalt Hotel\u_principal.pas">
+			<DCCReference Include="u_principal.pas">
 				<Form>f_principal</Form>
 			</DCCReference>
-			<DCCReference Include="C:\Royalt Hotel\u_quadro_apartamentos.pas">
+			<DCCReference Include="u_quadro_apartamentos.pas">
 				<Form>f_quadro_apartamentos</Form>
 			</DCCReference>
-			<DCCReference Include="C:\Royalt Hotel\u_cadastro_cliente.pas">
+			<DCCReference Include="u_cadastro_cliente.pas">
 				<Form>f_cadastro_cliente</Form>
 			</DCCReference>
-			<DCCReference Include="C:\Royalt Hotel\u_cadastro_quartos.pas">
+			<DCCReference Include="u_cadastro_quartos.pas">
 				<Form>f_cadastro_quartos</Form>
 			</DCCReference>
-			<DCCReference Include="C:\Royalt Hotel\u_cadastro_reserva.pas">
+			<DCCReference Include="u_cadastro_reserva.pas">
 				<Form>f_cadastro_reserva</Form>
 			</DCCReference>
-			<DCCReference Include="C:\Royalt Hotel\u_status_limpeza.pas">
+			<DCCReference Include="u_status_limpeza.pas">
 				<Form>f_status_limpeza</Form>
 			</DCCReference>
-			<DCCReference Include="C:\Royalt Hotel\u_pagamentos.pas">
+			<DCCReference Include="u_pagamentos.pas">
 				<Form>f_pagamentos</Form>
 			</DCCReference>
-			<DCCReference Include="C:\Royalt Hotel\u_cadastro_senha.pas">
+			<DCCReference Include="u_cadastro_senha.pas">
 				<Form>f_cadastro_senha</Form>
 			</DCCReference>
-			<DCCReference Include="C:\Royalt Hotel\u_relatorios.pas">
+			<DCCReference Include="u_relatorios.pas">
 				<Form>f_relatorios</Form>
 			</DCCReference>
-			<DCCReference Include="C:\Royalt Hotel\u_sobre.pas">
+			<DCCReference Include="u_sobre.pas">
 				<Form>f_sobre</Form>
 			</DCCReference>
-			<DCCReference Include="C:\Royalt Hotel\u_dm.pas">
+			<DCCReference Include="u_dm.pas">
 				<Form>dm</Form>
 				<DesignClass>TDataModule</DesignClass>
 			</DCCReference>

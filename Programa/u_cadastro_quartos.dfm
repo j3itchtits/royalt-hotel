@@ -1073,39 +1073,28 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     ParentFont = False
     TabOrder = 0
   end
-  object TDBComboBox
-    Left = 129
-    Top = 60
+  object DBComboBox1: TDBComboBox
+    Left = 128
+    Top = 64
     Width = 145
     Height = 21
-    Items.Strings = (
-      '1'#176' andar'
-      '2'#176' andar'
-      '3'#176' andar'
-      '4'#176' andar'
-      '5'#176' andar'
-      '6'#176' andar'
-      '7'#176' andar'
-      '8'#176' andar'
-      '9'#176' andar'
-      '10'#176' andar')
     TabOrder = 1
   end
-  object TDBEdit
+  object DBEdit1: TDBEdit
     Left = 128
     Top = 96
     Width = 121
     Height = 21
     TabOrder = 2
   end
-  object TDBComboBox
+  object DBComboBox2: TDBComboBox
     Left = 128
     Top = 123
     Width = 145
     Height = 21
     TabOrder = 3
   end
-  object TDBEdit
+  object DBEdit2: TDBEdit
     Left = 128
     Top = 160
     Width = 121
@@ -1151,37 +1140,6 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'id'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'id_tipo_quarto'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'limpo'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'ocupado'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'andar'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'numero'
-          Visible = True
-        end>
     end
   end
 end
