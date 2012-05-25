@@ -15,10 +15,6 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    DBComboBox1: TDBComboBox;
-    DBEdit1: TDBEdit;
-    DBComboBox2: TDBComboBox;
-    DBEdit2: TDBEdit;
     b_fechar: TPngSpeedButton;
     b_novo: TPngSpeedButton;
     PngSpeedButton2: TPngSpeedButton;
@@ -41,8 +37,5 @@ var
   f_cadastro_quartos: Tf_cadastro_quartos;
 
 implementation
-
-{$R *.dfm}
-
 
 end.
