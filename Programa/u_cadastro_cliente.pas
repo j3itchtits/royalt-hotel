@@ -68,7 +68,7 @@ type
 
 var
   f_cadastro_cliente: Tf_cadastro_cliente;
-  resultado : integer;
+  resultado : string;
   v_salvar : integer;
   conta_cpf : integer;
 
@@ -331,8 +331,8 @@ end;
 
 procedure Tf_cadastro_cliente.DBGrid1CellClick(Column: TColumn);
 begin
-resultado := dm.q_cliente.fieldbyname('id').asinteger;
-dm.t_cliente.Locate('id',resultado,[loCaseInsensitive, loPartialKey]);
+resultado := dm.q_cliente.fieldbyname('cpf').asstring;
+dm.t_cliente.Locate('cpf',resultado,[loCaseInsensitive, loPartialKey]);
 end;
 
 procedure Tf_cadastro_cliente.DBGrid1TitleClick(Column: TColumn);
@@ -386,8 +386,8 @@ begin
   SQL.Clear;
   sql.Add('select * from cliente where cpf like '''+t_cpf.text+'%''');
   Open;
-  resultado := dm.q_cliente.fieldbyname('id').asinteger;
-  dm.t_cliente.Locate('id',resultado,[loCaseInsensitive, loPartialKey]);
+  resultado := dm.q_cliente.fieldbyname('cpf').asstring;
+  dm.t_cliente.Locate('cpf',resultado,[loCaseInsensitive, loPartialKey]);
   end;
 end
 else
@@ -413,8 +413,8 @@ begin
   SQL.Clear;
   sql.Add('select * from cliente where nome like '''+t_nome.text+'%''');
   Open;
-  resultado := dm.q_cliente.fieldbyname('id').asinteger;
-  dm.t_cliente.Locate('id',resultado,[loCaseInsensitive, loPartialKey]);
+  resultado := dm.q_cliente.fieldbyname('cpf').asstring;
+  dm.t_cliente.Locate('cpf',resultado,[loCaseInsensitive, loPartialKey]);
   end;
 end
 else
