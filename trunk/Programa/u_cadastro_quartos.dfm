@@ -1051,6 +1051,13 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       98FE6B5E5380963BEEDD4920754D59E2BF9EC94C58FF0142BB5EFDC91ACBDC00
       00000049454E44AE426082}
   end
+  object Label7: TLabel
+    Left = 10
+    Top = 187
+    Width = 113
+    Height = 13
+    Caption = 'Informa'#231#245'es adicionais:'
+  end
   object Panel1: TPanel
     Left = -3
     Top = -3
@@ -1206,7 +1213,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     TabOrder = 3
   end
   object db_diaria: TDBEdit
-    Left = 128
+    Left = 129
     Top = 160
     Width = 121
     Height = 21
@@ -1220,7 +1227,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     Width = 553
     Height = 265
     Caption = 'Pesquisar quarto'
-    TabOrder = 5
+    TabOrder = 6
     object Label5: TLabel
       Left = 37
       Top = 25
@@ -1416,20 +1423,24 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       Width = 145
       Height = 21
       Style = csDropDownList
-      TabOrder = 1
+      TabOrder = 0
       Items.Strings = (
-        'Andar do quarto'
-        'N'#250'mero do quarto'
-        'Tipo do quarto'
-        'Valor da di'#225'ria')
+        'id'
+        'tipo'
+        'limpo'
+        'ocupado'
+        'andar'
+        'numero'
+        'info_add'
+        'diaria')
     end
     object DBGrid1: TDBGrid
-      Left = 3
-      Top = 96
-      Width = 526
+      Left = 16
+      Top = 87
+      Width = 513
       Height = 153
       DataSource = dm.ds_quarto_grid
-      TabOrder = 0
+      TabOrder = 1
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
@@ -1440,59 +1451,72 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       Columns = <
         item
           Expanded = False
-          FieldName = 'ID do quarto'
+          FieldName = 'numero'
+          Title.Caption = 'N'#176' do quarto'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'N'#176' do quarto'
-          Width = 65
+          FieldName = 'andar'
+          Title.Caption = 'N'#176' do andar'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Andar do quarto'
-          Width = 85
+          FieldName = 'tipo'
+          Title.Caption = 'Tipo de acomoda'#231#227'o'
+          Width = 300
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Tipo do quarto'
-          Width = 150
+          FieldName = 'diaria'
+          Title.Caption = 'Valor da di'#225'ria'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Valor da di'#225'ria'
-          Width = 75
+          FieldName = 'info_add'
+          Title.Caption = 'Informa'#231#245'es adicionais'
+          Width = 500
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Informa'#231#245'es adicionais'
-          Width = 279
+          FieldName = 'limpo'
+          Title.Caption = 'Status de Limpeza'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Status de limpeza'
-          Width = 88
+          FieldName = 'ocupado'
+          Title.Caption = 'Status de ocupa'#231#227'o'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Status de ocupa'#231#227'o'
-          Width = 100
+          FieldName = 'id'
+          Title.Caption = 'ID'
+          Width = 37
           Visible = True
         end>
     end
-    object db_pesquisar: TDBEdit
+    object t_pesquisar: TEdit
       Left = 288
-      Top = 52
+      Top = 48
       Width = 121
       Height = 21
-      DataSource = dm.ds_quarto
       TabOrder = 2
+      OnChange = t_pesquisarChange
     end
+  end
+  object db_info_add: TDBEdit
+    Left = 129
+    Top = 187
+    Width = 121
+    Height = 21
+    DataField = 'info_add'
+    DataSource = dm.ds_quarto
+    TabOrder = 5
   end
 end
