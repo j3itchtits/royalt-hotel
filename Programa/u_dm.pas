@@ -12,10 +12,7 @@ type
     ds_cliente: TDataSource;
     q_cliente: TADOQuery;
     ds_cliente_grid: TDataSource;
-    t_quarto: TADOTable;
-    ds_quarto: TDataSource;
-    q_quarto: TADOQuery;
-    ds_quarto_grid: TDataSource;
+    t_clienteid: TAutoIncField;
     t_clientecpf: TWideStringField;
     t_clientenome: TWideStringField;
     t_clientetelefone_celular: TWideStringField;
@@ -28,14 +25,15 @@ type
     t_clientecep: TWideStringField;
     t_clientepais: TWideStringField;
     t_clientetelefone_residencial: TWideStringField;
-    t_quartoid: TAutoIncField;
-    t_quartotipo: TWideStringField;
-    t_quartolimpo: TBooleanField;
-    t_quartoocupado: TBooleanField;
-    t_quartoandar: TIntegerField;
-    t_quartonumero: TIntegerField;
-    t_quartoinfo_add: TWideStringField;
-    t_quartodiaria: TIntegerField;
+    ds_reserva_grid: TDataSource;
+    t_reserva: TADOTable;
+    q_reserva: TADOQuery;
+    ds_reserva: TDataSource;
+    t_reservaid: TAutoIncField;
+    t_reservacheck_in: TDateTimeField;
+    t_reservacheck_out: TDateTimeField;
+    t_reservaid_quarto: TIntegerField;
+    t_reservacpf_cliente: TWideStringField;
   private
     { Private declarations }
   public
