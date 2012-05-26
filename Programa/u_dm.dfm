@@ -139,6 +139,7 @@ object dm: Tdm
     end
   end
   object ds_quarto: TDataSource
+    AutoEdit = False
     DataSet = t_quarto
     Left = 88
     Top = 144
@@ -154,6 +155,7 @@ object dm: Tdm
     Top = 144
   end
   object ds_quarto_grid: TDataSource
+    AutoEdit = False
     DataSet = q_quarto
     Left = 216
     Top = 144

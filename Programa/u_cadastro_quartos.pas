@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, FileCtrl, Buttons, PngSpeedButton, Mask, DBCtrls,
   IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl, IWCompListbox,
-  TeCanvas, Grids, DBGrids, u_dm;
+  TeCanvas, Grids, DBGrids, u_dm, DB;
 
 type
   Tf_cadastro_quartos = class(TForm)
@@ -26,12 +26,14 @@ type
     group_pesquisar: TGroupBox;
     db_pesquisar_por: TComboBox;
     Label5: TLabel;
-    DBGrid1: TDBGrid;
     db_andar: TDBComboBox;
     db_numero: TDBEdit;
-    db_pesquisar: TDBEdit;
     Label6: TLabel;
     b_listar_todos: TPngSpeedButton;
+    Label7: TLabel;
+    db_info_add: TDBEdit;
+    DBGrid1: TDBGrid;
+    t_pesquisar: TEdit;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
     procedure b_alterarClick(Sender: TObject);
@@ -43,6 +45,7 @@ type
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure t_pesquisarChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,6 +57,7 @@ var
   v_salvar : integer;
   conta_numero : integer;
   resultado : integer;
+  campo : string;
 
 implementation
 
@@ -264,7 +268,7 @@ end;
 procedure Tf_cadastro_quartos.DBGrid1CellClick(Column: TColumn);
 begin
 resultado := dm.q_quarto.fieldbyname('numero').asinteger;
-dm.t_cliente.Locate('numero',resultado,[]);
+dm.t_quarto.Locate('numero',resultado,[]);
 end;
 
 procedure Tf_cadastro_quartos.DBGrid1TitleClick(Column: TColumn);
@@ -300,5 +304,32 @@ b_cancelar.Enabled:=false;
   end;
 
 end;
+
+procedure Tf_cadastro_quartos.t_pesquisarChange(Sender: TObject);
+begin
+if t_pesquisar.text <> '' then
+begin
+campo := db_pesquisar_por.text;
+ with dm.q_quarto do
+ begin
+ Close;
+ SQL.Clear;
+ sql.Add('select * from quarto where '+campo+' like '''+t_pesquisar.text+'%''');
+Open;
+ resultado := fieldbyname('numero').asinteger;
+ dm.t_cliente.Locate('numero',resultado,[loCaseInsensitive, loPartialKey]);
+ end;
+end
+else
+begin
+ with dm.q_quarto do
+ begin
+ Close;
+ SQL.Clear;
+ sql.Add('select * from quarto order by numero');
+ Open;
+ end;
+end;
+ end;
 
 end.
