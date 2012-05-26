@@ -181,10 +181,20 @@ end;
 
 procedure Tf_cadastro_quartos.b_salvarClick(Sender: TObject);
 begin
+if (db_andar.Text = '') or (db_andar.Text = '0') then
+  begin
+  showmessage('O número do andar deve estar entre 1 e 100!');
+  exit;
+  end;
 if (db_numero.text = '') or (db_numero.text = '0') then
   begin
-  showmessage('Número do quarto não pode ser vazio!');
+  showmessage('Número do quarto não pode ser vazio ou 0!');
   exit;
+  end;
+if (db_tipo.text = '') then
+  begin
+  showmessage ('Escolha o tipo de acomodação!');
+  exit
   end;
 if (db_diaria.text = '') or (db_diaria.text = '0') then
   begin
@@ -307,6 +317,11 @@ end;
 
 procedure Tf_cadastro_quartos.t_pesquisarChange(Sender: TObject);
 begin
+if db_pesquisar_por.text = '' then
+begin
+showmessage('Selecione uma categoria à ser pesquisada!');
+exit
+end;
 if t_pesquisar.text <> '' then
 begin
 begin
