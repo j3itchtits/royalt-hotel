@@ -88,6 +88,7 @@ object dm: Tdm
     Top = 72
   end
   object q_cliente: TADOQuery
+    Active = True
     Connection = conexao
     CursorType = ctStatic
     Parameters = <>
@@ -109,9 +110,35 @@ object dm: Tdm
     TableName = 'quarto'
     Left = 24
     Top = 144
+    object t_quartoid: TAutoIncField
+      FieldName = 'id'
+      ReadOnly = True
+    end
+    object t_quartotipo: TWideStringField
+      FieldName = 'tipo'
+      Size = 255
+    end
+    object t_quartolimpo: TBooleanField
+      FieldName = 'limpo'
+    end
+    object t_quartoocupado: TBooleanField
+      FieldName = 'ocupado'
+    end
+    object t_quartoandar: TIntegerField
+      FieldName = 'andar'
+    end
+    object t_quartonumero: TIntegerField
+      FieldName = 'numero'
+    end
+    object t_quartoinfo_add: TWideStringField
+      FieldName = 'info_add'
+      Size = 255
+    end
+    object t_quartodiaria: TIntegerField
+      FieldName = 'diaria'
+    end
   end
   object ds_quarto: TDataSource
-    AutoEdit = False
     DataSet = t_quarto
     Left = 88
     Top = 144
@@ -127,59 +154,8 @@ object dm: Tdm
     Top = 144
   end
   object ds_quarto_grid: TDataSource
-    AutoEdit = False
     DataSet = q_quarto
     Left = 216
     Top = 144
-  end
-  object ds_reserva_grid: TDataSource
-    AutoEdit = False
-    DataSet = q_reserva
-    Left = 224
-    Top = 216
-  end
-  object t_reserva: TADOTable
-    Active = True
-    Connection = conexao
-    CursorType = ctStatic
-    TableName = 'reserva'
-    Left = 24
-    Top = 216
-    object t_reservaid: TAutoIncField
-      FieldName = 'id'
-      ReadOnly = True
-    end
-    object t_reservacheck_in: TDateTimeField
-      FieldName = 'check_in'
-      EditMask = '!00/00/0000;1;_'
-    end
-    object t_reservacheck_out: TDateTimeField
-      FieldName = 'check_out'
-      EditMask = '!00/00/0000;1;_'
-    end
-    object t_reservaid_quarto: TIntegerField
-      FieldName = 'id_quarto'
-    end
-    object t_reservacpf_cliente: TWideStringField
-      FieldName = 'cpf_cliente'
-      EditMask = '!000.000.000-00;1;_'
-      Size = 255
-    end
-  end
-  object q_reserva: TADOQuery
-    Active = True
-    Connection = conexao
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      'select * from reserva')
-    Left = 152
-    Top = 216
-  end
-  object ds_reserva: TDataSource
-    AutoEdit = False
-    DataSet = t_reserva
-    Left = 88
-    Top = 216
   end
 end
