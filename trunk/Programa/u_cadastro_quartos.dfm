@@ -1425,14 +1425,12 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       Style = csDropDownList
       TabOrder = 0
       Items.Strings = (
-        'id'
-        'tipo'
-        'limpo'
-        'ocupado'
-        'andar'
-        'numero'
-        'info_add'
-        'diaria')
+        'N'#250'mero do andar'
+        'N'#250'mero do quarto'
+        'Tipo de quarto'
+        'Valor da di'#225'ria'
+        'Informa'#231#245'es adicionais'
+        'ID')
     end
     object DBGrid1: TDBGrid
       Left = 16
@@ -1451,14 +1449,14 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       Columns = <
         item
           Expanded = False
-          FieldName = 'numero'
-          Title.Caption = 'N'#176' do quarto'
+          FieldName = 'andar'
+          Title.Caption = 'N'#176' do andar'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'andar'
-          Title.Caption = 'N'#176' do andar'
+          FieldName = 'numero'
+          Title.Caption = 'N'#176' do quarto'
           Visible = True
         end
         item
@@ -1479,18 +1477,6 @@ object f_cadastro_quartos: Tf_cadastro_quartos
           FieldName = 'info_add'
           Title.Caption = 'Informa'#231#245'es adicionais'
           Width = 500
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'limpo'
-          Title.Caption = 'Status de Limpeza'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'ocupado'
-          Title.Caption = 'Status de ocupa'#231#227'o'
           Visible = True
         end
         item

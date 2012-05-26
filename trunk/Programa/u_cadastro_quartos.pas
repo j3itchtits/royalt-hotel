@@ -309,7 +309,32 @@ procedure Tf_cadastro_quartos.t_pesquisarChange(Sender: TObject);
 begin
 if t_pesquisar.text <> '' then
 begin
-campo := db_pesquisar_por.text;
+begin
+if db_pesquisar_por.text = 'Número do andar' then
+begin
+campo := 'andar'
+end;
+if db_pesquisar_por.text = 'Número do quarto' then
+begin
+campo := 'numero'
+end;
+if db_pesquisar_por.text = 'Tipo de quarto' then
+begin
+campo := 'tipo'
+end;
+if db_pesquisar_por.text = 'Valor da diária' then
+begin
+campo := 'diaria'
+end;
+if db_pesquisar_por.text = 'Informações adicionais' then
+begin
+campo := 'info_add'
+end;
+if db_pesquisar_por.text = 'ID' then
+begin
+campo := 'id'
+end;
+end;
  with dm.q_quarto do
  begin
  Close;
