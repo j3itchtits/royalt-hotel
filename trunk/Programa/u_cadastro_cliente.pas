@@ -150,8 +150,6 @@ db_telefone_celular.enabled:=false;
 db_telefone_residencial.enabled:=false;
 db_cidade.Enabled:=false;
 db_estado.Enabled:=false;
-dm.q_cliente.Active:=false;
-dm.q_cliente.Active:=true;
   //atualizar grid
   with dm.q_cliente do
   begin
@@ -230,12 +228,12 @@ procedure Tf_cadastro_cliente.b_salvarClick(Sender: TObject);
 begin
 if db_nome.text = '' then
   begin
-  showmessage('Nome não poder ser vazio!');
+  showmessage('Nome não pode ser vazio!');
   exit;
   end;
 if db_cpf.text = '' then
   begin
-  showmessage('CPF não poder ser vazio!');
+  showmessage('CPF não pode ser vazio!');
   exit;
   end;
 //se veio do botão novo verifica se cpf já existe
