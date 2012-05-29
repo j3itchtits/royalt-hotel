@@ -246,31 +246,53 @@ with dm.q_quarto do
    end;
    end;
 
-// se veio do botão alterar ele não verifica se o apartamento já existe
+// se veio do botão alterar ele também verifica se o apartamento já existe
 if v_salvar = 2 then
 begin
 If Application.MessageBox('Confirma alteração?','Atenção!',MB_YESNO +
                            MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES Then
 begin
-dm.t_quarto.Post;
-showmessage('Quarto alterado com sucesso!');
-db_tipo.Enabled:=false;
-db_diaria.Enabled:=false;
-db_andar.Enabled:=false;
-db_numero.Enabled:=false;
-b_salvar.Enabled:=false;
-b_alterar.Enabled:=true;
-b_cancelar.Enabled:=false;
-b_novo.Enabled:=true;
-b_excluir.Enabled:=true;
-// atualizar grid
-  with dm.q_quarto do
+with dm.q_quarto do
   begin
-  Close;
-  SQL.Clear;
-  sql.Add('select * from quarto order by numero');
-  Open;
+  Active := False;
+  SQL.Text := 'Select * from quarto where numero = :num';
+  parameters.parambyname('num').value := db_numero.text;
+  Active := True;
+  conta_numero := RecordCount;
   end;
+  if (conta_numero > 0) then
+    begin
+    showmessage('Quarto já cadastrado!');
+    exit
+    end
+    else
+    begin
+    If Application.MessageBox('Alterar registro?','Atenção!',MB_YESNO +
+                           MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES Then
+    begin
+
+    dm.t_quarto.Post;
+    showmessage('Quarto alterado com sucesso!');
+    db_tipo.Enabled:=false;
+    db_diaria.Enabled:=false;
+    db_andar.Enabled:=false;
+    db_numero.Enabled:=false;
+    b_salvar.Enabled:=false;
+    b_alterar.Enabled:=true;
+    b_cancelar.Enabled:=false;
+    b_novo.Enabled:=true;
+    b_excluir.Enabled:=true;
+    //atualizar grid
+    with dm.q_quarto do
+    begin
+    Close;
+    SQL.Clear;
+    sql.Add('select * from quarto order by numero');
+    Open;
+    end;
+    end;
+    end;
+
 end;
 end;
 end;
