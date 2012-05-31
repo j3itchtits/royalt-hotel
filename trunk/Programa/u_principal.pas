@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, PngSpeedButton, ComCtrls, Menus, u_dm;
+  Dialogs, Buttons, PngSpeedButton, ComCtrls, Menus, u_dm, ExtCtrls, pngimage;
 
 type
   Tf_principal = class(TForm)
@@ -31,6 +31,7 @@ type
     N1: TMenuItem;
     m_c_sair: TMenuItem;
     StatusBar1: TStatusBar;
+    Image1: TImage;
     procedure b_cadastro_clienteClick(Sender: TObject);
     procedure m_c_clienteClick(Sender: TObject);
     procedure b_cadastro_reservaClick(Sender: TObject);
