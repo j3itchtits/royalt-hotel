@@ -1,10 +1,10 @@
 object f_principal: Tf_principal
   Left = 0
   Top = 0
-  Align = alClient
+  BorderStyle = bsSingle
   Caption = 'System Hotel'
-  ClientHeight = 518
-  ClientWidth = 1016
+  ClientHeight = 752
+  ClientWidth = 994
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -492,8 +492,8 @@ object f_principal: Tf_principal
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 1016
-    Height = 499
+    Width = 994
+    Height = 733
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000005560000
@@ -2468,13 +2468,13 @@ object f_principal: Tf_principal
       801381120000000000002702250000000000004E044A0000000000009C089400
       00000000003811280100000000007022FC3F4C841DBAFBC6166B000000004945
       4E44AE426082}
-    ExplicitTop = 14
-    ExplicitWidth = 1024
-    ExplicitHeight = 557
+    ExplicitTop = -6
+    ExplicitWidth = 400
+    ExplicitHeight = 536
   end
   object b_cadastro_cliente: TPngSpeedButton
-    Left = 325
-    Top = 204
+    Left = 221
+    Top = 220
     Width = 121
     Height = 156
     Caption = '&Cadastro de cliente'
@@ -2809,8 +2809,8 @@ object f_principal: Tf_principal
       0049454E44AE426082}
   end
   object b_cadastro_reserva: TPngSpeedButton
-    Left = 469
-    Top = 204
+    Left = 365
+    Top = 220
     Width = 121
     Height = 156
     Caption = '&Cadastro de &reserva'
@@ -3428,8 +3428,8 @@ object f_principal: Tf_principal
       49454E44AE426082}
   end
   object b_quadro_apartamentos: TPngSpeedButton
-    Left = 613
-    Top = 204
+    Left = 509
+    Top = 220
     Width = 121
     Height = 156
     Caption = 'Quadro &apartamentos'
@@ -4047,8 +4047,8 @@ object f_principal: Tf_principal
       49454E44AE426082}
   end
   object b_status_limpeza: TPngSpeedButton
-    Left = 757
-    Top = 204
+    Left = 653
+    Top = 220
     Width = 121
     Height = 156
     Caption = '&Status limpeza'
@@ -4440,8 +4440,8 @@ object f_principal: Tf_principal
       18E80B395DEB6B3BFE0FAC99E538AD440AE60000000049454E44AE426082}
   end
   object b_cadastro_quartos: TPngSpeedButton
-    Left = 325
-    Top = 380
+    Left = 221
+    Top = 396
     Width = 121
     Height = 153
     Caption = '&Cadastro de &quartos'
@@ -4969,8 +4969,8 @@ object f_principal: Tf_principal
       0780F176BA72FCFFA447CBBF79C749B70000000049454E44AE426082}
   end
   object b_pagamentos: TPngSpeedButton
-    Left = 470
-    Top = 380
+    Left = 366
+    Top = 396
     Width = 120
     Height = 156
     Caption = '&Pagamentos'
@@ -5402,8 +5402,8 @@ object f_principal: Tf_principal
       455A4C9B0000000049454E44AE426082}
   end
   object b_relatorios: TPngSpeedButton
-    Left = 613
-    Top = 380
+    Left = 509
+    Top = 396
     Width = 121
     Height = 156
     Caption = 'R&elatorios'
@@ -5762,8 +5762,8 @@ object f_principal: Tf_principal
       F438004471B61FFF1F9F280028722A61460000000049454E44AE426082}
   end
   object PngSpeedButton7: TPngSpeedButton
-    Left = 757
-    Top = 380
+    Left = 653
+    Top = 396
     Width = 121
     Height = 156
     Caption = 'C&onfigurar senha'
@@ -6195,10 +6195,12 @@ object f_principal: Tf_principal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 499
-    Width = 1016
+    Top = 733
+    Width = 994
     Height = 19
     Panels = <>
+    ExplicitTop = 499
+    ExplicitWidth = 1016
   end
   object MainMenu1: TMainMenu
     Left = 56
