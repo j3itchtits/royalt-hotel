@@ -58,6 +58,7 @@ var
   conta_numero : integer;
   resultado : integer;
   campo : string;
+  id : integer;
 
 implementation
 
@@ -66,6 +67,16 @@ implementation
 
 procedure Tf_cadastro_quartos.b_alterarClick(Sender: TObject);
 begin
+ with dm.q_quarto do
+ begin
+ Close;
+ SQL.Clear;
+ sql.Add('select * from quarto where numero = :num');
+ parameters.parambyname('num').value := strtoint(db_numero.text);
+Open;
+ id := fieldbyname('id').asinteger;
+ end;
+
 db_tipo.Enabled:=true;
 db_diaria.Enabled:=true;
 db_andar.Enabled:=true;
@@ -255,8 +266,9 @@ begin
 with dm.q_quarto do
   begin
   Active := False;
-  SQL.Text := 'Select * from quarto where numero = :num';
+  SQL.Text := 'Select * from quarto where numero = :num and id <> :i ';
   parameters.parambyname('num').value := db_numero.text;
+  parameters.parambyname('i').value := id;
   Active := True;
   conta_numero := RecordCount;
   end;
@@ -266,34 +278,30 @@ with dm.q_quarto do
     exit
     end
     else
-    begin
-    If Application.MessageBox('Alterar registro?','Atenção!',MB_YESNO +
-                           MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES Then
-    begin
+        begin
 
     dm.t_quarto.Post;
-    showmessage('Quarto alterado com sucesso!');
-    db_tipo.Enabled:=false;
-    db_diaria.Enabled:=false;
-    db_andar.Enabled:=false;
-    db_numero.Enabled:=false;
-    b_salvar.Enabled:=false;
-    b_alterar.Enabled:=true;
-    b_cancelar.Enabled:=false;
-    b_novo.Enabled:=true;
-    b_excluir.Enabled:=true;
-    //atualizar grid
-    with dm.q_quarto do
-    begin
-    Close;
-    SQL.Clear;
-    sql.Add('select * from quarto order by numero');
-    Open;
-    end;
-    end;
-    end;
+    Application.MessageBox('Quarto alterado com sucesso', 'Confirmação!', mb_iconinformation + mb_ok);
+      db_tipo.Enabled:=false;
+      db_diaria.Enabled:=false;
+      db_andar.Enabled:=false;
+      db_numero.Enabled:=false;
+      b_salvar.Enabled:=false;
+      b_alterar.Enabled:=true;
+      b_cancelar.Enabled:=false;
+      b_novo.Enabled:=true;
+      b_excluir.Enabled:=true;
+      //atualizar grid
+      with dm.q_quarto do
+      begin
+      Close;
+      SQL.Clear;
+      sql.Add('select * from quarto order by numero');
+      Open;
+      end;
+      end;
+      end;
 
-end;
 end;
 end;
 

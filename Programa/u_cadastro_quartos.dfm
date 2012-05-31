@@ -1201,15 +1201,15 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     DataField = 'tipo'
     DataSource = dm.ds_quarto
     Items.Strings = (
-      'Quarto duplo (Uma cama de casal)'
-      'Quarto triplo (Uma cama de casal mais uma cama de solteiro)'
-      'Quarto qu'#225'druplo (Uma cama de casal mais duas camas de solteiro)'
-      'Quarto qu'#237'ntuplo (Uma cama de casal mais tr'#234's camas de solteiro)'
-      'Alojamento single (Uma cama de solteiro)'
-      'Alojamento duplo (Duas camas de solteiro)'
-      'Alojamento triplo (Tr'#234's camas de solteiro)'
-      'Alojamento qu'#225'druplo (Quatro camas de solteiro)'
-      'Alojamento qu'#237'ntuplo (Cinco camas de solteiro)')
+      'Quarto duplo (1 casal)'
+      'Quarto triplo (1 casal, 1 solteiro)'
+      'Quarto qu'#225'druplo (1 casal, 2 solteiro)'
+      'Quarto qu'#237'ntuplo (1 casal, 3 solteiro)'
+      'Alojamento single (1 solteiro)'
+      'Alojamento duplo (2 solteiro)'
+      'Alojamento triplo (3 solteiro)'
+      'Alojamento qu'#225'druplo (4 solteiro)'
+      'Alojamento qu'#237'ntuplo (5 solteiro)')
     TabOrder = 3
   end
   object db_diaria: TDBEdit
