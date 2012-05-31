@@ -161,8 +161,14 @@ object dm: Tdm
     Top = 144
   end
   object q_limpeza: TADOQuery
+    Active = True
     Connection = conexao
+    CursorType = ctStatic
     Parameters = <>
+    SQL.Strings = (
+      
+        'select numero, andar, tipo, limpo, data_limpeza, ocupado from qu' +
+        'arto')
     Left = 152
     Top = 224
   end
