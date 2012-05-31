@@ -118,12 +118,6 @@ object dm: Tdm
       FieldName = 'tipo'
       Size = 255
     end
-    object t_quartolimpo: TBooleanField
-      FieldName = 'limpo'
-    end
-    object t_quartoocupado: TBooleanField
-      FieldName = 'ocupado'
-    end
     object t_quartoandar: TIntegerField
       FieldName = 'andar'
     end
@@ -137,9 +131,16 @@ object dm: Tdm
     object t_quartodiaria: TIntegerField
       FieldName = 'diaria'
     end
+    object t_quartolimpo: TWideStringField
+      FieldName = 'limpo'
+      Size = 255
+    end
+    object t_quartoocupado: TWideStringField
+      FieldName = 'ocupado'
+      Size = 255
+    end
   end
   object ds_quarto: TDataSource
-    AutoEdit = False
     DataSet = t_quarto
     Left = 88
     Top = 144
@@ -155,9 +156,20 @@ object dm: Tdm
     Top = 144
   end
   object ds_quarto_grid: TDataSource
-    AutoEdit = False
     DataSet = q_quarto
     Left = 216
     Top = 144
+  end
+  object q_limpeza: TADOQuery
+    Connection = conexao
+    Parameters = <>
+    Left = 152
+    Top = 224
+  end
+  object ds_limpeza_grid: TDataSource
+    AutoEdit = False
+    DataSet = q_limpeza
+    Left = 216
+    Top = 224
   end
 end
