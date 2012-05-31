@@ -30,12 +30,14 @@ type
     t_clientetelefone_residencial: TWideStringField;
     t_quartoid: TAutoIncField;
     t_quartotipo: TWideStringField;
-    t_quartolimpo: TBooleanField;
-    t_quartoocupado: TBooleanField;
     t_quartoandar: TIntegerField;
     t_quartonumero: TIntegerField;
     t_quartoinfo_add: TWideStringField;
     t_quartodiaria: TIntegerField;
+    t_quartolimpo: TWideStringField;
+    t_quartoocupado: TWideStringField;
+    q_limpeza: TADOQuery;
+    ds_limpeza_grid: TDataSource;
   private
     { Private declarations }
   public
