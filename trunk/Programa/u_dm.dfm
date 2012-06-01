@@ -88,7 +88,6 @@ object dm: Tdm
     Top = 72
   end
   object q_cliente: TADOQuery
-    Active = True
     Connection = conexao
     CursorType = ctStatic
     Parameters = <>
@@ -110,36 +109,68 @@ object dm: Tdm
     TableName = 'quarto'
     Left = 24
     Top = 144
-    object t_quartoid: TAutoIncField
-      FieldName = 'id'
-      ReadOnly = True
-    end
-    object t_quartotipo: TWideStringField
-      FieldName = 'tipo'
-      Size = 255
-    end
-    object t_quartoandar: TIntegerField
-      FieldName = 'andar'
-    end
-    object t_quartonumero: TIntegerField
-      FieldName = 'numero'
-    end
-    object t_quartoinfo_add: TWideStringField
-      FieldName = 'info_add'
-      Size = 255
-    end
-    object t_quartodiaria: TIntegerField
-      FieldName = 'diaria'
-    end
-    object t_quartoocupado: TWideStringField
-      FieldName = 'ocupado'
-      Size = 255
-    end
   end
   object ds_quarto: TDataSource
+    AutoEdit = False
     DataSet = t_quarto
     Left = 88
     Top = 144
+  end
+  object ds_quarto_grid: TDataSource
+    AutoEdit = False
+    DataSet = q_quarto
+    Left = 216
+    Top = 144
+  end
+  object ds_reserva_grid: TDataSource
+    AutoEdit = False
+    DataSet = q_reserva
+    Left = 224
+    Top = 216
+  end
+  object t_reserva: TADOTable
+    Active = True
+    Connection = conexao
+    CursorType = ctStatic
+    TableName = 'reserva'
+    Left = 24
+    Top = 216
+    object t_reservaid: TAutoIncField
+      FieldName = 'id'
+      ReadOnly = True
+    end
+    object t_reservacheck_in: TDateTimeField
+      FieldName = 'check_in'
+    end
+    object t_reservacheck_out: TDateTimeField
+      FieldName = 'check_out'
+    end
+    object t_reservanum_quarto: TIntegerField
+      FieldName = 'num_quarto'
+    end
+    object t_reservacpf_cliente: TWideStringField
+      FieldName = 'cpf_cliente'
+      Size = 255
+    end
+    object t_reservanome_cliente: TDateTimeField
+      FieldName = 'nome_cliente'
+    end
+  end
+  object q_reserva: TADOQuery
+    Active = True
+    Connection = conexao
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from reserva')
+    Left = 152
+    Top = 216
+  end
+  object ds_reserva: TDataSource
+    AutoEdit = False
+    DataSet = t_reserva
+    Left = 88
+    Top = 216
   end
   object q_quarto: TADOQuery
     Active = True
@@ -148,28 +179,7 @@ object dm: Tdm
     Parameters = <>
     SQL.Strings = (
       'select * from quarto')
-    Left = 152
+    Left = 144
     Top = 144
-  end
-  object ds_quarto_grid: TDataSource
-    DataSet = q_quarto
-    Left = 216
-    Top = 144
-  end
-  object q_limpeza: TADOQuery
-    Active = True
-    Connection = conexao
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      'select numero, andar, tipo, data_limpeza, ocupado from quarto')
-    Left = 152
-    Top = 224
-  end
-  object ds_limpeza_grid: TDataSource
-    AutoEdit = False
-    DataSet = q_limpeza
-    Left = 216
-    Top = 224
   end
 end
