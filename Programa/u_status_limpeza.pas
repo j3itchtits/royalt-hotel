@@ -69,7 +69,7 @@ with dm.q_limpeza do
     begin
     Close;
     SQL.Clear;
-    sql.Add('select * from quarto');
+    sql.Add('select * from quarto order by data_limpeza');
     Open;
     db_numero.Caption:='';
     db_andar.Caption:='';
@@ -114,7 +114,7 @@ Case rg_quartos.ItemIndex Of
     begin
     Close;
     SQL.Clear;
-    sql.Add('select * from quarto');
+    sql.Add('select * from quarto order by data_limpeza');
     Open;
     db_numero.Caption:='';
     db_andar.Caption:='';
@@ -124,7 +124,7 @@ Case rg_quartos.ItemIndex Of
     begin
     Close;
     SQL.Clear;
-    sql.Add('select * from quarto where data_limpeza < date()-1');
+    sql.Add('select * from quarto where data_limpeza < date()-1 order by data_limpeza');
     Open;
     db_numero.Caption:='';
     db_andar.Caption:='';
@@ -134,7 +134,7 @@ Case rg_quartos.ItemIndex Of
     begin
     Close;
     SQL.Clear;
-    sql.Add('select * from quarto where data_limpeza < date()-3 ');
+    sql.Add('select * from quarto where data_limpeza < date()-3 order by data_limpeza ');
     Open;
     db_numero.Caption:='';
     db_andar.Caption:='';
@@ -144,7 +144,7 @@ Case rg_quartos.ItemIndex Of
     begin
     Close;
     SQL.Clear;
-    sql.Add('select * from quarto where data_limpeza < date()-5');
+    sql.Add('select * from quarto where data_limpeza < date()-5 order by data_limpeza');
     Open;
     db_numero.Caption:='';
     db_andar.Caption:='';
@@ -154,7 +154,7 @@ Case rg_quartos.ItemIndex Of
     begin
     Close;
     SQL.Clear;
-    sql.Add('select * from quarto where data_limpeza < date()-6');
+    sql.Add('select * from quarto where data_limpeza < date()-6 order by data_limpeza');
     Open;
     db_numero.Caption:='';
     db_andar.Caption:='';

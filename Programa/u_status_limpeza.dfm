@@ -217,6 +217,7 @@ object f_status_limpeza: Tf_status_limpeza
       item
         Expanded = False
         FieldName = 'data_limpeza'
+        Title.Caption = 'Data '#250'ltima limpeza'
         Width = 180
         Visible = True
       end
