@@ -34,7 +34,6 @@ type
     t_quartonumero: TIntegerField;
     t_quartoinfo_add: TWideStringField;
     t_quartodiaria: TIntegerField;
-    t_quartolimpo: TWideStringField;
     t_quartoocupado: TWideStringField;
     q_limpeza: TADOQuery;
     ds_limpeza_grid: TDataSource;

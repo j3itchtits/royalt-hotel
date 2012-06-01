@@ -131,10 +131,6 @@ object dm: Tdm
     object t_quartodiaria: TIntegerField
       FieldName = 'diaria'
     end
-    object t_quartolimpo: TWideStringField
-      FieldName = 'limpo'
-      Size = 255
-    end
     object t_quartoocupado: TWideStringField
       FieldName = 'ocupado'
       Size = 255
@@ -166,9 +162,7 @@ object dm: Tdm
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      
-        'select numero, andar, tipo, limpo, data_limpeza, ocupado from qu' +
-        'arto')
+      'select numero, andar, tipo, data_limpeza, ocupado from quarto')
     Left = 152
     Top = 224
   end
