@@ -71,6 +71,7 @@ var
   resultado : string;
   v_salvar : integer;
   conta_cpf : integer;
+  id : integer;
 
 implementation
 
@@ -78,6 +79,15 @@ implementation
 
 procedure Tf_cadastro_cliente.b_alterarClick(Sender: TObject);
 begin
+ with dm.q_cliente do
+ begin
+ Close;
+ SQL.Clear;
+ sql.Add('select * from cliente where cpf = :cp');
+ parameters.parambyname('cp').value := db_cpf.text;
+Open;
+ id := fieldbyname('id').asinteger;
+ end;
 db_nome.Enabled:=true;
 db_cpf.Enabled:=true;
 db_bairro.enabled:=true;
@@ -295,6 +305,22 @@ begin
 If Application.MessageBox('Confirma alteração?','Atenção!',MB_YESNO +
                            MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES Then
 begin
+with dm.q_cliente do
+  begin
+  Active := False;
+  SQL.Text := 'Select * from cliente where cpf = :cp and id <> :i ';
+  parameters.parambyname('cp').value := db_cpf.text;
+  parameters.parambyname('i').value := id;
+  Active := True;
+  conta_cpf := RecordCount;
+  end;
+  if (conta_cpf > 0) then
+    begin
+    showmessage('CPF já cadastrado!');
+    exit
+    end
+    else
+    begin
 dm.t_cliente.Post;
 showmessage('Cadastro alterado com sucesso!');
 db_nome.Enabled:=false;
@@ -324,8 +350,9 @@ b_excluir.Enabled:=true;
   end;
 end;
 end;
-
 end;
+end;
+
 
 procedure Tf_cadastro_cliente.DBGrid1CellClick(Column: TColumn);
 begin
