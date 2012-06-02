@@ -79,7 +79,7 @@ b_novo.Enabled:=false;
 b_cancelar.Enabled:=true;
 //vai servir para o botão salvar saber
 v_salvar := 2;
-id := dm.t_reserva.FieldByName('id').asstring
+id := dm.t_reserva.FieldByName('id').asstring;
 //
 dm.t_reserva.Edit;
 end;
@@ -263,7 +263,7 @@ begin
 with dm.q_reserva do
   begin
   Active := False;
-  SQL.Text := 'select * from reserva where num_quarto = :num and (( :in between check_in and check_out) or ( :out between check_in and check_out) or ( check_in between :in and :out) or ( check_out between :in and :out)) and id = :i';
+  SQL.Text := 'select * from reserva where num_quarto = :num and (( :in between check_in and check_out) or ( :out between check_in and check_out) or ( check_in between :in and :out) or ( check_out between :in and :out)) and id <> :i';
   parameters.parambyname('num').value := db_combo_box.text;
   parameters.parambyname('in').value := db_check_in.text;
   parameters.parambyname('out').value := db_check_out.text;
