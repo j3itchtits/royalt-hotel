@@ -27,13 +27,12 @@ type
     b_listar_todos: TPngSpeedButton;
     t_cpf: TEdit;
     Label6: TLabel;
-    db_cpf: TDBEdit;
     db_check_in: TDBEdit;
     db_check_out: TDBEdit;
-    db_combo_box: TComboBox;
-    Edit1: TEdit;
+    t_num_quarto: TEdit;
     Label7: TLabel;
-    procedure OnDropDown_db_combo_box(Sender: TObject);
+    db_combo_box: TDBComboBox;
+    db_cpf: TDBEdit;
     procedure b_fecharClick(Sender: TObject);
     procedure b_cancelarClick(Sender: TObject);
     procedure b_excluirClick(Sender: TObject);
@@ -45,7 +44,10 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure OnChange(Sender: TObject);
     procedure dtp_reserva_change(Sender: TObject);
-    procedure num_quarto_dropDown(Sender: TObject);
+    procedure db_combo_box_DropDown(Sender: TObject);
+    procedure num_quarto_change(Sender: TObject);
+    procedure g_reserva_titleClick(Column: TColumn);
+    procedure g_reserva_cellClick(Column: TColumn);
   private
     { Private declarations }
   public
@@ -57,7 +59,7 @@ var
   v_salvar : integer;
   contar_cpf : integer;
   contar_reserva : integer;
-  resultado : integer;
+  resultado : string;
 
 implementation
 
@@ -182,7 +184,7 @@ if db_cpf.text = '' then
 with dm.q_cliente do
   begin
   Active := False;
-  SQL.Text := 'Select * from cliente where cpf = :cp';
+  SQL.Text := 'select * from cliente where cpf = :cp';
   parameters.parambyname('cp').value := db_cpf.text;
   Active := True;
   contar_cpf := RecordCount;
@@ -212,7 +214,7 @@ begin
 with dm.q_reserva do
   begin
   Active := False;
-  SQL.Text := 'select * from reserva where :num = numero and (:in between checkin and checkout) or (:out between checkin and checkout)';
+  SQL.Text := 'select * from reserva where num_quarto = :num and (( :in between check_in and check_out) or ( :out between check_in and check_out))';
   parameters.parambyname('num').value := db_combo_box.text;
   parameters.parambyname('in').value := db_check_in.text;
   parameters.parambyname('out').value := db_check_out.text;
@@ -255,44 +257,95 @@ end;
 //se veio do botão alterar não verifica se cpf existe
 if v_salvar = 2 then
 begin
-If Application.MessageBox('Confirma alteração?','Atenção!',MB_YESNO +
-                           MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES Then
-begin
-dm.t_cliente.Post;
-showmessage('Reserva alterada com sucesso!');
-db_cpf.Enabled:=false;
-db_check_in.Enabled:=false;
-db_check_out.Enabled:=false;
-db_combo_box.Enabled:=false;
-b_salvar.Enabled:=false;
-b_alterar.Enabled:=true;
-b_cancelar.Enabled:=false;
-b_novo.Enabled:=true;
-b_excluir.Enabled:=true;
-  //atualizar grid
-  with dm.q_reserva do
+
+with dm.q_reserva do
   begin
+  Active := False;
+  SQL.Text := 'select * from reserva where num_quarto = :num and (( :in between check_in and check_out) or ( :out between check_in and check_out))';
+  parameters.parambyname('num').value := db_combo_box.text;
+  parameters.parambyname('in').value := db_check_in.text;
+  parameters.parambyname('out').value := db_check_out.text;
+  Active := True;
+  contar_reserva := RecordCount;
+  end;
+  if (contar_reserva > 0) then
+    begin
+    showmessage('Quarto já está reservado!');
+    exit;
+    end
+    else
+    If Application.MessageBox('Confirma alteração?','Atenção!',MB_YESNO +
+                           MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES Then
+    begin
+    dm.t_reserva.Post;
+    showmessage('Reserva alterada com sucesso!');
+    db_cpf.Enabled:=false;
+    db_check_in.Enabled:=false;
+    db_check_out.Enabled:=false;
+    db_combo_box.Enabled:=false;
+    b_salvar.Enabled:=false;
+    b_alterar.Enabled:=true;
+    b_cancelar.Enabled:=false;
+    b_novo.Enabled:=true;
+    b_excluir.Enabled:=true;
+  //atualizar grid
+    with dm.q_reserva do
+    begin
+    Close;
+    SQL.Clear;
+    sql.Add('select * from reserva order by check_in');
+    Open;
+    end;
+ end;
+end;
+end;
+
+
+procedure Tf_cadastro_reserva.db_combo_box_DropDown(Sender: TObject);
+begin
+with dm.q_quarto do
+begin
   Close;
   SQL.Clear;
-  sql.Add('select * from reserva order by checkk_in');
+  SQL.Add('select distinct(numero) from quarto');
   Open;
+  db_combo_box.Clear;
+  while not EOF do
+  begin
+    db_combo_box.Items.Add(Fields[0].AsString);
+    Next;
   end;
 end;
 end;
 
-end;
-
 procedure Tf_cadastro_reserva.dtp_reserva_change(Sender: TObject);
 begin
-  //with dm.q_reserva do
-  //begin
-  //Close;
-  //SQL.Clear;
-  //sql.Add('select * from reserva where check_in like '''+dtp_reserva.text+'%''');
-  //Open;
-  //resultado := dm.q_cliente.fieldbyname('id').asinteger;
-  //dm.t_cliente.Locate('id',resultado,[loCaseInsensitive, loPartialKey]);
-  //end;
+  if (t_cpf.Text <> '') then
+  begin
+
+  with dm.q_reserva do
+  begin
+  Close;
+  SQL.Clear;
+  sql.Add('select * from reserva where check_in = :date and cpf_cliente like :cp');
+  parameters.parambyname('cp').value := t_cpf.text + '%';
+  parameters.parambyname('date').value := datetostr(dtp_reserva.date);
+  Open;
+  end;
+  end;
+
+  if (t_cpf.Text = '') then
+  begin
+
+  with dm.q_reserva do
+  begin
+  Close;
+  SQL.Clear;
+  sql.Add('select * from reserva where check_in = :date');
+  parameters.parambyname('date').value := datetostr(dtp_reserva.date);
+  Open;
+  end;
+  end;
 end;
 
 procedure Tf_cadastro_reserva.FormClose(Sender: TObject;
@@ -319,19 +372,43 @@ b_cancelar.Enabled:=false;
   end;
 end;
 
-procedure Tf_cadastro_reserva.num_quarto_dropDown(Sender: TObject);
+procedure Tf_cadastro_reserva.g_reserva_cellClick(Column: TColumn);
 begin
-with dm.q_quarto do
+resultado := dm.q_reserva.fieldbyname('cpf_cliente').AsString;
+dm.t_reserva.Locate('cpf_cliente',resultado,[]);
+end;
+
+procedure Tf_cadastro_reserva.g_reserva_titleClick(Column: TColumn);
 begin
+if (dm.q_reserva.Sort<>column.FieldName+' ASC') then
+dm.q_reserva.Sort:=column.FieldName+' ASC'
+else
+dm.q_reserva.sort:=column.fieldname+' DESC';
+end;
+
+procedure Tf_cadastro_reserva.num_quarto_change(Sender: TObject);
+begin
+if t_num_quarto.text <> '' then
+begin
+  with dm.q_reserva do
+  begin
   Close;
   SQL.Clear;
-  SQL.Add('select distinct(numero) from quarto');
+  sql.Add('select * from reserva where check_in = :date and cpf_cliente like :num');
+  parameters.parambyname('num').value := t_num_quarto.text + '%';
+  parameters.parambyname('date').value := datetostr(dtp_reserva.date);
   Open;
-  db_combo_box.Clear;
-  while not EOF do
+  end;
+end
+else
+begin
+  with dm.q_reserva do
   begin
-    db_combo_box.Items.Add(Fields[0].AsString);
-    Next;
+  Close;
+  SQL.Clear;
+  sql.Add('select * from reserva where check_in = :date');
+  parameters.parambyname('date').value := datetostr(dtp_reserva.date);
+  Open;
   end;
 end;
 end;
@@ -344,10 +421,10 @@ begin
   begin
   Close;
   SQL.Clear;
-  sql.Add('select * from reserva where cpf like '''+t_cpf.text+'%''');
+  sql.Add('select * from reserva where check_in = :date and cpf_cliente like :cp');
+  parameters.parambyname('cp').value := t_cpf.text + '%';
+  parameters.parambyname('date').value := datetostr(dtp_reserva.date);
   Open;
-  resultado := dm.q_reserva.fieldbyname('id').asinteger;
-  //dm.t_reserva.Locate('id',resultado,[loCaseInsensitive, loPartialKey]);
   end;
 end
 else
@@ -356,7 +433,8 @@ begin
   begin
   Close;
   SQL.Clear;
-  sql.Add('select * from reserva order by check_in');
+  sql.Add('select * from reserva where check_in = :date');
+  parameters.parambyname('date').value := datetostr(dtp_reserva.date);
   Open;
   end;
 end;
