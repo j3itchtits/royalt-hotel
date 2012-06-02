@@ -88,6 +88,7 @@ object dm: Tdm
     Top = 72
   end
   object q_cliente: TADOQuery
+    Active = True
     Connection = conexao
     CursorType = ctStatic
     Parameters = <>
@@ -120,35 +121,7 @@ object dm: Tdm
     Left = 224
     Top = 216
   end
-  object t_reserva: TADOTable
-    Connection = conexao
-    CursorType = ctStatic
-    TableName = 'reserva'
-    Left = 24
-    Top = 216
-    object t_reservaid: TAutoIncField
-      FieldName = 'id'
-      ReadOnly = True
-    end
-    object t_reservacheck_in: TDateTimeField
-      FieldName = 'check_in'
-    end
-    object t_reservacheck_out: TDateTimeField
-      FieldName = 'check_out'
-    end
-    object t_reservanum_quarto: TIntegerField
-      FieldName = 'num_quarto'
-    end
-    object t_reservacpf_cliente: TWideStringField
-      FieldName = 'cpf_cliente'
-      Size = 255
-    end
-    object t_reservanome_cliente: TDateTimeField
-      FieldName = 'nome_cliente'
-    end
-  end
   object q_reserva: TADOQuery
-    Active = True
     Connection = conexao
     CursorType = ctStatic
     Parameters = <>
@@ -174,7 +147,6 @@ object dm: Tdm
     Top = 144
   end
   object q_limpeza: TADOQuery
-    Active = True
     Connection = conexao
     CursorType = ctStatic
     Parameters = <>
@@ -195,5 +167,37 @@ object dm: Tdm
     TableName = 'quarto'
     Left = 24
     Top = 144
+  end
+  object t_reserva: TADOTable
+    Active = True
+    Connection = conexao
+    CursorType = ctStatic
+    TableName = 'reserva'
+    Left = 24
+    Top = 216
+    object t_reservaid: TAutoIncField
+      FieldName = 'id'
+      ReadOnly = True
+    end
+    object t_reservacheck_in: TDateTimeField
+      FieldName = 'check_in'
+      EditMask = '!00/00/0000;1;_'
+    end
+    object t_reservacheck_out: TDateTimeField
+      FieldName = 'check_out'
+      EditMask = '!00/00/0000;1;_'
+    end
+    object t_reservanum_quarto: TIntegerField
+      FieldName = 'num_quarto'
+    end
+    object t_reservacpf_cliente: TWideStringField
+      FieldName = 'cpf_cliente'
+      EditMask = '!000.000.000-00;0;_'
+      Size = 255
+    end
+    object t_reservanome_cliente: TWideStringField
+      FieldName = 'nome_cliente'
+      Size = 255
+    end
   end
 end
