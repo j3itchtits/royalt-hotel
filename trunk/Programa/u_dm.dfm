@@ -102,14 +102,6 @@ object dm: Tdm
     Left = 216
     Top = 72
   end
-  object t_quarto: TADOTable
-    Active = True
-    Connection = conexao
-    CursorType = ctStatic
-    TableName = 'quarto'
-    Left = 24
-    Top = 144
-  end
   object ds_quarto: TDataSource
     AutoEdit = False
     DataSet = t_quarto
@@ -129,7 +121,6 @@ object dm: Tdm
     Top = 216
   end
   object t_reserva: TADOTable
-    Active = True
     Connection = conexao
     CursorType = ctStatic
     TableName = 'reserva'
@@ -180,6 +171,29 @@ object dm: Tdm
     SQL.Strings = (
       'select * from quarto')
     Left = 144
+    Top = 144
+  end
+  object q_limpeza: TADOQuery
+    Active = True
+    Connection = conexao
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select numero, andar, tipo, data_limpeza, ocupado from quarto')
+    Left = 152
+    Top = 272
+  end
+  object ds_limpeza_grid: TDataSource
+    DataSet = q_limpeza
+    Left = 232
+    Top = 272
+  end
+  object t_quarto: TADOTable
+    Active = True
+    Connection = conexao
+    CursorType = ctStatic
+    TableName = 'quarto'
+    Left = 24
     Top = 144
   end
 end

@@ -12,7 +12,6 @@ type
     ds_cliente: TDataSource;
     q_cliente: TADOQuery;
     ds_cliente_grid: TDataSource;
-    t_clienteid: TAutoIncField;
     t_clientecpf: TWideStringField;
     t_clientenome: TWideStringField;
     t_clientetelefone_celular: TWideStringField;
@@ -36,6 +35,9 @@ type
     t_reservanum_quarto: TIntegerField;
     t_reservacpf_cliente: TWideStringField;
     t_reservanome_cliente: TDateTimeField;
+    q_limpeza: TADOQuery;
+    ds_limpeza_grid: TDataSource;
+    t_quarto: TADOTable;
   private
     { Private declarations }
   public
