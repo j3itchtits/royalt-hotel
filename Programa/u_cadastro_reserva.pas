@@ -17,10 +17,6 @@ type
     g_reserva: TDBGrid;
     dtp_reserva: TDateTimePicker;
     Label5: TLabel;
-    db_cpf: TDBEdit;
-    db_check_in: TDBEdit;
-    db_check_out: TDBEdit;
-    db_combo_box: TDBComboBox;
     b_novo: TPngSpeedButton;
     b_salvar: TPngSpeedButton;
     b_alterar: TPngSpeedButton;
@@ -31,6 +27,12 @@ type
     b_listar_todos: TPngSpeedButton;
     t_cpf: TEdit;
     Label6: TLabel;
+    db_cpf: TDBEdit;
+    db_check_in: TDBEdit;
+    db_check_out: TDBEdit;
+    db_combo_box: TComboBox;
+    Edit1: TEdit;
+    Label7: TLabel;
     procedure OnDropDown_db_combo_box(Sender: TObject);
     procedure b_fecharClick(Sender: TObject);
     procedure b_cancelarClick(Sender: TObject);
@@ -43,6 +45,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure OnChange(Sender: TObject);
     procedure dtp_reserva_change(Sender: TObject);
+    procedure num_quarto_dropDown(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,7 +55,8 @@ type
 var
   f_cadastro_reserva: Tf_cadastro_reserva;
   v_salvar : integer;
-  conta_cpf : integer;
+  contar_cpf : integer;
+  contar_reserva : integer;
   resultado : integer;
 
 implementation
@@ -175,23 +179,47 @@ if db_cpf.text = '' then
   showmessage('CPF não poder ser vazio!');
   exit;
   end;
-//if db_check_in.text = '' then
-  //begin
-  //showmessage('Data de Entrada não poder ser vazio!');
-  //exit;
-  //end;
+with dm.q_cliente do
+  begin
+  Active := False;
+  SQL.Text := 'Select * from cliente where cpf = :cp';
+  parameters.parambyname('cp').value := db_cpf.text;
+  Active := True;
+  contar_cpf := RecordCount;
+  end;
+if contar_cpf = 0 then
+  begin
+  showmessage('CPF não está cadastrado!');
+  exit;
+  end;
+if db_check_in.text = '' then
+  begin
+  showmessage('Data de Entrada não poder ser vazio!');
+  exit;
+  end;
+if db_check_in.text = '' then
+  begin
+  showmessage('Data de Saída não poder ser vazio!');
+  exit;
+  end;
+if db_combo_box.Text = '' then
+  begin
+  showmessage('Selecione o número do quarto!');
+  exit;
+  end;
 if v_salvar = 1 then
 begin
 with dm.q_reserva do
   begin
   Active := False;
-  SQL.Text := 'Select * from cliente where id_quarto = :id and check_in = :in';
-  parameters.parambyname('id').value := db_combo_box.text;
+  SQL.Text := 'select * from reserva where :num = numero and (:in between checkin and checkout) or (:out between checkin and checkout)';
+  parameters.parambyname('num').value := db_combo_box.text;
   parameters.parambyname('in').value := db_check_in.text;
+  parameters.parambyname('out').value := db_check_out.text;
   Active := True;
-  conta_cpf := RecordCount;
+  contar_reserva := RecordCount;
   end;
-  if (conta_cpf > 0) then
+  if (contar_reserva > 0) then
     begin
     showmessage('Quarto já está reservado!');
     exit;
@@ -291,6 +319,23 @@ b_cancelar.Enabled:=false;
   end;
 end;
 
+procedure Tf_cadastro_reserva.num_quarto_dropDown(Sender: TObject);
+begin
+with dm.q_quarto do
+begin
+  Close;
+  SQL.Clear;
+  SQL.Add('select distinct(numero) from quarto');
+  Open;
+  db_combo_box.Clear;
+  while not EOF do
+  begin
+    db_combo_box.Items.Add(Fields[0].AsString);
+    Next;
+  end;
+end;
+end;
+
 procedure Tf_cadastro_reserva.OnChange(Sender: TObject);
 begin
 if t_cpf.text <> '' then
@@ -316,23 +361,6 @@ begin
   end;
 end;
 
-end;
-
-procedure Tf_cadastro_reserva.OnDropDown_db_combo_box(Sender: TObject);
-begin
-with dm.q_quarto do
-begin
-  Close;
-  SQL.Clear;
-  SQL.Add('select distinct(id) from quarto');
-  Open;
-  db_combo_box.Clear;
-  while not EOF do
-  begin
-    db_combo_box.Items.Add(Fields[0].AsString);
-    Next;
-  end;
-end;
 end;
 
 end.

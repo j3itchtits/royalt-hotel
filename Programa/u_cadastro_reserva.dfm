@@ -2,8 +2,8 @@ object f_cadastro_reserva: Tf_cadastro_reserva
   Left = 0
   Top = 0
   Caption = 'f_cadastro_reserva'
-  ClientHeight = 557
-  ClientWidth = 648
+  ClientHeight = 746
+  ClientWidth = 800
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -25,21 +25,21 @@ object f_cadastro_reserva: Tf_cadastro_reserva
   end
   object Label2: TLabel
     Left = 64
-    Top = 120
+    Top = 152
     Width = 42
     Height = 13
     Caption = 'Entrada:'
   end
   object Label3: TLabel
-    Left = 24
-    Top = 190
+    Left = 357
+    Top = 83
     Width = 82
     Height = 13
     Caption = 'N'#250'm. Do Quarto:'
   end
   object Label4: TLabel
-    Left = 76
-    Top = 155
+    Left = 409
+    Top = 152
     Width = 30
     Height = 13
     Caption = 'Sa'#237'da:'
@@ -217,7 +217,7 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       FDA8EA0D300000000049454E44AE426082}
   end
   object b_salvar: TPngSpeedButton
-    Left = 120
+    Left = 176
     Top = 224
     Width = 49
     Height = 57
@@ -392,7 +392,7 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       6082}
   end
   object b_alterar: TPngSpeedButton
-    Left = 192
+    Left = 281
     Top = 224
     Width = 49
     Height = 57
@@ -564,7 +564,7 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       0049454E44AE426082}
   end
   object b_excluir: TPngSpeedButton
-    Left = 264
+    Left = 398
     Top = 224
     Width = 49
     Height = 57
@@ -726,7 +726,7 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       CAF2B7BD93A5B4FE0F36CD08FDB48CF07E0000000049454E44AE426082}
   end
   object b_cancelar: TPngSpeedButton
-    Left = 336
+    Left = 509
     Top = 224
     Width = 49
     Height = 57
@@ -897,7 +897,7 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       00000049454E44AE426082}
   end
   object b_fechar: TPngSpeedButton
-    Left = 525
+    Left = 685
     Top = 84
     Width = 49
     Height = 54
@@ -1054,8 +1054,8 @@ object f_cadastro_reserva: Tf_cadastro_reserva
   object gb_reserva: TGroupBox
     Left = 45
     Top = 316
-    Width = 556
-    Height = 233
+    Width = 716
+    Height = 413
     Caption = 'Pesquisar Reserva'
     TabOrder = 0
     object Label5: TLabel
@@ -1072,7 +1072,7 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       ParentFont = False
     end
     object b_listar_todos: TPngSpeedButton
-      Left = 440
+      Left = 600
       Top = 9
       Width = 89
       Height = 57
@@ -1251,11 +1251,18 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       Height = 13
       Caption = 'CPF:'
     end
+    object Label7: TLabel
+      Left = 392
+      Top = 32
+      Width = 66
+      Height = 13
+      Caption = 'Num. Quarto:'
+    end
     object g_reserva: TDBGrid
       Left = 24
       Top = 72
-      Width = 505
-      Height = 145
+      Width = 665
+      Height = 321
       DataSource = dm.ds_reserva_grid
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
@@ -1266,36 +1273,42 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       Columns = <
         item
           Expanded = False
+          FieldName = 'cpf_cliente'
+          Title.Caption = 'CPF'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nome_cliente'
+          Title.Caption = 'Nome'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'num_quarto'
+          Title.Caption = 'Quarto'
+          Width = 80
+          Visible = True
+        end
+        item
+          Expanded = False
           FieldName = 'check_in'
           Title.Caption = 'Entrada'
-          Width = 90
+          Width = 120
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'check_out'
           Title.Caption = 'Sa'#237'da'
-          Width = 90
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'id_quarto'
-          Title.Caption = 'N'#250'm. Quarto'
-          Width = 71
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'cpf_cliente'
-          Title.Caption = 'CPF do Cliente'
-          Width = 150
+          Width = 120
           Visible = True
         end>
     end
     object dtp_reserva: TDateTimePicker
       Left = 67
-      Top = 32
+      Top = 29
       Width = 94
       Height = 21
       Date = 41054.899026504630000000
@@ -1305,57 +1318,24 @@ object f_cadastro_reserva: Tf_cadastro_reserva
     end
     object t_cpf: TEdit
       Left = 248
-      Top = 32
+      Top = 29
       Width = 121
       Height = 21
       TabOrder = 2
       OnChange = OnChange
     end
-  end
-  object db_cpf: TDBEdit
-    Left = 120
-    Top = 80
-    Width = 121
-    Height = 21
-    DataField = 'cpf_cliente'
-    DataSource = dm.ds_reserva
-    MaxLength = 14
-    TabOrder = 1
-  end
-  object db_check_in: TDBEdit
-    Left = 120
-    Top = 117
-    Width = 121
-    Height = 21
-    DataField = 'check_in'
-    DataSource = dm.ds_reserva
-    MaxLength = 10
-    TabOrder = 2
-  end
-  object db_check_out: TDBEdit
-    Left = 120
-    Top = 152
-    Width = 121
-    Height = 21
-    DataField = 'check_out'
-    DataSource = dm.ds_reserva
-    MaxLength = 10
-    TabOrder = 3
-  end
-  object db_combo_box: TDBComboBox
-    Left = 120
-    Top = 187
-    Width = 121
-    Height = 21
-    DataField = 'id_quarto'
-    DataSource = dm.ds_reserva
-    TabOrder = 4
-    OnDropDown = OnDropDown_db_combo_box
+    object Edit1: TEdit
+      Left = 473
+      Top = 29
+      Width = 121
+      Height = 21
+      TabOrder = 3
+    end
   end
   object Panel1: TPanel
     Left = -3
     Top = 0
-    Width = 653
+    Width = 804
     Height = 49
     Caption = 'Cadastro de Reserva'
     Color = 14869218
@@ -1366,6 +1346,41 @@ object f_cadastro_reserva: Tf_cadastro_reserva
     Font.Style = []
     ParentBackground = False
     ParentFont = False
+    TabOrder = 1
+  end
+  object db_cpf: TDBEdit
+    Left = 120
+    Top = 80
+    Width = 121
+    Height = 21
+    DataField = 'cpf_cliente'
+    DataSource = dm.ds_reserva
+    TabOrder = 2
+  end
+  object db_check_in: TDBEdit
+    Left = 120
+    Top = 149
+    Width = 121
+    Height = 21
+    DataField = 'check_in'
+    DataSource = dm.ds_reserva
+    TabOrder = 3
+  end
+  object db_check_out: TDBEdit
+    Left = 453
+    Top = 144
+    Width = 121
+    Height = 21
+    DataField = 'check_out'
+    DataSource = dm.ds_reserva
+    TabOrder = 4
+  end
+  object db_combo_box: TComboBox
+    Left = 453
+    Top = 80
+    Width = 121
+    Height = 21
     TabOrder = 5
+    OnDropDown = num_quarto_dropDown
   end
 end
