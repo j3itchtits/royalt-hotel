@@ -25,19 +25,19 @@ type
     t_clientepais: TWideStringField;
     t_clientetelefone_residencial: TWideStringField;
     ds_reserva_grid: TDataSource;
-    t_reserva: TADOTable;
     q_reserva: TADOQuery;
     ds_reserva: TDataSource;
     q_quarto: TADOQuery;
+    q_limpeza: TADOQuery;
+    ds_limpeza_grid: TDataSource;
+    t_quarto: TADOTable;
+    t_reserva: TADOTable;
     t_reservaid: TAutoIncField;
     t_reservacheck_in: TDateTimeField;
     t_reservacheck_out: TDateTimeField;
     t_reservanum_quarto: TIntegerField;
     t_reservacpf_cliente: TWideStringField;
-    t_reservanome_cliente: TDateTimeField;
-    q_limpeza: TADOQuery;
-    ds_limpeza_grid: TDataSource;
-    t_quarto: TADOTable;
+    t_reservanome_cliente: TWideStringField;
   private
     { Private declarations }
   public
