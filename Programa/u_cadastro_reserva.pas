@@ -59,7 +59,8 @@ var
   v_salvar : integer;
   contar_cpf : integer;
   contar_reserva : integer;
-  resultado : string;
+  resultado : integer;
+  id : string;
 
 implementation
 
@@ -214,7 +215,7 @@ begin
 with dm.q_reserva do
   begin
   Active := False;
-  SQL.Text := 'select * from reserva where num_quarto = :num and (( :in between check_in and check_out) or ( :out between check_in and check_out))';
+  SQL.Text := 'select * from reserva where num_quarto = :num and (( :in between check_in and check_out) or ( :out between check_in and check_out) or ( check_in between :in and :out) or ( check_out between :in and :out))';
   parameters.parambyname('num').value := db_combo_box.text;
   parameters.parambyname('in').value := db_check_in.text;
   parameters.parambyname('out').value := db_check_out.text;
@@ -261,10 +262,11 @@ begin
 with dm.q_reserva do
   begin
   Active := False;
-  SQL.Text := 'select * from reserva where num_quarto = :num and (( :in between check_in and check_out) or ( :out between check_in and check_out))';
+  SQL.Text := 'select * from reserva where num_quarto = :num and (( :in between check_in and check_out) or ( :out between check_in and check_out) or ( check_in between :in and :out) or ( check_out between :in and :out)) and id = :id';
   parameters.parambyname('num').value := db_combo_box.text;
   parameters.parambyname('in').value := db_check_in.text;
   parameters.parambyname('out').value := db_check_out.text;
+  id := dm.t_reserva.FieldByName('id').asstring;
   Active := True;
   contar_reserva := RecordCount;
   end;
@@ -374,8 +376,8 @@ end;
 
 procedure Tf_cadastro_reserva.g_reserva_cellClick(Column: TColumn);
 begin
-resultado := dm.q_reserva.fieldbyname('cpf_cliente').AsString;
-dm.t_reserva.Locate('cpf_cliente',resultado,[]);
+resultado := dm.q_reserva.fieldbyname('id').AsInteger;
+dm.t_reserva.Locate('id', resultado,[]);
 end;
 
 procedure Tf_cadastro_reserva.g_reserva_titleClick(Column: TColumn);
@@ -394,7 +396,7 @@ begin
   begin
   Close;
   SQL.Clear;
-  sql.Add('select * from reserva where check_in = :date and cpf_cliente like :num');
+  sql.Add('select * from reserva where check_in = :date and num_quarto like :num');
   parameters.parambyname('num').value := t_num_quarto.text + '%';
   parameters.parambyname('date').value := datetostr(dtp_reserva.date);
   Open;
