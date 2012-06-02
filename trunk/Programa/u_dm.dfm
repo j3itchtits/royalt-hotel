@@ -122,6 +122,7 @@ object dm: Tdm
     Top = 216
   end
   object q_reserva: TADOQuery
+    Active = True
     Connection = conexao
     CursorType = ctStatic
     Parameters = <>

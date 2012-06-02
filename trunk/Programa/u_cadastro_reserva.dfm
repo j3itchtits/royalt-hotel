@@ -217,7 +217,7 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       FDA8EA0D300000000049454E44AE426082}
   end
   object b_salvar: TPngSpeedButton
-    Left = 176
+    Left = 180
     Top = 224
     Width = 49
     Height = 57
@@ -1275,37 +1275,37 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       Columns = <
         item
           Expanded = False
-          FieldName = 'cpf_cliente'
-          Title.Caption = 'CPF'
-          Width = 120
+          FieldName = 'id'
+          Title.Caption = 'ID'
+          Width = 44
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'nome_cliente'
-          Title.Caption = 'Nome'
-          Width = 205
+          FieldName = 'cpf_cliente'
+          Title.Caption = 'CPF'
+          Width = 200
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'num_quarto'
           Title.Caption = 'Quarto'
-          Width = 80
+          Width = 82
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'check_in'
           Title.Caption = 'Entrada'
-          Width = 120
+          Width = 143
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'check_out'
           Title.Caption = 'Sa'#237'da'
-          Width = 120
+          Width = 155
           Visible = True
         end>
     end
@@ -1355,7 +1355,7 @@ object f_cadastro_reserva: Tf_cadastro_reserva
   object db_check_in: TDBEdit
     Left = 120
     Top = 149
-    Width = 121
+    Width = 109
     Height = 21
     DataField = 'check_in'
     DataSource = dm.ds_reserva
@@ -1385,7 +1385,7 @@ object f_cadastro_reserva: Tf_cadastro_reserva
   object db_cpf: TDBEdit
     Left = 120
     Top = 80
-    Width = 115
+    Width = 109
     Height = 21
     DataField = 'cpf_cliente'
     DataSource = dm.ds_reserva
