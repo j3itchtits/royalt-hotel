@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, DBCtrls, Mask, ExtCtrls, Buttons, PngSpeedButton, Grids,
-  DBGrids, u_dm, DB;
+  DBGrids, u_dm, DB, pngimage;
 
 type
   Tf_cadastro_cliente = class(TForm)
@@ -25,7 +25,6 @@ type
     b_cancelar: TPngSpeedButton;
     b_fechar: TPngSpeedButton;
     b_salvar: TPngSpeedButton;
-    Panel1: TPanel;
     group_pesquisar: TGroupBox;
     DBGrid1: TDBGrid;
     t_cpf: TEdit;
@@ -47,6 +46,7 @@ type
     Label13: TLabel;
     Label14: TLabel;
     db_pais: TDBComboBox;
+    Image1: TImage;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
     procedure b_alterarClick(Sender: TObject);

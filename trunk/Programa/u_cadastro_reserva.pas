@@ -5,7 +5,7 @@ interface
 uses
   u_dm, Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Mask, DBCtrls, Grids, DBGrids, ComCtrls, Buttons,
-  PngSpeedButton, ExtCtrls;
+  PngSpeedButton, ExtCtrls, pngimage;
 
 type
   Tf_cadastro_reserva = class(TForm)
@@ -23,7 +23,6 @@ type
     b_excluir: TPngSpeedButton;
     b_cancelar: TPngSpeedButton;
     b_fechar: TPngSpeedButton;
-    Panel1: TPanel;
     b_listar_todos: TPngSpeedButton;
     t_cpf: TEdit;
     Label6: TLabel;
@@ -33,6 +32,7 @@ type
     Label7: TLabel;
     db_combo_box: TDBComboBox;
     db_cpf: TDBEdit;
+    Image1: TImage;
     procedure b_fecharClick(Sender: TObject);
     procedure b_cancelarClick(Sender: TObject);
     procedure b_excluirClick(Sender: TObject);

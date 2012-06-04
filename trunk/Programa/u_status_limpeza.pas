@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Grids, DBGrids, u_dm, StdCtrls, ExtCtrls, Buttons, PngSpeedButton,
-  ComCtrls, DBCtrls;
+  ComCtrls, DBCtrls, pngimage;
 
 type
   Tf_status_limpeza = class(TForm)
@@ -21,6 +21,7 @@ type
     dtp: TDateTimePicker;
     bt_limpar: TPngSpeedButton;
     bt_fechar: TPngSpeedButton;
+    Image1: TImage;
     procedure rg_quartosClick(Sender: TObject);
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
