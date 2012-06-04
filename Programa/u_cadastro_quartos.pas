@@ -6,11 +6,10 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, FileCtrl, Buttons, PngSpeedButton, Mask, DBCtrls,
   IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl, IWCompListbox,
-  TeCanvas, Grids, DBGrids, u_dm, DB;
+  TeCanvas, Grids, DBGrids, u_dm, DB, pngimage;
 
 type
   Tf_cadastro_quartos = class(TForm)
-    Panel1: TPanel;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -34,6 +33,7 @@ type
     db_info_add: TDBEdit;
     DBGrid1: TDBGrid;
     t_pesquisar: TEdit;
+    Image1: TImage;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
     procedure b_alterarClick(Sender: TObject);
