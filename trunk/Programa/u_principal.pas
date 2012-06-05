@@ -32,6 +32,8 @@ type
     m_c_sair: TMenuItem;
     StatusBar1: TStatusBar;
     Image1: TImage;
+    b_despertador: TPngSpeedButton;
+    m_c_despertador: TMenuItem;
     procedure b_cadastro_clienteClick(Sender: TObject);
     procedure m_c_clienteClick(Sender: TObject);
     procedure b_cadastro_reservaClick(Sender: TObject);
@@ -49,6 +51,8 @@ type
     procedure m_c_senhaClick(Sender: TObject);
     procedure PngSpeedButton7Click(Sender: TObject);
     procedure m_sobreClick(Sender: TObject);
+    procedure b_despertadorClick(Sender: TObject);
+    procedure m_c_despertadorClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,7 +66,7 @@ implementation
 
 uses u_cadastro_cliente, u_cadastro_reserva, u_quadro_apartamentos,
   u_status_limpeza, u_cadastro_quartos, u_pagamentos, u_relatorios,
-  u_cadastro_senha, u_sobre;
+  u_cadastro_senha, u_sobre, u_despertador;
 
 {$R *.dfm}
 
@@ -79,6 +83,11 @@ end;
 procedure Tf_principal.b_cadastro_reservaClick(Sender: TObject);
 begin
 f_cadastro_reserva.show;
+end;
+
+procedure Tf_principal.b_despertadorClick(Sender: TObject);
+begin
+f_despertador.show;
 end;
 
 procedure Tf_principal.b_pagamentosClick(Sender: TObject);
@@ -114,6 +123,11 @@ end;
 procedure Tf_principal.m_c_clienteClick(Sender: TObject);
 begin
 f_cadastro_cliente.show;
+end;
+
+procedure Tf_principal.m_c_despertadorClick(Sender: TObject);
+begin
+f_despertador.show;
 end;
 
 procedure Tf_principal.m_c_pagamentosClick(Sender: TObject);
