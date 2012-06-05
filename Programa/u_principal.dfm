@@ -5952,6 +5952,14 @@ object f_principal: Tf_principal
       D8858043C4A0004077A92FACBDD60B84AE316104B9811E078016EBAC1FFF0FA0
       6502566F17BFBC0000000049454E44AE426082}
   end
+  object b_despertador: TPngSpeedButton
+    Left = 200
+    Top = 320
+    Width = 113
+    Height = 105
+    Caption = 'Despertador'
+    OnClick = b_despertadorClick
+  end
   object StatusBar1: TStatusBar
     Left = 0
     Top = 622
@@ -5979,6 +5987,10 @@ object f_principal: Tf_principal
       object m_c_quartos: TMenuItem
         Caption = '&Quartos'
         OnClick = m_c_quartosClick
+      end
+      object m_c_despertador: TMenuItem
+        Caption = '&Despertador'
+        OnClick = m_c_despertadorClick
       end
       object m_c_senha: TMenuItem
         Caption = '&Senha'
