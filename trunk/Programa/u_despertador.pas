@@ -28,7 +28,7 @@ type
     db_data: TDBEdit;
     db_hora: TDBEdit;
     db_num_quarto: TDBComboBox;
-    procedure db_dataChange(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -42,3 +42,5 @@ implementation
 
 {$R *.dfm}
 
+
+end.

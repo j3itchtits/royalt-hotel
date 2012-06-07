@@ -128,11 +128,10 @@ object f_despertador: Tf_despertador
     DataField = 'dia'
     DataSource = ds_despertador
     TabOrder = 3
-    OnChange = db_dataChange
   end
   object db_hora: TDBEdit
-    Left = 436
-    Top = 150
+    Left = 432
+    Top = 145
     Width = 121
     Height = 21
     DataField = 'hora'
