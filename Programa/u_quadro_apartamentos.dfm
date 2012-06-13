@@ -2263,31 +2263,11 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     Width = 393
     Height = 134
     Caption = 'Buscar por'
+    Items.Strings = (
+      'Todos'
+      'Por tipo de acomoda'#231#227'o'
+      'Por data')
     TabOrder = 2
-  end
-  object RadioButton1: TRadioButton
-    Left = 72
-    Top = 185
-    Width = 113
-    Height = 17
-    Caption = 'Todos'
-    TabOrder = 3
-  end
-  object RadioButton2: TRadioButton
-    Left = 72
-    Top = 208
-    Width = 153
-    Height = 17
-    Caption = 'Por classifica'#231#227'o do quarto'
-    TabOrder = 4
-  end
-  object RadioButton3: TRadioButton
-    Left = 72
-    Top = 235
-    Width = 113
-    Height = 17
-    Caption = 'Por data'
-    TabOrder = 5
   end
   object DateTimePicker1: TDateTimePicker
     Left = 250
@@ -2296,7 +2276,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     Height = 21
     Date = 41071.800766203710000000
     Time = 41071.800766203710000000
-    TabOrder = 6
+    TabOrder = 3
   end
   object RadioGroup1: TRadioGroup
     Left = 455
@@ -2304,31 +2284,12 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     Width = 121
     Height = 134
     Caption = 'Estado de ocupa'#231#227'o'
-    TabOrder = 7
-  end
-  object RadioButton4: TRadioButton
-    Left = 479
-    Top = 185
-    Width = 82
-    Height = 17
-    Caption = 'Todos'
-    TabOrder = 8
-  end
-  object RadioButton5: TRadioButton
-    Left = 479
-    Top = 208
-    Width = 82
-    Height = 17
-    Caption = 'Livres'
-    TabOrder = 9
-  end
-  object RadioButton6: TRadioButton
-    Left = 479
-    Top = 231
-    Width = 74
-    Height = 17
-    Caption = 'Ocupados'
-    TabOrder = 10
+    Items.Strings = (
+      'Todos'
+      'Livres'
+      'Ocupados'
+      'Reservados')
+    TabOrder = 4
   end
   object DBGrid1: TDBGrid
     Left = 56
@@ -2406,14 +2367,6 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
         Width = 145
         Visible = True
       end>
-  end
-  object RadioButton7: TRadioButton
-    Left = 479
-    Top = 254
-    Width = 74
-    Height = 17
-    Caption = 'Reservados'
-    TabOrder = 11
   end
   object db_classificar_quarto: TComboBox
     Left = 250
