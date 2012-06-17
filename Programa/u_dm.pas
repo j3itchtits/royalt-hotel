@@ -38,6 +38,7 @@ type
     t_reservanum_quarto: TIntegerField;
     t_reservacpf_cliente: TWideStringField;
     t_reservanome_cliente: TWideStringField;
+    q_senha: TADOQuery;
   private
     { Private declarations }
   public

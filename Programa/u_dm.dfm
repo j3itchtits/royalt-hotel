@@ -201,4 +201,10 @@ object dm: Tdm
       Size = 255
     end
   end
+  object q_senha: TADOQuery
+    Connection = conexao
+    Parameters = <>
+    Left = 152
+    Top = 328
+  end
 end
