@@ -5,7 +5,7 @@ interface
 uses
   u_dm, Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Mask, DBCtrls, Grids, DBGrids, ComCtrls, Buttons,
-  PngSpeedButton, ExtCtrls, pngimage;
+  PngSpeedButton, ExtCtrls, pngimage, db;
 
 type
   Tf_cadastro_reserva = class(TForm)
@@ -33,6 +33,15 @@ type
     db_combo_box: TDBComboBox;
     db_cpf: TDBEdit;
     Image1: TImage;
+    gb_cliente: TGroupBox;
+    PngSpeedButton1: TPngSpeedButton;
+    t_nome: TEdit;
+    db_nome: TDBText;
+    db_endereco: TDBText;
+    db_cidade: TDBText;
+    Label8: TLabel;
+    l_cpf: TLabel;
+    db_cpf2: TDBText;
     procedure b_fecharClick(Sender: TObject);
     procedure b_cancelarClick(Sender: TObject);
     procedure b_excluirClick(Sender: TObject);
@@ -48,6 +57,8 @@ type
     procedure num_quarto_change(Sender: TObject);
     procedure g_reserva_titleClick(Column: TColumn);
     procedure g_reserva_cellClick(Column: TColumn);
+    procedure PngSpeedButton1Click(Sender: TObject);
+    procedure t_nomeChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,6 +72,9 @@ var
   contar_reserva : integer;
   resultado : integer;
   id : string;
+  gbcliente : integer;
+  resultado2 : string;
+  fatiarcpf : string;
 
 implementation
 
@@ -440,6 +454,61 @@ begin
   parameters.parambyname('date').value := datetostr(dtp_reserva.date);
   Open;
   end;
+end;
+
+end;
+
+procedure Tf_cadastro_reserva.PngSpeedButton1Click(Sender: TObject);
+begin
+if gbcliente = 0 then
+begin
+gbcliente := 1;
+gb_cliente.Visible:=true;
+db_nome.Caption:='';
+db_endereco.Caption:='';
+db_cidade.Caption:='';
+l_cpf.Caption:='';
+db_cpf2.Caption:='';
+end
+else
+begin
+gbcliente := 0;
+db_nome.Caption:='';
+db_endereco.Caption:='';
+db_cidade.Caption:='';
+
+db_cpf2.Caption:='';
+gb_cliente.Visible:=false;
+end;
+end;
+
+procedure Tf_cadastro_reserva.t_nomeChange(Sender: TObject);
+begin
+if t_nome.text <> '' then
+begin
+  with dm.q_cliente do
+  begin
+  Close;
+  SQL.Clear;
+  sql.Add('select * from cliente where nome like '''+t_nome.text+'%''');
+  Open;
+  resultado2 := dm.q_cliente.fieldbyname('cpf').asstring;
+  dm.t_cliente.Locate('cpf',resultado2,[loCaseInsensitive, loPartialKey]);
+  fatiarcpf := db_cpf2.caption;
+  fatiarcpf := stringReplace(fatiarcpf, '.', '', []);
+  fatiarcpf := stringReplace(fatiarcpf, '.', '', []);
+  fatiarcpf := stringReplace(fatiarcpf, '-', '', []);
+  db_cpf.Text:=fatiarcpf;
+  l_cpf.Caption:='CPF:';
+  end;
+end
+else
+begin
+db_nome.Caption:='';
+db_endereco.Caption:='';
+db_cidade.Caption:='';
+l_cpf.Caption:='';
+db_cpf2.Caption:='';
 end;
 
 end;
