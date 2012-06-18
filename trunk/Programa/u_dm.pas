@@ -43,6 +43,8 @@ type
     ds_pagamento_grid: TDataSource;
     t_despertador: TADOTable;
     ds_despertador: TDataSource;
+    q_quadro: TADOQuery;
+    ds_quadro_grid: TDataSource;
   private
     { Private declarations }
   public
