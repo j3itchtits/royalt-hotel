@@ -13,6 +13,7 @@ uses
   u_relatorios in 'u_relatorios.pas' {f_relatorios},
   u_sobre in 'u_sobre.pas' {f_sobre},
   u_dm in 'u_dm.pas' {dm: TDataModule},
+  u_login in 'u_login.pas' {f_login},
   u_despertador in 'u_despertador.pas' {f_despertador};
 
 {$R *.res}
@@ -20,11 +21,12 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(Tf_login, f_login);
+  Application.CreateForm(Tf_cadastro_reserva, f_cadastro_reserva);
   Application.CreateForm(Tf_principal, f_principal);
   Application.CreateForm(Tf_quadro_apartamentos, f_quadro_apartamentos);
   Application.CreateForm(Tf_cadastro_cliente, f_cadastro_cliente);
   Application.CreateForm(Tf_cadastro_quartos, f_cadastro_quartos);
-  Application.CreateForm(Tf_cadastro_reserva, f_cadastro_reserva);
   Application.CreateForm(Tf_status_limpeza, f_status_limpeza);
   Application.CreateForm(Tf_pagamentos, f_pagamentos);
   Application.CreateForm(Tf_cadastro_senha, f_cadastro_senha);
