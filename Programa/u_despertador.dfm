@@ -2,7 +2,7 @@ object f_despertador: Tf_despertador
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
-  Caption = 'Sim'
+  Caption = 'Despertador'
   ClientHeight = 624
   ClientWidth = 639
   Color = clBtnFace
@@ -1283,7 +1283,6 @@ object f_despertador: Tf_despertador
       Font.Style = [fsBold]
       Layout = blGlyphTop
       ParentFont = False
-      OnClick = b_salvarClick
       PngImage.Data = {
         89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
         F4000000097048597300000B1300000B1301009A9C1800000A4F694343505068
