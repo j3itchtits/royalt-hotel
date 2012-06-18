@@ -231,8 +231,28 @@ object dm: Tdm
     Connection = conexao
     CursorType = ctStatic
     TableName = 'despertador'
-    Left = 374
+    Left = 358
     Top = 71
+    object t_despertadorid: TAutoIncField
+      FieldName = 'id'
+      ReadOnly = True
+    end
+    object t_despertadornum_quarto: TIntegerField
+      FieldName = 'num_quarto'
+    end
+    object t_despertadordia: TDateTimeField
+      FieldName = 'dia'
+      EditMask = '!00/00/0000;1;_'
+    end
+    object t_despertadorhora: TWideStringField
+      FieldName = 'hora'
+      EditMask = '!00:00;1;_'
+      Size = 255
+    end
+    object t_despertadorstatus: TWideStringField
+      FieldName = 'status'
+      Size = 255
+    end
   end
   object ds_despertador: TDataSource
     DataSet = t_despertador
@@ -253,5 +273,20 @@ object dm: Tdm
     DataSet = q_quadro
     Left = 232
     Top = 336
+  end
+  object ds_despertador_grid: TDataSource
+    DataSet = q_dispertador
+    Left = 456
+    Top = 136
+  end
+  object q_dispertador: TADOQuery
+    Active = True
+    Connection = conexao
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from despertador')
+    Left = 360
+    Top = 136
   end
 end
