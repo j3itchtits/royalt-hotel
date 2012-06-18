@@ -209,7 +209,14 @@ object dm: Tdm
   end
   object q_pagamento: TADOQuery
     Connection = conexao
+    CursorType = ctStatic
     Parameters = <>
+    SQL.Strings = (
+      
+        'Select reserva.cpf_cliente, reserva.num_quarto, quarto.diaria, r' +
+        'eserva.check_in,reserva.check_out, ((reserva.check_out - reserva' +
+        '.check_in)*quarto.diaria) from reserva, quarto where reserva.sta' +
+        'tus = "aberta"')
     Left = 152
     Top = 384
   end
