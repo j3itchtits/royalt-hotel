@@ -9,7 +9,7 @@ uses
 
 type
   Tf_quadro_apartamentos = class(TForm)
-    rg_quartos_quadro: TRadioGroup;
+    rg_data: TRadioGroup;
     DateTimePicker1: TDateTimePicker;
     rg_ocupacao: TRadioGroup;
     DBGrid1: TDBGrid;
@@ -53,7 +53,7 @@ end;
 
 procedure Tf_quadro_apartamentos.b_listarClick(Sender: TObject);
 begin
- if (rg_quartos_quadro.ItemIndex = 0) and (rg_tipo.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 0) then
+ if (rg_data.ItemIndex = 0) and (rg_tipo.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 0) then
   begin
   with dm.q_quadro do
   begin
@@ -64,7 +64,7 @@ begin
   end;
   end;
 
- if (rg_quartos_quadro.ItemIndex = 0) and (rg_tipo.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 1) then
+ if (rg_data.ItemIndex = 0) and (rg_tipo.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 1) then
   begin
   with dm.q_quadro do
   begin
@@ -77,7 +77,7 @@ begin
   end;
   end;
 
- if (rg_quartos_quadro.ItemIndex = 0) and (rg_tipo.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 2) then
+ if (rg_data.ItemIndex = 0) and (rg_tipo.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 2) then
  begin
   with dm.q_quadro do
   begin
@@ -89,6 +89,46 @@ begin
     Active:=true;
   end;
   end;
+
+ if (rg_data.ItemIndex = 0) and (rg_tipo.ItemIndex = 1) and (rg_ocupacao.ItemIndex = 0) then
+  begin
+  with dm.q_quadro do
+  begin
+    Active:=false;
+    SQL.Clear;
+    sql.Add('select * from quarto where tipo =:tipo order by numero');
+    parameters.ParamByName('tipo').Value := db_classificar_quarto.text;
+    ExecSQL;
+    Active:=true;
+  end;
+  end;
+
+ if (rg_data.ItemIndex = 0) and (rg_tipo.ItemIndex = 1) and (rg_ocupacao.ItemIndex = 1)then
+  begin
+    with dm.q_quadro do
+    begin
+      Active:=false;
+      SQL.Clear;
+      sql.Add('select * from quarto where tipo = :tipo and quarto.numero not in (select reserva.num_quarto from reserva where :data between check_in and check_out) order by numero');
+      parameters.ParamByName('tipo').Value := db_classificar_quarto.Text;
+      ExecSQL;
+      Active:=true;
+    end;
+  end;
+
+  if (rg_data.ItemIndex = 0) and (rg_tipo.ItemIndex = 1) and (rg_ocupacao.ItemIndex = 2)then
+  begin
+    with dm.q_quadro do
+    begin
+      Active:=false;
+      SQL.Clear;
+      sql.Add('select * from quarto where tipo = :tipo and quarto.numero in (select reserva.num_quarto from reserva where :data between check_in and check_out) order by numero');
+      parameters.ParamByName('tipo').Value := db_classificar_quarto.Text;
+      ExecSQL;
+      Active:=true;
+    end;
+  end;
+
 
  end;
 
