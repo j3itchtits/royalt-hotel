@@ -2,7 +2,7 @@ object f_despertador: Tf_despertador
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
-  Caption = 'Despertador'
+  Caption = 'Sim'
   ClientHeight = 600
   ClientWidth = 800
   Color = clBtnFace
@@ -14,159 +14,186 @@ object f_despertador: Tf_despertador
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object l_num: TLabel
-    Left = 29
-    Top = 121
+  object b_novo: TPngSpeedButton
+    Left = 48
+    Top = 280
+    Width = 49
+    Height = 22
+    Caption = 'Novo'
+    OnClick = b_novoClick
+  end
+  object b_salvar: TPngSpeedButton
+    Left = 154
+    Top = 280
+    Width = 47
+    Height = 22
+    Caption = 'Salvar'
+    OnClick = b_salvarClick
+  end
+  object b_alterar: TPngSpeedButton
+    Left = 244
+    Top = 280
+    Width = 45
+    Height = 22
+    Caption = 'Alterar'
+    OnClick = b_alterarClick
+  end
+  object b_excluir: TPngSpeedButton
+    Left = 496
+    Top = 280
+    Width = 41
+    Height = 22
+    Caption = 'Excluir'
+    OnClick = b_excluirClick
+  end
+  object b_cancelar: TPngSpeedButton
+    Left = 578
+    Top = 280
+    Width = 47
+    Height = 22
+    Caption = 'Cancelar'
+    OnClick = b_cancelarClick
+  end
+  object b_sair: TPngSpeedButton
+    Left = 688
+    Top = 280
+    Width = 31
+    Height = 22
+    Caption = 'Sair'
+    OnClick = b_sairClick
+  end
+  object b_primeiro: TPngSpeedButton
+    Left = 88
+    Top = 320
+    Width = 49
+    Height = 22
+    Caption = 'Primeiro'
+    OnClick = b_primeiroClick
+  end
+  object b_anterior: TPngSpeedButton
+    Left = 200
+    Top = 320
+    Width = 49
+    Height = 22
+    Caption = 'Anterior'
+    OnClick = b_anteriorClick
+  end
+  object b_proximo: TPngSpeedButton
+    Left = 536
+    Top = 320
+    Width = 49
+    Height = 22
+    Caption = 'Pr'#243'ximo'
+    OnClick = b_proximoClick
+  end
+  object b_ultimo: TPngSpeedButton
+    Left = 632
+    Top = 320
+    Width = 41
+    Height = 22
+    Caption = #218'ltimo'
+    OnClick = b_ultimoClick
+  end
+  object l_numquarto: TLabel
+    Left = 48
+    Top = 164
     Width = 94
     Height = 13
-    Caption = 'N'#250'mero do  quarto:'
+    Caption = 'N'#250'mero do quarto: '
   end
-  object l_data: TLabel
-    Left = 399
-    Top = 121
-    Width = 27
+  object l_dia: TLabel
+    Left = 48
+    Top = 188
+    Width = 19
     Height = 13
-    Caption = 'Data:'
+    Caption = 'Dia:'
   end
   object l_hora: TLabel
-    Left = 399
-    Top = 153
+    Left = 48
+    Top = 212
     Width = 27
     Height = 13
     Caption = 'Hora:'
   end
-  object l_gridGeral: TLabel
-    Left = 16
-    Top = 448
-    Width = 133
+  object l_realizado: TLabel
+    Left = 48
+    Top = 237
+    Width = 50
     Height = 13
-    Caption = 'Hist'#243'rico de despertadores:'
+    Caption = 'Realizado:'
   end
-  object l_ativos: TLabel
-    Left = 16
-    Top = 280
-    Width = 107
-    Height = 13
-    Caption = 'Despertadores ativos:'
-  end
-  object b_novo: TPngSpeedButton
-    Left = 467
-    Top = 264
-    Width = 23
-    Height = 22
-    Caption = 'Novo'
-  end
-  object b_salvar: TPngSpeedButton
-    Left = 506
-    Top = 264
-    Width = 23
-    Height = 22
-    Caption = 'Salvar'
-  end
-  object b_cancelar: TPngSpeedButton
-    Left = 547
-    Top = 264
-    Width = 23
-    Height = 22
-    Caption = 'Cancelar'
-  end
-  object b_excluir: TPngSpeedButton
-    Left = 592
-    Top = 264
-    Width = 23
-    Height = 22
-    Caption = 'Excluir'
-  end
-  object l_status: TLabel
-    Left = 399
-    Top = 186
-    Width = 112
-    Height = 13
-    Caption = 'Status do despertador:'
-  end
-  object grid_geral: TDBGrid
-    Left = 8
-    Top = 472
-    Width = 784
-    Height = 120
+  object db_numquarto: TDBEdit
+    Left = 146
+    Top = 161
+    Width = 121
+    Height = 21
+    DataField = 'num_quarto'
+    DataSource = dm.ds_despertador
     TabOrder = 0
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
   end
-  object grid_ativos: TDBGrid
-    Left = 8
-    Top = 304
-    Width = 784
-    Height = 120
-    TabOrder = 1
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
-  end
-  object check_ativo: TDBCheckBox
-    Left = 527
+  object db_dia: TDBEdit
+    Left = 75
     Top = 185
-    Width = 43
-    Height = 17
-    Caption = 'Ativo'
-    DataField = 'feito'
-    DataSource = ds_despertador
-    TabOrder = 2
-    ValueChecked = 'True'
-    ValueUnchecked = 'False'
-  end
-  object db_data: TDBEdit
-    Left = 436
-    Top = 118
     Width = 121
     Height = 21
     DataField = 'dia'
-    DataSource = ds_despertador
-    TabOrder = 3
+    DataSource = dm.ds_despertador
+    TabOrder = 1
   end
   object db_hora: TDBEdit
-    Left = 432
-    Top = 145
+    Left = 83
+    Top = 209
     Width = 121
     Height = 21
     DataField = 'hora'
-    DataSource = ds_despertador
-    TabOrder = 4
+    DataSource = dm.ds_despertador
+    TabOrder = 2
   end
-  object db_num_quarto: TDBComboBox
-    Left = 130
-    Top = 118
-    Width = 145
-    Height = 21
-    TabOrder = 5
+  object c_sim: TDBCheckBox
+    Left = 104
+    Top = 236
+    Width = 97
+    Height = 17
+    Caption = 'Sim'
+    DataField = 'feito'
+    DataSource = dm.ds_despertador
+    TabOrder = 3
+    ValueChecked = 'True'
+    ValueUnchecked = 'False'
   end
-  object conexao: TADOConnection
-    Connected = True
-    ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Royalt Hotel\ban' +
-      'co\banco.mdb;Persist Security Info=False'
-    LoginPrompt = False
-    Mode = cmShareDenyNone
-    Provider = 'Microsoft.Jet.OLEDB.4.0'
+  object DBGrid1: TDBGrid
     Left = 16
-    Top = 8
-  end
-  object tb_despertador: TADOTable
-    Active = True
-    Connection = conexao
-    CursorType = ctStatic
-    TableName = 'despertador'
-    Left = 88
-    Top = 8
-  end
-  object ds_despertador: TDataSource
-    DataSet = tb_despertador
-    Left = 160
-    Top = 8
+    Top = 368
+    Width = 761
+    Height = 209
+    DataSource = dm.ds_despertador
+    TabOrder = 4
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'N'#250'mero do quarto'
+        Width = 93
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Dia'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Hora'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Realizado'
+        Visible = True
+      end>
   end
 end

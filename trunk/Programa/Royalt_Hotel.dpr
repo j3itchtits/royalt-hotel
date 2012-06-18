@@ -2,17 +2,18 @@ program Royalt_Hotel;
 
 uses
   Forms,
-  u_principal in 'C:\Royalt Hotel\u_principal.pas' {f_principal},
-  u_quadro_apartamentos in 'C:\Royalt Hotel\u_quadro_apartamentos.pas' {f_quadro_apartamentos},
-  u_cadastro_cliente in 'C:\Royalt Hotel\u_cadastro_cliente.pas' {f_cadastro_cliente},
-  u_cadastro_quartos in 'C:\Royalt Hotel\u_cadastro_quartos.pas' {f_cadastro_quartos},
-  u_cadastro_reserva in 'C:\Royalt Hotel\u_cadastro_reserva.pas' {f_cadastro_reserva},
-  u_status_limpeza in 'C:\Royalt Hotel\u_status_limpeza.pas' {f_status_limpeza},
-  u_pagamentos in 'C:\Royalt Hotel\u_pagamentos.pas' {f_pagamentos},
-  u_cadastro_senha in 'C:\Royalt Hotel\u_cadastro_senha.pas' {f_cadastro_senha},
-  u_relatorios in 'C:\Royalt Hotel\u_relatorios.pas' {f_relatorios},
-  u_sobre in 'C:\Royalt Hotel\u_sobre.pas' {f_sobre},
-  u_dm in 'C:\Royalt Hotel\u_dm.pas' {dm: TDataModule};
+  u_principal in 'u_principal.pas' {f_principal},
+  u_quadro_apartamentos in 'u_quadro_apartamentos.pas' {f_quadro_apartamentos},
+  u_cadastro_cliente in 'u_cadastro_cliente.pas' {f_cadastro_cliente},
+  u_cadastro_quartos in 'u_cadastro_quartos.pas' {f_cadastro_quartos},
+  u_cadastro_reserva in 'u_cadastro_reserva.pas' {f_cadastro_reserva},
+  u_status_limpeza in 'u_status_limpeza.pas' {f_status_limpeza},
+  u_pagamentos in 'u_pagamentos.pas' {f_pagamentos},
+  u_cadastro_senha in 'u_cadastro_senha.pas' {f_cadastro_senha},
+  u_relatorios in 'u_relatorios.pas' {f_relatorios},
+  u_sobre in 'u_sobre.pas' {f_sobre},
+  u_dm in 'u_dm.pas' {dm: TDataModule},
+  u_despertador in 'u_despertador.pas' {f_despertador};
 
 {$R *.res}
 
@@ -30,5 +31,6 @@ begin
   Application.CreateForm(Tf_relatorios, f_relatorios);
   Application.CreateForm(Tf_sobre, f_sobre);
   Application.CreateForm(Tdm, dm);
+  Application.CreateForm(Tf_despertador, f_despertador);
   Application.Run;
 end.

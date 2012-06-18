@@ -225,4 +225,17 @@ object dm: Tdm
     Left = 240
     Top = 384
   end
+  object t_despertador: TADOTable
+    Active = True
+    Connection = conexao
+    CursorType = ctStatic
+    TableName = 'despertador'
+    Left = 374
+    Top = 71
+  end
+  object ds_despertador: TDataSource
+    DataSet = t_despertador
+    Left = 449
+    Top = 71
+  end
 end
