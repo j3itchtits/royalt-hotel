@@ -4,7 +4,7 @@ object f_cadastro_senha: Tf_cadastro_senha
   Caption = 'Cadastro de senha'
   ClientHeight = 283
   ClientWidth = 289
-  Color = clBtnFace
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -16,27 +16,45 @@ object f_cadastro_senha: Tf_cadastro_senha
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 32
-    Top = 80
-    Width = 61
-    Height = 13
+    Left = 29
+    Top = 79
+    Width = 64
+    Height = 16
     Caption = 'Senha atual:'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGray
+    Font.Height = -13
+    Font.Name = 'Goudy Old Style'
+    Font.Style = []
+    ParentFont = False
   end
   object Label2: TLabel
-    Left = 32
-    Top = 123
-    Width = 61
-    Height = 13
+    Left = 30
+    Top = 122
+    Width = 63
+    Height = 16
     Caption = 'Nova senha:'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGray
+    Font.Height = -13
+    Font.Name = 'Goudy Old Style'
+    Font.Style = []
+    ParentFont = False
   end
   object b_salvar: TPngSpeedButton
     Left = 112
     Top = 168
     Width = 73
-    Height = 57
+    Height = 65
     Caption = 'Salvar'
     Flat = True
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGray
+    Font.Height = -16
+    Font.Name = 'Goudy Old Style'
+    Font.Style = []
     Layout = blGlyphTop
+    ParentFont = False
     OnClick = b_salvarClick
     PngImage.Data = {
       89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
