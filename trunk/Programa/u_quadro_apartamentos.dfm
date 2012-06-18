@@ -1944,6 +1944,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     ParentFont = False
     ParentShowHint = False
     ShowHint = False
+    OnClick = b_listarClick
     PngImage.Data = {
       89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
       F4000000097048597300000B1300000B1301009A9C1800000A4F694343505068
@@ -2264,21 +2265,21 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     Height = 134
     Caption = 'Buscar por'
     Items.Strings = (
-      'Todos'
+      'Hoje'
       'Por tipo de acomoda'#231#227'o'
       'Por data')
     TabOrder = 2
   end
   object DateTimePicker1: TDateTimePicker
     Left = 250
-    Top = 235
+    Top = 259
     Width = 186
     Height = 21
     Date = 41071.800766203710000000
     Time = 41071.800766203710000000
     TabOrder = 3
   end
-  object RadioGroup1: TRadioGroup
+  object rg_ocupacao: TRadioGroup
     Left = 455
     Top = 158
     Width = 121
@@ -2335,42 +2336,16 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
         Visible = True
       end
       item
-        Alignment = taRightJustify
-        Expanded = False
-        FieldName = 'ocupado'
-        Title.Alignment = taRightJustify
-        Title.Caption = 'Estado de ocupa'#231#227'o'
-        Width = 125
-        Visible = True
-      end
-      item
         Expanded = False
         FieldName = 'diaria'
         Title.Alignment = taRightJustify
         Title.Caption = 'Valor da di'#225'ria'
         Visible = True
-      end
-      item
-        Alignment = taRightJustify
-        Expanded = False
-        FieldName = 'info_add'
-        Title.Alignment = taRightJustify
-        Title.Caption = 'Informa'#231#245'es adicionais'
-        Width = 250
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'id'
-        Title.Alignment = taRightJustify
-        Title.Caption = 'ID'
-        Width = 145
-        Visible = True
       end>
   end
   object db_classificar_quarto: TComboBox
     Left = 250
-    Top = 206
+    Top = 227
     Width = 186
     Height = 21
     Style = csDropDownList
