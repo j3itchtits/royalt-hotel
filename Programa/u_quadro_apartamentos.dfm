@@ -1929,8 +1929,8 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
       1DE83DEB7C6226625A0000000049454E44AE426082}
   end
   object b_listar: TPngSpeedButton
-    Left = 704
-    Top = 183
+    Left = 816
+    Top = 199
     Width = 73
     Height = 65
     Caption = '&Listar'
@@ -2258,20 +2258,30 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
       6D7DC62AD602042C3F25E674A46CE6ACCDE86691E9396BCA1AD6BFC833D0EE7E
       A02AFC0000000049454E44AE426082}
   end
+  object rg_tipo: TRadioGroup
+    Left = 359
+    Top = 183
+    Width = 266
+    Height = 109
+    Caption = 'Tipo de acomoda'#231#227'o'
+    Items.Strings = (
+      'Todos'
+      'Tipo')
+    TabOrder = 5
+  end
   object rg_quartos_quadro: TRadioGroup
     Left = 56
-    Top = 158
-    Width = 393
-    Height = 134
+    Top = 183
+    Width = 297
+    Height = 109
     Caption = 'Buscar por'
     Items.Strings = (
       'Hoje'
-      'Por tipo de acomoda'#231#227'o'
       'Por data')
     TabOrder = 2
   end
   object DateTimePicker1: TDateTimePicker
-    Left = 250
+    Left = 138
     Top = 259
     Width = 186
     Height = 21
@@ -2280,16 +2290,15 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     TabOrder = 3
   end
   object rg_ocupacao: TRadioGroup
-    Left = 455
-    Top = 158
+    Left = 639
+    Top = 183
     Width = 121
-    Height = 134
+    Height = 109
     Caption = 'Estado de ocupa'#231#227'o'
     Items.Strings = (
       'Todos'
       'Livres'
-      'Ocupados'
-      'Reservados')
+      'Ocupados')
     TabOrder = 4
   end
   object DBGrid1: TDBGrid
@@ -2344,11 +2353,21 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
       end>
   end
   object db_classificar_quarto: TComboBox
-    Left = 250
-    Top = 227
+    Left = 415
+    Top = 259
     Width = 186
     Height = 21
     Style = csDropDownList
     TabOrder = 0
+    Items.Strings = (
+      'Quarto duplo (1 casal)'
+      'Quarto triplo (1 casal, 1 solteiro)'
+      'Quarto qu'#225'druplo (1 casal, 2 solteiro)'
+      'Quarto qu'#237'ntuplo (1 casal, 3 solteiro)'
+      'Alojamento single (1 solteiro)'
+      'Alojamento duplo (2 solteiro)'
+      'Alojamento triplo (3 solteiro)'
+      'Alojamento qu'#225'druplo (4 solteiro)'
+      'Alojamento qu'#237'ntuplo (5 solteiro)')
   end
 end

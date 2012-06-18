@@ -17,6 +17,7 @@ type
     b_fechar: TPngSpeedButton;
     Image1: TImage;
     db_classificar_quarto: TComboBox;
+    rg_tipo: TRadioGroup;
     procedure b_fecharClick(Sender: TObject);
     procedure b_listarClick(Sender: TObject);
   private
@@ -52,7 +53,7 @@ end;
 
 procedure Tf_quadro_apartamentos.b_listarClick(Sender: TObject);
 begin
- if (rg_quartos_quadro.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 0) then
+ if (rg_quartos_quadro.ItemIndex = 0) and (rg_tipo.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 0) then
   begin
   with dm.q_quadro do
   begin
@@ -63,7 +64,7 @@ begin
   end;
   end;
 
- if (rg_quartos_quadro.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 1) then
+ if (rg_quartos_quadro.ItemIndex = 0) and (rg_tipo.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 1) then
   begin
   with dm.q_quadro do
   begin
@@ -76,7 +77,7 @@ begin
   end;
   end;
 
- if (rg_quartos_quadro.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 2) then
+ if (rg_quartos_quadro.ItemIndex = 0) and (rg_tipo.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 2) then
  begin
   with dm.q_quadro do
   begin
@@ -89,21 +90,6 @@ begin
   end;
   end;
 
- if (rg_quartos_quadro.ItemIndex = 0) and (rg_ocupacao.ItemIndex = 3) then
- begin
-  with dm.q_quadro do
-  begin
-    Active:=false;
-    SQL.Clear;
-    sql.Add('select * from quarto where quarto.numero not in (select reserva.num_quarto from reserva where : data between check_in and check_out) order by numero');
-    parameters.ParamByName('data').Value :=date();
-    ExecSQL;
-    Active:=true;
-  end;
-  end;
-end;
-
-
-
+ end;
 
 end.
