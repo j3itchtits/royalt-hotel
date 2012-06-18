@@ -207,4 +207,15 @@ object dm: Tdm
     Left = 152
     Top = 328
   end
+  object q_pagamento: TADOQuery
+    Connection = conexao
+    Parameters = <>
+    Left = 152
+    Top = 384
+  end
+  object ds_pagamento_grid: TDataSource
+    DataSet = q_pagamento
+    Left = 240
+    Top = 384
+  end
 end

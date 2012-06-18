@@ -39,6 +39,8 @@ type
     t_reservacpf_cliente: TWideStringField;
     t_reservanome_cliente: TWideStringField;
     q_senha: TADOQuery;
+    q_pagamento: TADOQuery;
+    ds_pagamento_grid: TDataSource;
   private
     { Private declarations }
   public
