@@ -14,10 +14,17 @@
     <Transaction>2012/05/19 21:12:26.000.526,C:\Users\Rodrigo\Desktop\System Hotel\u_cadastro_cliente.pas=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.pas</Transaction>
     <Transaction>2012/05/19 21:12:32.000.001,=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.pas</Transaction>
     <Transaction>2012/05/19 21:13:00.000.042,=C:\Users\Rodrigo\Desktop\System Hotel\Unit2.pas</Transaction>
+<<<<<<< .mine
+    <Transaction>2012/05/19 21:13:25.000.461,C:\Users\Rodrigo\Desktop\System Hotel\u_cadastro_quartos.pas=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.pas</Transaction>
+    <Transaction>2012/05/19 21:13:25.000.461,C:\Users\Rodrigo\Desktop\System Hotel\u_cadastro_quartos.dfm=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.dfm</Transaction>
+    <Transaction>2012/05/19 21:13:43.000.725,C:\Users\Rodrigo\Desktop\System Hotel\u_cadastro_reserva.pas=C:\Users\Rodrigo\Desktop\System Hotel\Unit2.pas</Transaction>
+    <Transaction>2012/05/19 21:13:43.000.725,C:\Users\Rodrigo\Desktop\System Hotel\u_cadastro_reserva.dfm=C:\Users\Rodrigo\Desktop\System Hotel\Unit2.dfm</Transaction>
+=======
     <Transaction>2012/05/19 21:13:25.000.461,C:\Users\Rodrigo\Desktop\System Hotel\u_cadastro_quartos.pas=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.pas</Transaction>
     <Transaction>2012/05/19 21:13:25.000.461,C:\Users\Rodrigo\Desktop\System Hotel\u_cadastro_quartos.dfm=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.dfm</Transaction>
     <Transaction>2012/05/19 21:13:43.000.725,C:\Users\Rodrigo\Desktop\System Hotel\u_cadastro_reserva.dfm=C:\Users\Rodrigo\Desktop\System Hotel\Unit2.dfm</Transaction>
     <Transaction>2012/05/19 21:13:43.000.725,C:\Users\Rodrigo\Desktop\System Hotel\u_cadastro_reserva.pas=C:\Users\Rodrigo\Desktop\System Hotel\Unit2.pas</Transaction>
+>>>>>>> .r134
     <Transaction>2012/05/19 21:14:07.000.377,=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.pas</Transaction>
     <Transaction>2012/05/19 21:14:38.000.197,C:\Users\Rodrigo\Desktop\System Hotel\u_status_limpeza.dfm=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.dfm</Transaction>
     <Transaction>2012/05/19 21:14:38.000.197,C:\Users\Rodrigo\Desktop\System Hotel\u_status_limpeza.pas=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.pas</Transaction>
@@ -28,16 +35,31 @@
     <Transaction>2012/05/19 21:16:02.000.279,C:\Users\Rodrigo\Desktop\System Hotel\u_cadastro_senha.pas=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.pas</Transaction>
     <Transaction>2012/05/19 21:16:02.000.279,C:\Users\Rodrigo\Desktop\System Hotel\u_cadastro_senha.dfm=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.dfm</Transaction>
     <Transaction>2012/05/19 21:16:05.000.537,=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.pas</Transaction>
+<<<<<<< .mine
+    <Transaction>2012/05/19 21:16:21.000.017,C:\Users\Rodrigo\Desktop\System Hotel\u_relatorios.pas=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.pas</Transaction>
+    <Transaction>2012/05/19 21:16:21.000.017,C:\Users\Rodrigo\Desktop\System Hotel\u_relatorios.dfm=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.dfm</Transaction>
+=======
     <Transaction>2012/05/19 21:16:21.000.017,C:\Users\Rodrigo\Desktop\System Hotel\u_relatorios.dfm=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.dfm</Transaction>
     <Transaction>2012/05/19 21:16:21.000.017,C:\Users\Rodrigo\Desktop\System Hotel\u_relatorios.pas=C:\Users\Rodrigo\Desktop\System Hotel\Unit1.pas</Transaction>
+>>>>>>> .r134
     <Transaction>2012/05/20 10:15:02.000.467,=C:\System Hotel\Unit1.pas</Transaction>
     <Transaction>2012/05/20 10:15:24.000.027,C:\System Hotel\u_sobre.dfm=C:\System Hotel\Unit1.dfm</Transaction>
     <Transaction>2012/05/20 10:15:24.000.027,C:\System Hotel\u_sobre.pas=C:\System Hotel\Unit1.pas</Transaction>
     <Transaction>2012/05/20 11:07:32.000.202,=C:\System Hotel\Unit1.pas</Transaction>
+<<<<<<< .mine
+    <Transaction>2012/05/20 11:14:32.000.624,C:\System Hotel\u_dm.dfm=C:\System Hotel\Unit1.dfm</Transaction>
+    <Transaction>2012/05/20 11:14:32.000.624,C:\System Hotel\u_dm.pas=C:\System Hotel\Unit1.pas</Transaction>
+    <Transaction>2012/05/23 21:30:14.000.264,C:\System Hotel\System_Hotel.dproj=C:\Royalt Hotel\Royalt_Hotel.dproj</Transaction>
+    <Transaction>2012/06/17 21:05:44.000.034,=C:\Royalt Hotel\Unit1.pas</Transaction>
+    <Transaction>2012/06/17 21:10:12.000.837,C:\Royalt Hotel\u_login.dfm=C:\Royalt Hotel\Unit1.dfm</Transaction>
+    <Transaction>2012/06/17 21:10:12.000.837,C:\Royalt Hotel\u_login.pas=C:\Royalt Hotel\Unit1.pas</Transaction>
+    <Transaction>2012/06/17 21:24:25.000.993,=C:\Royalt Hotel\u_despertador.pas</Transaction>
+=======
     <Transaction>2012/05/20 11:14:32.000.624,C:\System Hotel\u_dm.dfm=C:\System Hotel\Unit1.dfm</Transaction>
     <Transaction>2012/05/20 11:14:32.000.624,C:\System Hotel\u_dm.pas=C:\System Hotel\Unit1.pas</Transaction>
     <Transaction>2012/05/23 21:30:14.000.264,C:\System Hotel\System_Hotel.dproj=C:\Royalt Hotel\Royalt_Hotel.dproj</Transaction>
     <Transaction>2012/06/18 09:56:01.000.603,=C:\Royalt Hotel\Unit1.pas</Transaction>
     <Transaction>2012/06/18 09:56:43.000.843,=C:\Royalt Hotel\u_despertador.pas</Transaction>
+>>>>>>> .r134
   </Transactions>
 </BorlandProject>

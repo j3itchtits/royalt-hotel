@@ -84,6 +84,9 @@
 				<Form>dm</Form>
 				<DesignClass>TDataModule</DesignClass>
 			</DCCReference>
+			<DCCReference Include="u_login.pas">
+				<Form>f_login</Form>
+			</DCCReference>
 			<DCCReference Include="u_despertador.pas">
 				<Form>f_despertador</Form>
 			</DCCReference>
