@@ -45,6 +45,13 @@ type
     ds_despertador: TDataSource;
     q_quadro: TADOQuery;
     ds_quadro_grid: TDataSource;
+    ds_despertador_grid: TDataSource;
+    q_dispertador: TADOQuery;
+    t_despertadorid: TAutoIncField;
+    t_despertadornum_quarto: TIntegerField;
+    t_despertadordia: TDateTimeField;
+    t_despertadorhora: TWideStringField;
+    t_despertadorstatus: TWideStringField;
   private
     { Private declarations }
   public

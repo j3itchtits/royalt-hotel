@@ -5,29 +5,30 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, u_dm, db, StdCtrls, DBCtrls, Buttons, PngSpeedButton, Grids, DBGrids,
-  ADODB, Mask;
+  ADODB, Mask, ComCtrls;
 
 type
   Tf_despertador = class(TForm)
-    b_novo: TPngSpeedButton;
-    b_salvar: TPngSpeedButton;
-    b_alterar: TPngSpeedButton;
-    b_excluir: TPngSpeedButton;
-    b_cancelar: TPngSpeedButton;
-    b_sair: TPngSpeedButton;
-    b_primeiro: TPngSpeedButton;
-    b_anterior: TPngSpeedButton;
-    b_proximo: TPngSpeedButton;
-    b_ultimo: TPngSpeedButton;
     l_numquarto: TLabel;
     l_dia: TLabel;
     l_hora: TLabel;
-    l_realizado: TLabel;
     db_numquarto: TDBEdit;
     db_dia: TDBEdit;
     db_hora: TDBEdit;
-    c_sim: TDBCheckBox;
-    DBGrid1: TDBGrid;
+    gb_grid: TGroupBox;
+    dbg_despertador: TDBGrid;
+    PngSpeedButton1: TPngSpeedButton;
+    PngSpeedButton2: TPngSpeedButton;
+    PngSpeedButton3: TPngSpeedButton;
+    PngSpeedButton4: TPngSpeedButton;
+    PngSpeedButton5: TPngSpeedButton;
+    b_fechar: TPngSpeedButton;
+    DateTimePicker1: TDateTimePicker;
+    Label5: TLabel;
+    p_num_quarto: TEdit;
+    Label7: TLabel;
+    b_listar_todos: TPngSpeedButton;
+    b_finalizar: TPngSpeedButton;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
     procedure b_alterarClick(Sender: TObject);
