@@ -2269,7 +2269,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
       'Tipo')
     TabOrder = 5
   end
-  object rg_quartos_quadro: TRadioGroup
+  object rg_data: TRadioGroup
     Left = 56
     Top = 183
     Width = 297
