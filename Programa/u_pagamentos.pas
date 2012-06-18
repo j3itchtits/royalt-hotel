@@ -19,6 +19,7 @@ type
     Label4: TLabel;
     procedure b_listar_todosClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
+    procedure formShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -82,6 +83,12 @@ with dm.q_pagamento do
   showmessage('Pagamento efetuado com sucesso!');
   ver := 0;
   end;
+t_cpf.Text := ''
+end;
+
+procedure Tf_pagamentos.formShow(Sender: TObject);
+begin
+t_cpf.Text := ''
 end;
 
 end.
