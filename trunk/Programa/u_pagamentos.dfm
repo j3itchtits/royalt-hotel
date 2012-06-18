@@ -12,6 +12,7 @@ object f_pagamentos: Tf_pagamentos
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnShow = formShow
   PixelsPerInch = 96
   TextHeight = 13
   object b_listar_todos: TPngSpeedButton
@@ -445,30 +446,35 @@ object f_pagamentos: Tf_pagamentos
           Expanded = False
           FieldName = 'num_quarto'
           Title.Caption = 'N'#250'mero do Quarto'
+          Width = 100
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'diaria'
           Title.Caption = 'Pre'#231'o da Diaria'
+          Width = 100
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'check_in'
           Title.Caption = 'Entrada'
+          Width = 80
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'check_out'
           Title.Caption = 'Sa'#237'da'
+          Width = 80
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Expr1005'
           Title.Caption = 'Total'
+          Width = 80
           Visible = True
         end>
     end
