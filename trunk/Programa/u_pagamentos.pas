@@ -49,15 +49,15 @@ with dm.q_pagamento do
   parameters.parambyname('cp').value := t_cpf.text;
   parameters.parambyname('complemento').value := 'reserva.cpf_cliente, reserva.num_quarto, quarto.diaria, reserva.check_in,reserva.check_out,';
   Open;
-  total = 0;
+  total := 0;
   while not EOF do
   begin
-    total = total + Fields[0].AsCurrency;
+    total := total + Fields[0].AsCurrency;
     Next;
   end;
   end;
-  l_total.Caption = total;
-  ver = 1;
+  l_total.Caption := total;
+  ver := 1;
 end;
 
 procedure Tf_pagamentos.b_salvarClick(Sender: TObject);
@@ -80,6 +80,7 @@ with dm.q_pagamento do
   parameters.parambyname('cp').value := t_cpf.text;
   ExecSQL;
   showmessage('Pagamento efetuado com sucesso!');
+  ver := 0;
   end;
 end;
 
