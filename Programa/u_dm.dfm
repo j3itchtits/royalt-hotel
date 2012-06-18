@@ -148,6 +148,7 @@ object dm: Tdm
     Top = 144
   end
   object q_limpeza: TADOQuery
+    Active = True
     Connection = conexao
     CursorType = ctStatic
     Parameters = <>
@@ -205,7 +206,7 @@ object dm: Tdm
     Connection = conexao
     Parameters = <>
     Left = 152
-    Top = 328
+    Top = 384
   end
   object q_pagamento: TADOQuery
     Connection = conexao
@@ -218,12 +219,12 @@ object dm: Tdm
         '.check_in)*quarto.diaria) from reserva, quarto where reserva.sta' +
         'tus = "aberta"')
     Left = 152
-    Top = 384
+    Top = 440
   end
   object ds_pagamento_grid: TDataSource
     DataSet = q_pagamento
-    Left = 240
-    Top = 384
+    Left = 232
+    Top = 440
   end
   object t_despertador: TADOTable
     Active = True
@@ -237,5 +238,20 @@ object dm: Tdm
     DataSet = t_despertador
     Left = 449
     Top = 71
+  end
+  object q_quadro: TADOQuery
+    Active = True
+    Connection = conexao
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select numero, andar, tipo, ocupado, diaria from quarto')
+    Left = 152
+    Top = 336
+  end
+  object ds_quadro_grid: TDataSource
+    DataSet = q_quadro
+    Left = 232
+    Top = 336
   end
 end
