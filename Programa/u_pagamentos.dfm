@@ -433,6 +433,44 @@ object f_pagamentos: Tf_pagamentos
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'cpf_cliente'
+          Title.Caption = 'CPF'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'num_quarto'
+          Title.Caption = 'N'#250'mero do Quarto'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'diaria'
+          Title.Caption = 'Pre'#231'o da Diaria'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'check_in'
+          Title.Caption = 'Entrada'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'check_out'
+          Title.Caption = 'Sa'#237'da'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Expr1005'
+          Title.Caption = 'Total'
+          Visible = True
+        end>
     end
   end
   object t_cpf: TEdit
