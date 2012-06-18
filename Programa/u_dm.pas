@@ -41,6 +41,8 @@ type
     q_senha: TADOQuery;
     q_pagamento: TADOQuery;
     ds_pagamento_grid: TDataSource;
+    t_despertador: TADOTable;
+    ds_despertador: TDataSource;
   private
     { Private declarations }
   public
