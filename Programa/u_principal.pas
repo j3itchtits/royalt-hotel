@@ -53,6 +53,7 @@ type
     procedure m_sobreClick(Sender: TObject);
     procedure b_despertadorClick(Sender: TObject);
     procedure m_c_despertadorClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -108,6 +109,11 @@ end;
 procedure Tf_principal.b_status_limpezaClick(Sender: TObject);
 begin
 f_status_limpeza.show;
+end;
+
+procedure Tf_principal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+application.Terminate;
 end;
 
 procedure Tf_principal.m_a_quadro_ocupacaoClick(Sender: TObject);
