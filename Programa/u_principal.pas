@@ -32,7 +32,6 @@ type
     m_c_sair: TMenuItem;
     StatusBar1: TStatusBar;
     Image1: TImage;
-    b_despertador: TPngSpeedButton;
     m_c_despertador: TMenuItem;
     procedure b_cadastro_clienteClick(Sender: TObject);
     procedure m_c_clienteClick(Sender: TObject);
