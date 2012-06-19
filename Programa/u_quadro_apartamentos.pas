@@ -203,8 +203,8 @@ begin
   end;
   end;
 
-  //por data, por tipo, ocupados
-  if (rg_data.ItemIndex = 1) and (rg_tipo.ItemIndex = 1) and (rg_ocupacao.ItemIndex = 1) then
+  //por data, por tipo, ocupados (112)
+  if (rg_data.ItemIndex = 1) and (rg_tipo.ItemIndex = 1) and (rg_ocupacao.ItemIndex = 2) then
   begin
   with dm.q_quadro do
   begin
