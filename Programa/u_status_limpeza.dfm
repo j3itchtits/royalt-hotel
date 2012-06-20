@@ -1931,16 +1931,16 @@ object f_status_limpeza: Tf_status_limpeza
   end
   object bt_fechar: TPngSpeedButton
     Left = 1192
-    Top = 25
+    Top = 16
     Width = 49
-    Height = 52
-    Caption = 'Fechar'
+    Height = 73
+    Caption = '&Fechar'
     Flat = True
     Font.Charset = ANSI_CHARSET
     Font.Color = clGray
-    Font.Height = -13
+    Font.Height = -15
     Font.Name = 'Goudy Old Style'
-    Font.Style = []
+    Font.Style = [fsBold]
     Layout = blGlyphTop
     ParentFont = False
     OnClick = bt_fecharClick
@@ -2087,21 +2087,21 @@ object f_status_limpeza: Tf_status_limpeza
   object DBGrid1: TDBGrid
     Left = 48
     Top = 328
-    Width = 1161
+    Width = 993
     Height = 289
     Color = clBtnFace
     DataSource = dm.ds_limpeza_grid
     Font.Charset = ANSI_CHARSET
-    Font.Color = clGray
+    Font.Color = clBlack
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
     TabOrder = 0
     TitleFont.Charset = ANSI_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
-    TitleFont.Name = 'Courier New'
+    TitleFont.Name = 'Tahoma'
     TitleFont.Style = [fsBold]
     OnCellClick = DBGrid1CellClick
     OnTitleClick = DBGrid1TitleClick
@@ -2121,6 +2121,7 @@ object f_status_limpeza: Tf_status_limpeza
         Visible = True
       end
       item
+        Alignment = taRightJustify
         Expanded = False
         FieldName = 'tipo'
         Title.Caption = 'Tipo'
@@ -2128,6 +2129,7 @@ object f_status_limpeza: Tf_status_limpeza
         Visible = True
       end
       item
+        Alignment = taRightJustify
         Expanded = False
         FieldName = 'data_limpeza'
         Title.Caption = 'Data '#250'ltima limpeza'
@@ -2135,6 +2137,7 @@ object f_status_limpeza: Tf_status_limpeza
         Visible = True
       end
       item
+        Alignment = taRightJustify
         Expanded = False
         FieldName = 'ocupado'
         Title.Caption = 'Ocupado'
@@ -2161,7 +2164,7 @@ object f_status_limpeza: Tf_status_limpeza
   object gb_limpar: TGroupBox
     Left = 192
     Top = 160
-    Width = 1017
+    Width = 849
     Height = 121
     Caption = 'Limpar quarto'
     TabOrder = 2
@@ -2247,14 +2250,14 @@ object f_status_limpeza: Tf_status_limpeza
       ParentFont = False
     end
     object bt_limpar: TPngSpeedButton
-      Left = 846
-      Top = 13
+      Left = 678
+      Top = 21
       Width = 144
       Height = 55
       Caption = 'Marcar como limpo em:'
       Flat = True
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
@@ -2415,8 +2418,8 @@ object f_status_limpeza: Tf_status_limpeza
         454E44AE426082}
     end
     object dtp: TDateTimePicker
-      Left = 820
-      Top = 90
+      Left = 644
+      Top = 82
       Width = 186
       Height = 21
       Date = 41060.000000000000000000
