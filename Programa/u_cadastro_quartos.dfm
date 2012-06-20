@@ -3141,7 +3141,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       Caption = 'Digite aqui a informa'#231#227'o desejada para a pesquisa:'
     end
     object b_listar_todos: TPngSpeedButton
-      Left = 1064
+      Left = 704
       Top = 16
       Width = 73
       Height = 65
