@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, u_dm, db, StdCtrls, DBCtrls, Buttons, PngSpeedButton, Grids, DBGrids,
-  ADODB, Mask, ComCtrls;
+  ADODB, Mask, ComCtrls, pngimage, ExtCtrls;
 
 type
   Tf_despertador = class(TForm)
@@ -30,6 +30,7 @@ type
     b_listar_todos: TPngSpeedButton;
     b_finalizar: TPngSpeedButton;
     b_listar_ativos: TPngSpeedButton;
+    Image1: TImage;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
     procedure b_alterarClick(Sender: TObject);

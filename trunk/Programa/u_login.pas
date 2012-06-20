@@ -4,14 +4,15 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, PngSpeedButton, u_dm, u_principal;
+  Dialogs, StdCtrls, Buttons, PngSpeedButton, u_dm, u_principal, pngimage,
+  ExtCtrls;
 
 type
   Tf_login = class(TForm)
-    logo: TPngSpeedButton;
     t_senha: TEdit;
     Label1: TLabel;
     b_login: TPngSpeedButton;
+    Image1: TImage;
     procedure b_loginClick(Sender: TObject);
     procedure t_senhaKeyPress(Sender: TObject; var Key: Char);
   private

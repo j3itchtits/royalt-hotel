@@ -19,7 +19,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
   TextHeight = 13
   object Image1: TImage
     Left = 0
-    Top = 0
+    Top = -3
     Width = 1281
     Height = 641
     Picture.Data = {
@@ -1931,28 +1931,28 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       1DE83DEB7C6226625A0000000049454E44AE426082}
   end
   object Label1: TLabel
-    Left = 97
+    Left = 145
     Top = 168
     Width = 83
     Height = 13
     Caption = 'Andar do quarto:'
   end
   object Label2: TLabel
-    Left = 89
+    Left = 137
     Top = 200
     Width = 91
     Height = 13
     Caption = 'N'#250'mero do quarto:'
   end
   object Label3: TLabel
-    Left = 106
+    Left = 154
     Top = 229
     Width = 74
     Height = 13
     Caption = 'Tipo do quarto:'
   end
   object Label4: TLabel
-    Left = 108
+    Left = 156
     Top = 264
     Width = 72
     Height = 13
@@ -2114,8 +2114,8 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       A02AFC0000000049454E44AE426082}
   end
   object b_novo: TPngSpeedButton
-    Left = 875
-    Top = 151
+    Left = 772
+    Top = 185
     Width = 49
     Height = 57
     Caption = '&Novo'
@@ -2286,8 +2286,8 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       FDA8EA0D300000000049454E44AE426082}
   end
   object b_salvar: TPngSpeedButton
-    Left = 944
-    Top = 151
+    Left = 841
+    Top = 185
     Width = 49
     Height = 57
     Caption = '&Salvar'
@@ -2461,8 +2461,8 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       6082}
   end
   object b_alterar: TPngSpeedButton
-    Left = 1011
-    Top = 151
+    Left = 908
+    Top = 185
     Width = 49
     Height = 57
     Caption = '&Alterar'
@@ -2633,8 +2633,8 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       0049454E44AE426082}
   end
   object b_excluir: TPngSpeedButton
-    Left = 1083
-    Top = 151
+    Left = 980
+    Top = 185
     Width = 49
     Height = 57
     Caption = '&Excluir'
@@ -2795,8 +2795,8 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       CAF2B7BD93A5B4FE0F36CD08FDB48CF07E0000000049454E44AE426082}
   end
   object b_cancelar: TPngSpeedButton
-    Left = 1155
-    Top = 151
+    Left = 1052
+    Top = 185
     Width = 62
     Height = 57
     Caption = '&Cancelar'
@@ -2966,14 +2966,14 @@ object f_cadastro_quartos: Tf_cadastro_quartos
       00000049454E44AE426082}
   end
   object Label7: TLabel
-    Left = 67
+    Left = 115
     Top = 291
     Width = 113
     Height = 13
     Caption = 'Informa'#231#245'es adicionais:'
   end
   object db_andar: TDBComboBox
-    Left = 185
+    Left = 233
     Top = 168
     Width = 145
     Height = 21
@@ -3083,7 +3083,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     TabOrder = 0
   end
   object db_numero: TDBEdit
-    Left = 185
+    Left = 233
     Top = 200
     Width = 121
     Height = 21
@@ -3092,7 +3092,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     TabOrder = 1
   end
   object db_tipo: TDBComboBox
-    Left = 185
+    Left = 233
     Top = 227
     Width = 385
     Height = 21
@@ -3111,7 +3111,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     TabOrder = 2
   end
   object db_diaria: TDBEdit
-    Left = 186
+    Left = 234
     Top = 264
     Width = 121
     Height = 21
@@ -3120,28 +3120,28 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     TabOrder = 3
   end
   object group_pesquisar: TGroupBox
-    Left = 67
+    Left = 145
     Top = 360
-    Width = 1158
+    Width = 969
     Height = 257
     Caption = 'Pesquisar quarto'
     TabOrder = 5
     object Label5: TLabel
-      Left = 16
+      Left = 30
       Top = 41
       Width = 69
       Height = 13
       Caption = 'Pesquisar por:'
     end
     object Label6: TLabel
-      Left = 256
+      Left = 270
       Top = 44
       Width = 245
       Height = 13
       Caption = 'Digite aqui a informa'#231#227'o desejada para a pesquisa:'
     end
     object b_listar_todos: TPngSpeedButton
-      Left = 704
+      Left = 718
       Top = 16
       Width = 73
       Height = 65
@@ -3316,7 +3316,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
         EE66EB7F6B1F11FD1777C0730000000049454E44AE426082}
     end
     object db_pesquisar_por: TComboBox
-      Left = 91
+      Left = 105
       Top = 41
       Width = 145
       Height = 21
@@ -3331,7 +3331,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
         'ID')
     end
     object DBGrid1: TDBGrid
-      Left = 16
+      Left = 30
       Top = 87
       Width = 910
       Height = 153
@@ -3395,7 +3395,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
         end>
     end
     object t_pesquisar: TEdit
-      Left = 507
+      Left = 521
       Top = 40
       Width = 121
       Height = 21
@@ -3404,7 +3404,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     end
   end
   object db_info_add: TDBEdit
-    Left = 186
+    Left = 234
     Top = 291
     Width = 121
     Height = 21

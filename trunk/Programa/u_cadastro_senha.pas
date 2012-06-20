@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, PngSpeedButton, StdCtrls, u_dm;
+  Dialogs, Buttons, PngSpeedButton, StdCtrls, u_dm, pngimage, ExtCtrls;
 
 type
   Tf_cadastro_senha = class(TForm)
@@ -13,6 +13,7 @@ type
     Label1: TLabel;
     Label2: TLabel;
     b_salvar: TPngSpeedButton;
+    Image1: TImage;
     procedure b_salvarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
