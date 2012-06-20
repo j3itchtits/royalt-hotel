@@ -1,5 +1,5 @@
 object f_despertador: Tf_despertador
-  Left = 0
+  Left = 244
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Despertador'
@@ -12,6 +12,7 @@ object f_despertador: Tf_despertador
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDesigned
   PixelsPerInch = 96
   TextHeight = 13
   object l_numquarto: TLabel
@@ -35,7 +36,7 @@ object f_despertador: Tf_despertador
     Height = 13
     Caption = 'Hora:'
   end
-  object PngSpeedButton1: TPngSpeedButton
+  object b_novo: TPngSpeedButton
     Left = 65
     Top = 297
     Width = 49
@@ -207,7 +208,7 @@ object f_despertador: Tf_despertador
       776EA8F50100577EF5D629C1E987A1E90053EBD5F3C9CC6BB891D67F01A2A225
       FDA8EA0D300000000049454E44AE426082}
   end
-  object PngSpeedButton2: TPngSpeedButton
+  object b_salvar: TPngSpeedButton
     Left = 155
     Top = 297
     Width = 49
@@ -382,7 +383,7 @@ object f_despertador: Tf_despertador
       6B8B0116C6053396DCC3BDB4FE03703944FD75E3446E0000000049454E44AE42
       6082}
   end
-  object PngSpeedButton3: TPngSpeedButton
+  object b_alterar: TPngSpeedButton
     Left = 247
     Top = 297
     Width = 49
@@ -554,7 +555,7 @@ object f_despertador: Tf_despertador
       CDAF7A7FE725E0F677EA6D7DA6A5EE78877B69FD0FD9C6BCEE6B7D7F41000000
       0049454E44AE426082}
   end
-  object PngSpeedButton4: TPngSpeedButton
+  object b_excluir: TPngSpeedButton
     Left = 343
     Top = 297
     Width = 49
@@ -716,7 +717,7 @@ object f_despertador: Tf_despertador
       E1991257D722C70791F32CEBB5B6F7DE5952EB1E008B8F5EAB04355F9F1F40B5
       CAF2B7BD93A5B4FE0F36CD08FDB48CF07E0000000049454E44AE426082}
   end
-  object PngSpeedButton5: TPngSpeedButton
+  object b_cancelar: TPngSpeedButton
     Left = 440
     Top = 297
     Width = 49
@@ -901,6 +902,7 @@ object f_despertador: Tf_despertador
     Font.Style = [fsBold]
     Layout = blGlyphTop
     ParentFont = False
+    OnClick = b_fecharClick
     PngImage.Data = {
       89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
       F4000000097048597300000B1300000B1301009A9C1800000A4F694343505068
@@ -1071,13 +1073,13 @@ object f_despertador: Tf_despertador
     TabOrder = 2
   end
   object gb_grid: TGroupBox
-    Left = 46
+    Left = 9
     Top = 384
-    Width = 553
+    Width = 622
     Height = 217
     Caption = 'Pesquisar Despertador'
     TabOrder = 3
-    object Label5: TLabel
+    object l_dia1: TLabel
       Left = 19
       Top = 32
       Width = 20
@@ -1090,7 +1092,7 @@ object f_despertador: Tf_despertador
       Font.Style = []
       ParentFont = False
     end
-    object Label7: TLabel
+    object l_num_quarto: TLabel
       Left = 168
       Top = 32
       Width = 66
@@ -1111,6 +1113,7 @@ object f_despertador: Tf_despertador
       Font.Style = [fsBold]
       Layout = blGlyphTop
       ParentFont = False
+      OnClick = b_listar_todosClick
       PngImage.Data = {
         89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
         F4000000097048597300000B1300000B1301009A9C1800000A4F694343505068
@@ -1283,6 +1286,7 @@ object f_despertador: Tf_despertador
       Font.Style = [fsBold]
       Layout = blGlyphTop
       ParentFont = False
+      OnClick = b_finalizarClick
       PngImage.Data = {
         89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
         F4000000097048597300000B1300000B1301009A9C1800000A4F694343505068
@@ -1443,10 +1447,17 @@ object f_despertador: Tf_despertador
         6B8B0116C6053396DCC3BDB4FE03703944FD75E3446E0000000049454E44AE42
         6082}
     end
-    object dbg_despertador: TDBGrid
+    object b_listar_ativos: TPngSpeedButton
+      Left = 552
+      Top = 24
+      Width = 67
+      Height = 22
+      Caption = 'listar ativos'
+    end
+    object grid_despertador: TDBGrid
       Left = 19
       Top = 72
-      Width = 521
+      Width = 585
       Height = 129
       DataSource = dm.ds_despertador_grid
       TabOrder = 0
@@ -1483,7 +1494,7 @@ object f_despertador: Tf_despertador
           Visible = True
         end>
     end
-    object DateTimePicker1: TDateTimePicker
+    object dt_dia: TDateTimePicker
       Left = 45
       Top = 32
       Width = 97

@@ -16,19 +16,20 @@ type
     db_dia: TDBEdit;
     db_hora: TDBEdit;
     gb_grid: TGroupBox;
-    dbg_despertador: TDBGrid;
-    PngSpeedButton1: TPngSpeedButton;
-    PngSpeedButton2: TPngSpeedButton;
-    PngSpeedButton3: TPngSpeedButton;
-    PngSpeedButton4: TPngSpeedButton;
-    PngSpeedButton5: TPngSpeedButton;
+    grid_despertador: TDBGrid;
+    b_novo: TPngSpeedButton;
+    b_salvar: TPngSpeedButton;
+    b_alterar: TPngSpeedButton;
+    b_excluir: TPngSpeedButton;
+    b_cancelar: TPngSpeedButton;
     b_fechar: TPngSpeedButton;
-    DateTimePicker1: TDateTimePicker;
-    Label5: TLabel;
+    dt_dia: TDateTimePicker;
+    l_dia1: TLabel;
     p_num_quarto: TEdit;
-    Label7: TLabel;
+    l_num_quarto: TLabel;
     b_listar_todos: TPngSpeedButton;
     b_finalizar: TPngSpeedButton;
+    b_listar_ativos: TPngSpeedButton;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
     procedure b_alterarClick(Sender: TObject);
@@ -39,6 +40,9 @@ type
     procedure b_anteriorClick(Sender: TObject);
     procedure b_proximoClick(Sender: TObject);
     procedure b_ultimoClick(Sender: TObject);
+    procedure b_finalizarClick(Sender: TObject);
+    procedure b_fecharClick(Sender: TObject);
+    procedure b_listar_todosClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -57,6 +61,8 @@ implementation
 procedure Tf_despertador.b_novoClick(Sender: TObject);
 begin
 dm.t_despertador.Append;
+dm.q_dispertador.Close;
+dm.q_dispertador.Open;
 end;
 
 procedure Tf_despertador.b_primeiroClick(Sender: TObject);
@@ -77,6 +83,8 @@ end;
 procedure Tf_despertador.b_salvarClick(Sender: TObject);
 begin
 dm.t_despertador.Post;
+dm.q_dispertador.Close;
+dm.q_dispertador.Open;
 end;
 
 procedure Tf_despertador.b_ultimoClick(Sender: TObject);
@@ -87,6 +95,8 @@ end;
 procedure Tf_despertador.b_alterarClick(Sender: TObject);
 begin
 dm.t_despertador.Edit;
+dm.q_dispertador.Close;
+dm.q_dispertador.Open;
 end;
 
 procedure Tf_despertador.b_anteriorClick(Sender: TObject);
@@ -97,11 +107,38 @@ end;
 procedure Tf_despertador.b_cancelarClick(Sender: TObject);
 begin
 dm.t_despertador.Cancel;
+dm.q_dispertador.Close;
+dm.q_dispertador.Open;
 end;
 
 procedure Tf_despertador.b_excluirClick(Sender: TObject);
 begin
 dm.t_despertador.Delete;
+dm.q_dispertador.Close;
+dm.q_dispertador.Open;
+end;
+
+procedure Tf_despertador.b_fecharClick(Sender: TObject);
+begin
+close;
+end;
+
+procedure Tf_despertador.b_finalizarClick(Sender: TObject);
+begin
+
+dm.q_dispertador.Close;
+dm.q_dispertador.Open;
+end;
+
+procedure Tf_despertador.b_listar_todosClick(Sender: TObject);
+begin
+  with dm.q_dispertador do
+  begin
+  Close;
+  SQL.Clear;
+  SQL.Add('select * from despertador where status = aberto order by dia');
+  Open;
+  end;
 end;
 
 end.
