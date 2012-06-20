@@ -3120,14 +3120,14 @@ object f_cadastro_cliente: Tf_cadastro_cliente
       Caption = 'Pesquisar CPF:'
     end
     object b_listar_todos: TPngSpeedButton
-      Left = 313
+      Left = 306
       Top = 17
       Width = 89
       Height = 57
-      Caption = 'Listar todos'
+      Caption = '&Listar todos'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clGrayText
+      Font.Color = clGray
       Font.Height = -15
       Font.Name = 'Goudy Old Style'
       Font.Style = [fsBold]

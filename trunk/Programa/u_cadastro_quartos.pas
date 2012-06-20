@@ -77,6 +77,7 @@ Open;
  id := fieldbyname('id').asinteger;
  end;
 
+db_info_add.Enabled:=true;
 db_tipo.Enabled:=true;
 db_diaria.Enabled:=true;
 db_andar.Enabled:=true;
@@ -97,6 +98,7 @@ begin
 dm.t_quarto.Cancel;
 db_tipo.Enabled:=false;
 db_diaria.Enabled:=false;
+db_info_add.Enabled:=false;
 db_andar.Enabled:=false;
 db_numero.Enabled:=false;
 b_salvar.Enabled:=false;
@@ -169,6 +171,7 @@ db_tipo.Enabled:=true;
 db_diaria.Enabled:=true;
 db_andar.Enabled:=true;
 db_numero.Enabled:=true;
+db_info_add.Enabled:=true;
 b_salvar.Enabled:=true;
 b_novo.Enabled:=false;
 b_alterar.Enabled:=false;
@@ -237,6 +240,7 @@ with dm.q_quarto do
     dm.t_quarto.Post;
     showmessage('Quarto cadastrado com sucesso!');
     db_tipo.Enabled:=false;
+    db_info_add.Enabled:=false;
     db_diaria.Enabled:=false;
     db_andar.Enabled:=false;
     db_numero.Enabled:=false;
@@ -283,6 +287,7 @@ with dm.q_quarto do
     dm.t_quarto.Post;
     Application.MessageBox('Quarto alterado com sucesso', 'Confirmação!', mb_iconinformation + mb_ok);
       db_tipo.Enabled:=false;
+      db_info_add.Enabled:=false;
       db_diaria.Enabled:=false;
       db_andar.Enabled:=false;
       db_numero.Enabled:=false;
@@ -330,6 +335,7 @@ procedure Tf_cadastro_quartos.FormShow(Sender: TObject);
 begin
 db_tipo.Enabled:=false;
 db_diaria.Enabled:=false;
+db_info_add.Enabled:=false;
 db_andar.Enabled:=false;
 db_numero.Enabled:=false;
 b_salvar.Enabled:=false;

@@ -1939,7 +1939,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     Font.Color = clGray
     Font.Height = -15
     Font.Name = 'Goudy Old Style'
-    Font.Style = []
+    Font.Style = [fsBold]
     Layout = blGlyphTop
     ParentFont = False
     ParentShowHint = False
@@ -2114,7 +2114,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     Font.Color = clGray
     Font.Height = -15
     Font.Name = 'Goudy Old Style'
-    Font.Style = []
+    Font.Style = [fsBold]
     Layout = blGlyphTop
     ParentFont = False
     OnClick = b_fecharClick
@@ -2319,13 +2319,14 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
+    TitleFont.Style = [fsBold]
     Columns = <
       item
         Expanded = False
         FieldName = 'andar'
         Title.Alignment = taRightJustify
         Title.Caption = 'N'#176' do andar'
+        Width = 75
         Visible = True
       end
       item
@@ -2333,6 +2334,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
         FieldName = 'numero'
         Title.Alignment = taRightJustify
         Title.Caption = 'N'#176' do quarto'
+        Width = 80
         Visible = True
       end
       item
@@ -2349,6 +2351,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
         FieldName = 'diaria'
         Title.Alignment = taRightJustify
         Title.Caption = 'Valor da di'#225'ria'
+        Width = 95
         Visible = True
       end>
   end

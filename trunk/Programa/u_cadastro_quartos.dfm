@@ -1963,7 +1963,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     Top = 31
     Width = 49
     Height = 54
-    Caption = 'Voltar'
+    Caption = '&Voltar'
     Flat = True
     Font.Charset = ANSI_CHARSET
     Font.Color = clGray
@@ -2797,7 +2797,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
   object b_cancelar: TPngSpeedButton
     Left = 1155
     Top = 151
-    Width = 49
+    Width = 62
     Height = 57
     Caption = '&Cancelar'
     Flat = True
@@ -3333,15 +3333,21 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     object DBGrid1: TDBGrid
       Left = 16
       Top = 87
-      Width = 1121
+      Width = 910
       Height = 153
       DataSource = dm.ds_quarto_grid
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 1
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
+      TitleFont.Style = [fsBold]
       OnCellClick = DBGrid1CellClick
       OnTitleClick = DBGrid1TitleClick
       Columns = <
@@ -3358,6 +3364,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
           Visible = True
         end
         item
+          Alignment = taRightJustify
           Expanded = False
           FieldName = 'tipo'
           Title.Caption = 'Tipo de acomoda'#231#227'o'
@@ -3372,6 +3379,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
           Visible = True
         end
         item
+          Alignment = taRightJustify
           Expanded = False
           FieldName = 'info_add'
           Title.Caption = 'Informa'#231#245'es adicionais'
@@ -3382,7 +3390,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
           Expanded = False
           FieldName = 'id'
           Title.Caption = 'ID'
-          Width = 398
+          Width = 100
           Visible = True
         end>
     end

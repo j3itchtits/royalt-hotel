@@ -1959,17 +1959,17 @@ object f_cadastro_reserva: Tf_cadastro_reserva
     Caption = 'Sa'#237'da:'
   end
   object b_novo: TPngSpeedButton
-    Left = 675
-    Top = 188
+    Left = 876
+    Top = 152
     Width = 49
     Height = 57
     Caption = '&Novo'
     Flat = True
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGray
+    Font.Height = -15
+    Font.Name = 'Goudy Old Style'
+    Font.Style = []
     Layout = blGlyphTop
     ParentFont = False
     OnClick = b_novoClick
@@ -2131,17 +2131,17 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       FDA8EA0D300000000049454E44AE426082}
   end
   object b_salvar: TPngSpeedButton
-    Left = 791
-    Top = 188
+    Left = 931
+    Top = 152
     Width = 49
     Height = 57
     Caption = '&Salvar'
     Flat = True
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGray
+    Font.Height = -15
+    Font.Name = 'Goudy Old Style'
+    Font.Style = []
     Layout = blGlyphTop
     ParentFont = False
     OnClick = b_salvarClick
@@ -2306,17 +2306,17 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       6082}
   end
   object b_alterar: TPngSpeedButton
-    Left = 892
-    Top = 188
+    Left = 986
+    Top = 152
     Width = 49
     Height = 57
     Caption = '&Alterar'
     Flat = True
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGray
+    Font.Height = -15
+    Font.Name = 'Goudy Old Style'
+    Font.Style = []
     Layout = blGlyphTop
     ParentFont = False
     OnClick = b_alterarClick
@@ -2478,17 +2478,17 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       0049454E44AE426082}
   end
   object b_excluir: TPngSpeedButton
-    Left = 993
-    Top = 188
+    Left = 1041
+    Top = 152
     Width = 49
     Height = 57
     Caption = '&Excluir'
     Flat = True
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGray
+    Font.Height = -15
+    Font.Name = 'Goudy Old Style'
+    Font.Style = []
     Layout = blGlyphTop
     ParentFont = False
     OnClick = b_excluirClick
@@ -2641,16 +2641,16 @@ object f_cadastro_reserva: Tf_cadastro_reserva
   end
   object b_cancelar: TPngSpeedButton
     Left = 1096
-    Top = 188
-    Width = 49
+    Top = 152
+    Width = 65
     Height = 57
     Caption = '&Cancelar'
     Flat = True
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGray
+    Font.Height = -15
+    Font.Name = 'Goudy Old Style'
+    Font.Style = []
     Layout = blGlyphTop
     ParentFont = False
     OnClick = b_cancelarClick
@@ -2817,11 +2817,11 @@ object f_cadastro_reserva: Tf_cadastro_reserva
     Height = 54
     Caption = '&Voltar'
     Flat = True
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGray
+    Font.Height = -15
+    Font.Name = 'Goudy Old Style'
+    Font.Style = []
     Layout = blGlyphTop
     ParentFont = False
     OnClick = b_fecharClick
@@ -3156,13 +3156,13 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       Top = 9
       Width = 89
       Height = 57
-      Caption = 'Listar todos'
+      Caption = '&Listar todos'
       Flat = True
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clGray
+      Font.Height = -15
+      Font.Name = 'Goudy Old Style'
+      Font.Style = []
       Layout = blGlyphTop
       ParentFont = False
       OnClick = b_listar_todosClick
@@ -3344,12 +3344,18 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       Width = 1057
       Height = 177
       DataSource = dm.ds_reserva_grid
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
+      TitleFont.Style = [fsBold]
       OnCellClick = g_reserva_cellClick
       OnTitleClick = g_reserva_titleClick
       Columns = <

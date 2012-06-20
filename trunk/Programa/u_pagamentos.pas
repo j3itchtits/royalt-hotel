@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, PngSpeedButton, StdCtrls, Grids, DBGrids, u_dm, DBCtrls, db;
+  Dialogs, Buttons, PngSpeedButton, StdCtrls, Grids, DBGrids, u_dm, DBCtrls, db,
+  ExtCtrls, pngimage;
 
 type
   Tf_pagamentos = class(TForm)
@@ -25,10 +26,15 @@ type
     l_cpf: TLabel;
     db_cpf2: TDBText;
     t_nome: TEdit;
+    b_voltar: TPngSpeedButton;
+    Image1: TImage;
+    PngSpeedButton1: TPngSpeedButton;
     procedure b_listar_todosClick(Sender: TObject);
     procedure b_pagarClick(Sender: TObject);
     procedure formShow(Sender: TObject);
     procedure t_nomeChange(Sender: TObject);
+    procedure PngSpeedButton1Click(Sender: TObject);
+    procedure b_voltarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,6 +47,7 @@ var
   ver: integer = 0;
   resultado : string;
   fatiarcpf : string;
+  gbcliente : integer;
 
 implementation
 
@@ -112,10 +119,41 @@ t_cpf.Text := '';
 b_pagar.Enabled:=false;
 end;
 
+procedure Tf_pagamentos.b_voltarClick(Sender: TObject);
+begin
+close;
+end;
+
 procedure Tf_pagamentos.formShow(Sender: TObject);
 begin
 t_cpf.Text := '';
 b_pagar.Enabled:=false;
+end;
+
+
+
+procedure Tf_pagamentos.PngSpeedButton1Click(Sender: TObject);
+begin
+if gbcliente = 0 then
+begin
+gbcliente := 1;
+gb_cliente.Visible:=true;
+db_nome.Caption:='';
+db_endereco.Caption:='';
+db_cidade.Caption:='';
+l_cpf.Caption:='';
+db_cpf2.Caption:='';
+end
+else
+begin
+gbcliente := 0;
+db_nome.Caption:='';
+db_endereco.Caption:='';
+db_cidade.Caption:='';
+
+db_cpf2.Caption:='';
+gb_cliente.Visible:=false;
+end;
 end;
 
 procedure Tf_pagamentos.t_nomeChange(Sender: TObject);
