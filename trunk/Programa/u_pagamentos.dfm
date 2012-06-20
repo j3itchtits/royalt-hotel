@@ -499,7 +499,6 @@ object f_pagamentos: Tf_pagamentos
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 2
-    Visible = False
     object db_nome: TDBText
       Left = 16
       Top = 64

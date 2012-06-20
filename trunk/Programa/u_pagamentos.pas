@@ -57,11 +57,12 @@ with dm.q_reserva do
   begin
   Close;
   SQL.Clear;
-  SQL.Add('Select cpf_cliente from reserva where cpf_cliente = :cp');
+  SQL.Add('Select cpf_cliente from reserva where cpf_cliente = :cp and status = "aberta"');
   parameters.parambyname('cp').value := t_cpf.text;
   Open;
   if RecordCount = 0 then
     begin
+    showmessage('CPF não possui reserva aberta!');
     exit;
     end;
   end;
