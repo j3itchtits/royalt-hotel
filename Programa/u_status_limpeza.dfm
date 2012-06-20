@@ -1,6 +1,7 @@
 object f_status_limpeza: Tf_status_limpeza
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Status de limpeza dos quartos'
   ClientHeight = 640
   ClientWidth = 1280
@@ -1934,7 +1935,7 @@ object f_status_limpeza: Tf_status_limpeza
     Top = 16
     Width = 49
     Height = 73
-    Caption = '&Fechar'
+    Caption = '&Voltar'
     Flat = True
     Font.Charset = ANSI_CHARSET
     Font.Color = clGray
@@ -2085,7 +2086,7 @@ object f_status_limpeza: Tf_status_limpeza
       A02AFC0000000049454E44AE426082}
   end
   object DBGrid1: TDBGrid
-    Left = 48
+    Left = 140
     Top = 328
     Width = 993
     Height = 289
@@ -2146,7 +2147,7 @@ object f_status_limpeza: Tf_status_limpeza
       end>
   end
   object rg_quartos: TRadioGroup
-    Left = 56
+    Left = 140
     Top = 160
     Width = 122
     Height = 121
@@ -2162,7 +2163,7 @@ object f_status_limpeza: Tf_status_limpeza
     OnClick = rg_quartosClick
   end
   object gb_limpar: TGroupBox
-    Left = 192
+    Left = 284
     Top = 160
     Width = 849
     Height = 121

@@ -1929,7 +1929,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
       1DE83DEB7C6226625A0000000049454E44AE426082}
   end
   object b_listar: TPngSpeedButton
-    Left = 816
+    Left = 1104
     Top = 199
     Width = 73
     Height = 65
@@ -2259,9 +2259,9 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
       A02AFC0000000049454E44AE426082}
   end
   object rg_tipo: TRadioGroup
-    Left = 359
+    Left = 439
     Top = 183
-    Width = 266
+    Width = 338
     Height = 109
     Caption = 'Tipo de acomoda'#231#227'o'
     Items.Strings = (
@@ -2270,9 +2270,9 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     TabOrder = 5
   end
   object rg_data: TRadioGroup
-    Left = 56
+    Left = 96
     Top = 183
-    Width = 297
+    Width = 337
     Height = 109
     Caption = 'Buscar por'
     Items.Strings = (
@@ -2281,7 +2281,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     TabOrder = 2
   end
   object DateTimePicker1: TDateTimePicker
-    Left = 138
+    Left = 210
     Top = 259
     Width = 186
     Height = 21
@@ -2290,7 +2290,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     TabOrder = 3
   end
   object rg_ocupacao: TRadioGroup
-    Left = 639
+    Left = 799
     Top = 183
     Width = 121
     Height = 109
@@ -2302,7 +2302,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
     TabOrder = 4
   end
   object DBGrid1: TDBGrid
-    Left = 56
+    Left = 96
     Top = 314
     Width = 1081
     Height = 289
@@ -2356,7 +2356,7 @@ object f_quadro_apartamentos: Tf_quadro_apartamentos
       end>
   end
   object db_classificar_quarto: TComboBox
-    Left = 415
+    Left = 527
     Top = 259
     Width = 186
     Height = 21

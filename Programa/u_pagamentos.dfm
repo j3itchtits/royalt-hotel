@@ -1,6 +1,8 @@
 object f_pagamentos: Tf_pagamentos
+  AlignWithMargins = True
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
   Caption = 'Pagamentos'
   ClientHeight = 623
   ClientWidth = 1275
@@ -11,7 +13,7 @@ object f_pagamentos: Tf_pagamentos
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poDesktopCenter
   OnShow = formShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -1921,7 +1923,7 @@ object f_pagamentos: Tf_pagamentos
       373F3C67C0764AF5C50000000049454E44AE426082}
   end
   object b_listar_todos: TPngSpeedButton
-    Left = 104
+    Left = 160
     Top = 296
     Width = 57
     Height = 57
@@ -2094,7 +2096,7 @@ object f_pagamentos: Tf_pagamentos
       EE66EB7F6B1F11FD1777C0730000000049454E44AE426082}
   end
   object b_pagar: TPngSpeedButton
-    Left = 200
+    Left = 256
     Top = 296
     Width = 57
     Height = 57
@@ -2269,7 +2271,7 @@ object f_pagamentos: Tf_pagamentos
       6082}
   end
   object Label1: TLabel
-    Left = 940
+    Left = 892
     Top = 189
     Width = 42
     Height = 19
@@ -2282,7 +2284,7 @@ object f_pagamentos: Tf_pagamentos
     ParentFont = False
   end
   object l_total: TLabel
-    Left = 1065
+    Left = 1017
     Top = 214
     Width = 93
     Height = 58
@@ -2295,7 +2297,7 @@ object f_pagamentos: Tf_pagamentos
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 940
+    Left = 892
     Top = 214
     Width = 56
     Height = 58
@@ -2308,7 +2310,7 @@ object f_pagamentos: Tf_pagamentos
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 104
+    Left = 160
     Top = 189
     Width = 27
     Height = 19
@@ -2476,7 +2478,7 @@ object f_pagamentos: Tf_pagamentos
       A02AFC0000000049454E44AE426082}
   end
   object PngSpeedButton1: TPngSpeedButton
-    Left = 312
+    Left = 368
     Top = 214
     Width = 66
     Height = 41
@@ -2642,16 +2644,16 @@ object f_pagamentos: Tf_pagamentos
       0000000049454E44AE426082}
   end
   object GroupBox1: TGroupBox
-    Left = 80
+    Left = 160
     Top = 384
-    Width = 657
+    Width = 633
     Height = 161
     Caption = 'Reserva'
     TabOrder = 0
     object DBGrid1: TDBGrid
       Left = 24
       Top = 24
-      Width = 609
+      Width = 577
       Height = 120
       DataSource = dm.ds_pagamento_grid
       TabOrder = 0
@@ -2706,14 +2708,14 @@ object f_pagamentos: Tf_pagamentos
     end
   end
   object t_cpf: TEdit
-    Left = 104
+    Left = 160
     Top = 227
     Width = 153
     Height = 21
     TabOrder = 1
   end
   object gb_cliente: TGroupBox
-    Left = 432
+    Left = 488
     Top = 214
     Width = 305
     Height = 129
