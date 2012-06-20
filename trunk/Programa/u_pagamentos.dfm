@@ -1922,7 +1922,7 @@ object f_pagamentos: Tf_pagamentos
   end
   object b_listar_todos: TPngSpeedButton
     Left = 104
-    Top = 270
+    Top = 296
     Width = 57
     Height = 57
     Caption = '&Pesquisar'
@@ -2095,7 +2095,7 @@ object f_pagamentos: Tf_pagamentos
   end
   object b_pagar: TPngSpeedButton
     Left = 200
-    Top = 270
+    Top = 296
     Width = 57
     Height = 57
     Caption = '&Pagar'
@@ -2476,7 +2476,7 @@ object f_pagamentos: Tf_pagamentos
       A02AFC0000000049454E44AE426082}
   end
   object PngSpeedButton1: TPngSpeedButton
-    Left = 376
+    Left = 312
     Top = 214
     Width = 66
     Height = 41
@@ -2713,8 +2713,8 @@ object f_pagamentos: Tf_pagamentos
     TabOrder = 1
   end
   object gb_cliente: TGroupBox
-    Left = 472
-    Top = 198
+    Left = 432
+    Top = 214
     Width = 305
     Height = 129
     Caption = 'Pesquisar cliente'
