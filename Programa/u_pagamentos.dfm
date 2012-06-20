@@ -188,7 +188,7 @@ object f_pagamentos: Tf_pagamentos
       3C8486FFB7895AEE999953E081006EFF3737E70D32F39ECD07C8CFF961DCF11B
       EE66EB7F6B1F11FD1777C0730000000049454E44AE426082}
   end
-  object b_salvar: TPngSpeedButton
+  object b_pagar: TPngSpeedButton
     Left = 184
     Top = 113
     Width = 57
@@ -202,7 +202,7 @@ object f_pagamentos: Tf_pagamentos
     Font.Style = []
     Layout = blGlyphTop
     ParentFont = False
-    OnClick = b_salvarClick
+    OnClick = b_pagarClick
     PngImage.Data = {
       89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
       F4000000097048597300000B1300000B1301009A9C1800000A4F694343505068
@@ -364,7 +364,7 @@ object f_pagamentos: Tf_pagamentos
       6082}
   end
   object Label1: TLabel
-    Left = 376
+    Left = 596
     Top = 62
     Width = 42
     Height = 19
@@ -377,8 +377,8 @@ object f_pagamentos: Tf_pagamentos
     ParentFont = False
   end
   object l_total: TLabel
-    Left = 450
-    Top = 112
+    Left = 660
+    Top = 102
     Width = 93
     Height = 58
     Caption = '0,00'
@@ -390,8 +390,8 @@ object f_pagamentos: Tf_pagamentos
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 376
-    Top = 112
+    Left = 596
+    Top = 102
     Width = 56
     Height = 58
     Caption = 'R$'
@@ -482,8 +482,119 @@ object f_pagamentos: Tf_pagamentos
   object t_cpf: TEdit
     Left = 88
     Top = 64
-    Width = 121
+    Width = 153
     Height = 21
     TabOrder = 1
+  end
+  object gb_cliente: TGroupBox
+    Left = 264
+    Top = 41
+    Width = 305
+    Height = 129
+    Caption = 'Pesquisar cliente'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    Visible = False
+    object db_nome: TDBText
+      Left = 16
+      Top = 64
+      Width = 289
+      Height = 17
+      DataField = 'nome'
+      DataSource = dm.ds_cliente
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object db_endereco: TDBText
+      Left = 16
+      Top = 85
+      Width = 297
+      Height = 17
+      DataField = 'endereco'
+      DataSource = dm.ds_cliente
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object db_cidade: TDBText
+      Left = 16
+      Top = 106
+      Width = 65
+      Height = 17
+      DataField = 'cidade'
+      DataSource = dm.ds_cliente
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 16
+      Top = 32
+      Width = 49
+      Height = 13
+      Caption = 'Por nome:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object l_cpf: TLabel
+      Left = 168
+      Top = 106
+      Width = 23
+      Height = 13
+      Caption = 'CPF:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object db_cpf2: TDBText
+      Left = 192
+      Top = 106
+      Width = 134
+      Height = 17
+      DataField = 'cpf'
+      DataSource = dm.ds_cliente
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object t_nome: TEdit
+      Left = 71
+      Top = 29
+      Width = 219
+      Height = 21
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnChange = t_nomeChange
+    end
   end
 end

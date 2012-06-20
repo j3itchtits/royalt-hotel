@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, PngSpeedButton, StdCtrls, Grids, DBGrids, u_dm;
+  Dialogs, Buttons, PngSpeedButton, StdCtrls, Grids, DBGrids, u_dm, DBCtrls, db;
 
 type
   Tf_pagamentos = class(TForm)
@@ -12,14 +12,23 @@ type
     DBGrid1: TDBGrid;
     t_cpf: TEdit;
     b_listar_todos: TPngSpeedButton;
-    b_salvar: TPngSpeedButton;
+    b_pagar: TPngSpeedButton;
     Label1: TLabel;
     l_total: TLabel;
     Label3: TLabel;
     Label4: TLabel;
+    gb_cliente: TGroupBox;
+    db_nome: TDBText;
+    db_endereco: TDBText;
+    db_cidade: TDBText;
+    Label8: TLabel;
+    l_cpf: TLabel;
+    db_cpf2: TDBText;
+    t_nome: TEdit;
     procedure b_listar_todosClick(Sender: TObject);
-    procedure b_salvarClick(Sender: TObject);
+    procedure b_pagarClick(Sender: TObject);
     procedure formShow(Sender: TObject);
+    procedure t_nomeChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,6 +39,8 @@ var
   f_pagamentos: Tf_pagamentos;
   total: Currency;
   ver: integer = 0;
+  resultado : string;
+  fatiarcpf : string;
 
 implementation
 
@@ -41,6 +52,18 @@ if t_cpf.text = '' then
   begin
   showmessage('CPF não poder ser vazio!');
   exit;
+  end;
+with dm.q_reserva do
+  begin
+  Close;
+  SQL.Clear;
+  SQL.Add('Select cpf_cliente from reserva where cpf_cliente = :cp');
+  parameters.parambyname('cp').value := t_cpf.text;
+  Open;
+  if RecordCount = 0 then
+    begin
+    exit;
+    end;
   end;
 with dm.q_pagamento do
   begin
@@ -59,9 +82,10 @@ with dm.q_pagamento do
   end;
   l_total.Caption := FloatToStr( total );
   ver := 1;
+  b_pagar.Enabled:=true;
 end;
 
-procedure Tf_pagamentos.b_salvarClick(Sender: TObject);
+procedure Tf_pagamentos.b_pagarClick(Sender: TObject);
 begin
 if t_cpf.text = '' then
   begin
@@ -83,12 +107,44 @@ with dm.q_pagamento do
   showmessage('Pagamento efetuado com sucesso!');
   ver := 0;
   end;
-t_cpf.Text := ''
+t_cpf.Text := '';
+b_pagar.Enabled:=false;
 end;
 
 procedure Tf_pagamentos.formShow(Sender: TObject);
 begin
-t_cpf.Text := ''
+t_cpf.Text := '';
+b_pagar.Enabled:=false;
+end;
+
+procedure Tf_pagamentos.t_nomeChange(Sender: TObject);
+begin
+if t_nome.text <> '' then
+begin
+  with dm.q_cliente do
+  begin
+  Close;
+  SQL.Clear;
+  sql.Add('select * from cliente where nome like '''+t_nome.text+'%''');
+  Open;
+  resultado := dm.q_cliente.fieldbyname('cpf').asstring;
+  dm.t_cliente.Locate('cpf',resultado,[loCaseInsensitive, loPartialKey]);
+  fatiarcpf := db_cpf2.caption;
+  fatiarcpf := stringReplace(fatiarcpf, '.', '', []);
+  fatiarcpf := stringReplace(fatiarcpf, '.', '', []);
+  fatiarcpf := stringReplace(fatiarcpf, '-', '', []);
+  t_cpf.Text:=fatiarcpf;
+  l_cpf.Caption:='CPF:';
+  end;
+end
+else
+begin
+db_nome.Caption:='';
+db_endereco.Caption:='';
+db_cidade.Caption:='';
+l_cpf.Caption:='';
+db_cpf2.Caption:='';
+end;
 end;
 
 end.
