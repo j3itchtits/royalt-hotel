@@ -12,7 +12,7 @@ object f_despertador: Tf_despertador
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poDesktopCenter
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
