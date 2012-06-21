@@ -2904,6 +2904,7 @@ object f_despertador: Tf_despertador
       Date = 41078.804273217590000000
       Time = 41078.804273217590000000
       TabOrder = 1
+      OnChange = dt_diaChange
     end
     object p_num_quarto: TEdit
       Left = 240
