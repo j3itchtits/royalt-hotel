@@ -19,9 +19,6 @@ type
     grid_despertador: TDBGrid;
     b_novo: TPngSpeedButton;
     b_salvar: TPngSpeedButton;
-    b_alterar: TPngSpeedButton;
-    b_excluir: TPngSpeedButton;
-    b_cancelar: TPngSpeedButton;
     b_fechar: TPngSpeedButton;
     dt_dia: TDateTimePicker;
     l_dia1: TLabel;
@@ -29,7 +26,6 @@ type
     l_num_quarto: TLabel;
     b_listar_todos: TPngSpeedButton;
     b_finalizar: TPngSpeedButton;
-    b_listar_ativos: TPngSpeedButton;
     Image1: TImage;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
@@ -44,6 +40,8 @@ type
     procedure b_finalizarClick(Sender: TObject);
     procedure b_fecharClick(Sender: TObject);
     procedure b_listar_todosClick(Sender: TObject);
+    procedure p_num_quartoChange(Sender: TObject);
+    procedure grid_despertadorCellClick(Column: TColumn);
 
   private
     { Private declarations }
@@ -53,6 +51,7 @@ type
 
 var
   f_despertador: Tf_despertador;
+  resultado : integer;
 
 implementation
 
@@ -93,6 +92,27 @@ begin
 dm.t_despertador.Last;
 end;
 
+procedure Tf_despertador.grid_despertadorCellClick(Column: TColumn);
+begin
+resultado := dm.q_dispertador.fieldbyname('id').AsInteger;
+dm.t_despertador.Locate('id', resultado,[]);
+end;
+
+procedure Tf_despertador.p_num_quartoChange(Sender: TObject);
+begin
+if p_num_quarto.Text <> '' then
+begin
+  with dm.q_dispertador do
+  begin
+  Close;
+  SQL.Clear;
+  SQL.Add('select * from despertador where num_quarto like :cp');
+  parameters.parambyname('cp').value := p_num_quarto.text + '%';
+  Open;
+  end;
+end;
+end;
+
 procedure Tf_despertador.b_alterarClick(Sender: TObject);
 begin
 dm.t_despertador.Edit;
@@ -126,7 +146,7 @@ end;
 
 procedure Tf_despertador.b_finalizarClick(Sender: TObject);
 begin
-
+dm.t_despertador.Delete;
 dm.q_dispertador.Close;
 dm.q_dispertador.Open;
 end;
@@ -137,7 +157,7 @@ begin
   begin
   Close;
   SQL.Clear;
-  SQL.Add('select * from despertador where status = aberto order by dia');
+  SQL.Add('select * from despertador order by dia');
   Open;
   end;
 end;
