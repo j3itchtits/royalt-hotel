@@ -42,6 +42,7 @@ type
     procedure b_listar_todosClick(Sender: TObject);
     procedure p_num_quartoChange(Sender: TObject);
     procedure grid_despertadorCellClick(Column: TColumn);
+    procedure dt_diaChange(Sender: TObject);
 
   private
     { Private declarations }
@@ -92,6 +93,36 @@ begin
 dm.t_despertador.Last;
 end;
 
+procedure Tf_despertador.dt_diaChange(Sender: TObject);
+begin
+  if (p_num_quarto.Text <> '') then
+  begin
+  with dm.q_dispertador do
+  begin
+  Close;
+  SQL.Clear;
+  SQL.Add('select * from despertador where dia = :date and num_quarto like :cp');
+  parameters.parambyname('cp').value := p_num_quarto.Text + '%';
+  parameters.parambyname('date').value := datetostr(dt_dia.date);
+  Open;
+  end;
+  end;
+
+  if (p_num_quarto.Text = '') then
+  begin
+
+  with dm.q_dispertador do
+  begin
+  Close;
+  SQL.Clear;
+  SQL.Add('select * from despertador where dia = :date');
+  parameters.parambyname('date').value := datetostr(dt_dia.date);
+  Open;
+  end;
+  end;
+
+end;
+
 procedure Tf_despertador.grid_despertadorCellClick(Column: TColumn);
 begin
 resultado := dm.q_dispertador.fieldbyname('id').AsInteger;
@@ -106,11 +137,24 @@ begin
   begin
   Close;
   SQL.Clear;
-  SQL.Add('select * from despertador where num_quarto like :cp');
+  SQL.Add('select * from despertador where dia = :date and num_quarto like :cp');
   parameters.parambyname('cp').value := p_num_quarto.text + '%';
+  parameters.parambyname('date').value := datetostr(dt_dia.date);
+  Open;
+  end;
+end
+else
+begin
+  with dm.q_dispertador do
+  begin
+  Close;
+  SQL.Clear;
+  sql.Add('select * from despertador where dia = :date');
+  parameters.parambyname('date').value := datetostr(dt_dia.date);
   Open;
   end;
 end;
+
 end;
 
 procedure Tf_despertador.b_alterarClick(Sender: TObject);
