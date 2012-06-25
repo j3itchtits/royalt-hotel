@@ -47,6 +47,9 @@ type
     Label14: TLabel;
     db_pais: TDBComboBox;
     Image1: TImage;
+    gb_mensagem: TGroupBox;
+    l_mensagem: TLabel;
+    timer: TTimer;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
     procedure b_alterarClick(Sender: TObject);
@@ -60,6 +63,7 @@ type
     procedure t_cpfChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBGrid1TitleClick(Column: TColumn);
+    procedure timerTimer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -108,6 +112,9 @@ b_cancelar.Enabled:=true;
 //vai servir para o botão salvar saber se verifica se cpf já existe, ou apenas atualiza
 v_salvar := 2;
 //
+l_mensagem.Caption:='Alterando registro...';
+l_mensagem.Font.Color:=clOlive;
+timer.Enabled:=true;
 dm.t_cliente.Edit;
 end;
 
@@ -139,7 +146,9 @@ b_cancelar.Enabled:=false;
   sql.Add('select * from cliente order by nome');
   Open;
   end;
-
+l_mensagem.Caption:='Cancelado!';
+l_mensagem.Font.Color:=clGreen;
+timer.Enabled:=true;
 end;
 
 procedure Tf_cadastro_cliente.b_excluirClick(Sender: TObject);
@@ -169,6 +178,9 @@ db_estado.Enabled:=false;
   Open;
   end;
 end;
+l_mensagem.Caption:='Excluído com sucesso!';
+l_mensagem.Font.Color:=clRed;
+timer.Enabled:=true;
 end;
 
 procedure Tf_cadastro_cliente.b_fecharClick(Sender: TObject);
@@ -209,6 +221,9 @@ end;
 
 procedure Tf_cadastro_cliente.b_novoClick(Sender: TObject);
 begin
+l_mensagem.Caption:='Criando novo registro...';
+l_mensagem.Font.Color:=clBlue;
+timer.Enabled:=true;
 db_nome.Enabled:=true;
 db_cpf.Enabled:=true;
 db_bairro.enabled:=true;
@@ -238,12 +253,16 @@ procedure Tf_cadastro_cliente.b_salvarClick(Sender: TObject);
 begin
 if db_nome.text = '' then
   begin
-  showmessage('Nome não pode ser vazio!');
+l_mensagem.Caption:='Nome não pode ser vazio!';
+l_mensagem.Font.Color:=clRed;
+timer.Enabled:=true;
   exit;
   end;
-if db_cpf.text = '' then
+if (db_cpf.text = '') or (db_cpf.Text = '           ')then
   begin
-  showmessage('CPF não pode ser vazio!');
+l_mensagem.Caption:='CPF não pode ser vazio!';
+l_mensagem.Font.Color:=clRed;
+timer.Enabled:=true;
   exit;
   end;
 //se veio do botão novo verifica se cpf já existe
@@ -259,7 +278,9 @@ with dm.q_cliente do
   end;
   if (conta_cpf > 0) then
     begin
-    showmessage('CPF já cadastrado!');
+    l_mensagem.Caption:='CPF já cadastrado!';
+    l_mensagem.Font.Color:=clRed;
+    timer.Enabled:=true;
     exit
     end
     else
@@ -269,7 +290,9 @@ with dm.q_cliente do
     begin
 
     dm.t_cliente.Post;
-    showmessage('Cadastro efetuado com sucesso!');
+    l_mensagem.Caption:='Registro salvo com sucesso!';
+    l_mensagem.Font.Color:=clGreen;
+    timer.Enabled:=true;
     db_nome.Enabled:=false;
     db_cpf.Enabled:=false;
     db_bairro.enabled:=false;
@@ -316,13 +339,17 @@ with dm.q_cliente do
   end;
   if (conta_cpf > 0) then
     begin
-    showmessage('CPF já cadastrado!');
+    l_mensagem.Caption:='CPF já cadastrado!';
+    l_mensagem.Font.Color:=clRed;
+    timer.Enabled:=true;
     exit
     end
     else
     begin
 dm.t_cliente.Post;
-showmessage('Cadastro alterado com sucesso!');
+l_mensagem.Caption:='Registro alterado com sucesso!';
+l_mensagem.Font.Color:=clGreen;
+timer.Enabled:=true;
 db_nome.Enabled:=false;
 db_cpf.Enabled:=false;
 db_bairro.enabled:=false;
@@ -376,6 +403,8 @@ end;
 
 procedure Tf_cadastro_cliente.FormShow(Sender: TObject);
 begin
+l_mensagem.Caption:='';
+l_mensagem.Color:=clblack;
 db_nome.Enabled:=false;
 db_cpf.Enabled:=false;
 db_bairro.enabled:=false;
@@ -399,6 +428,13 @@ b_cancelar.Enabled:=false;
   Open;
   end;
 
+end;
+
+procedure Tf_cadastro_cliente.timerTimer(Sender: TObject);
+begin
+l_mensagem.caption:='';
+l_mensagem.Font.Color:=clBlack;
+timer.Enabled:=false;
 end;
 
 procedure Tf_cadastro_cliente.t_cpfChange(Sender: TObject);

@@ -3,9 +3,9 @@ object f_cadastro_cliente: Tf_cadastro_cliente
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Cadastro de Cliente'
-  ClientHeight = 640
+  ClientHeight = 714
   ClientWidth = 1280
-  Color = clBtnFace
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -2474,7 +2474,7 @@ object f_cadastro_cliente: Tf_cadastro_cliente
   object b_cancelar: TPngSpeedButton
     Left = 1122
     Top = 142
-    Width = 49
+    Width = 63
     Height = 57
     Caption = '&Cancelar'
     Flat = True
@@ -2999,6 +2999,8 @@ object f_cadastro_cliente: Tf_cadastro_cliente
     Width = 69
     Height = 13
     Caption = 'Complemento:'
+    Color = clWhite
+    ParentColor = False
   end
   object Label12: TLabel
     Left = 107
@@ -3100,7 +3102,7 @@ object f_cadastro_cliente: Tf_cadastro_cliente
   end
   object group_pesquisar: TGroupBox
     Left = 85
-    Top = 368
+    Top = 432
     Width = 1108
     Height = 249
     Caption = 'Pesquisar cliente'
@@ -3732,5 +3734,34 @@ object f_cadastro_cliente: Tf_cadastro_cliente
       'Z'#226'mbia'
       'Zimbabu'#233)
     TabOrder = 8
+  end
+  object gb_mensagem: TGroupBox
+    Left = 162
+    Top = 366
+    Width = 471
+    Height = 60
+    TabOrder = 13
+    object l_mensagem: TLabel
+      Left = 24
+      Top = 19
+      Width = 92
+      Height = 19
+      Caption = 'l_mensagem'
+      Color = clGreen
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Futura Md BT'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object timer: TTimer
+    Enabled = False
+    Interval = 3300
+    OnTimer = timerTimer
+    Left = 352
+    Top = 376
   end
 end
