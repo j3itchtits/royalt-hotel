@@ -157,6 +157,9 @@ If Application.MessageBox('Confirma Exclusão?','Atenção!',MB_YESNO +
                            MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES Then
 begin
 dm.t_cliente.Delete;
+l_mensagem.Caption:='Excluído com sucesso!';
+l_mensagem.Font.Color:=clRed;
+timer.Enabled:=true;
 db_nome.Enabled:=false;
 db_cpf.Enabled:=false;
 db_bairro.enabled:=false;
@@ -178,9 +181,6 @@ db_estado.Enabled:=false;
   Open;
   end;
 end;
-l_mensagem.Caption:='Excluído com sucesso!';
-l_mensagem.Font.Color:=clRed;
-timer.Enabled:=true;
 end;
 
 procedure Tf_cadastro_cliente.b_fecharClick(Sender: TObject);
