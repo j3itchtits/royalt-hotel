@@ -3,7 +3,8 @@ unit u_dm;
 interface
 
 uses
-  SysUtils, Classes, DB, ADODB;
+  SysUtils, Classes, DB, ADODB, RpBase, RpSystem, RpCon, RpConDS, RpDefine,
+  RpRave;
 
 type
   Tdm = class(TDataModule)
@@ -52,6 +53,10 @@ type
     t_despertadordia: TDateTimeField;
     t_despertadorhora: TWideStringField;
     t_despertadorstatus: TWideStringField;
+    q_relatorios: TADOQuery;
+    rvproject: TRvProject;
+    rvds: TRvDataSetConnection;
+    rvsystem: TRvSystem;
   private
     { Private declarations }
   public
