@@ -10,39 +10,34 @@ uses
 type
   Tf_despertador = class(TForm)
     l_numquarto: TLabel;
-    l_dia: TLabel;
     l_hora: TLabel;
-    db_numquarto: TDBEdit;
-    db_dia: TDBEdit;
     db_hora: TDBEdit;
     gb_grid: TGroupBox;
     grid_despertador: TDBGrid;
     b_novo: TPngSpeedButton;
     b_salvar: TPngSpeedButton;
-    b_fechar: TPngSpeedButton;
     dt_dia: TDateTimePicker;
-    l_dia1: TLabel;
     p_num_quarto: TEdit;
-    l_num_quarto: TLabel;
     b_listar_todos: TPngSpeedButton;
-    b_finalizar: TPngSpeedButton;
     Image1: TImage;
+    db_num_quarto: TDBComboBox;
+    b_cancelar: TPngSpeedButton;
+    b_excluir: TPngSpeedButton;
+    b_fechar: TPngSpeedButton;
+    RadioGroup1: TRadioGroup;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
-    procedure b_alterarClick(Sender: TObject);
     procedure b_excluirClick(Sender: TObject);
     procedure b_cancelarClick(Sender: TObject);
     procedure b_sairClick(Sender: TObject);
-    procedure b_primeiroClick(Sender: TObject);
-    procedure b_anteriorClick(Sender: TObject);
-    procedure b_proximoClick(Sender: TObject);
-    procedure b_ultimoClick(Sender: TObject);
     procedure b_finalizarClick(Sender: TObject);
     procedure b_fecharClick(Sender: TObject);
     procedure b_listar_todosClick(Sender: TObject);
     procedure p_num_quartoChange(Sender: TObject);
     procedure grid_despertadorCellClick(Column: TColumn);
     procedure dt_diaChange(Sender: TObject);
+    procedure db_num_quartoDropDown(Sender: TObject);
+    procedure FormShow(Sender: TObject);
 
   private
     { Private declarations }
@@ -61,19 +56,15 @@ implementation
 
 procedure Tf_despertador.b_novoClick(Sender: TObject);
 begin
+db_num_quarto.Enabled:=true;
+db_hora.Enabled:=true;
+b_novo.Enabled:=false;
+b_salvar.Enabled:=true;
+b_cancelar.Enabled:=true;
+b_excluir.Enabled:=false;
 dm.t_despertador.Append;
-dm.q_dispertador.Close;
-dm.q_dispertador.Open;
-end;
-
-procedure Tf_despertador.b_primeiroClick(Sender: TObject);
-begin
-dm.t_despertador.First;
-end;
-
-procedure Tf_despertador.b_proximoClick(Sender: TObject);
-begin
-dm.t_despertador.Next;
+dm.q_despertador.Close;
+dm.q_despertador.Open;
 end;
 
 procedure Tf_despertador.b_sairClick(Sender: TObject);
@@ -83,21 +74,40 @@ end;
 
 procedure Tf_despertador.b_salvarClick(Sender: TObject);
 begin
+db_num_quarto.Enabled:=false;
+db_hora.Enabled:=false;
+b_novo.Enabled:=true;
+b_salvar.Enabled:=false;
+b_cancelar.Enabled:=false;
+b_excluir.Enabled:=true;
+b_listar_todos.Enabled:=true;
 dm.t_despertador.Post;
-dm.q_dispertador.Close;
-dm.q_dispertador.Open;
+dm.q_despertador.Close;
+dm.q_despertador.Open;
 end;
 
-procedure Tf_despertador.b_ultimoClick(Sender: TObject);
+procedure Tf_despertador.db_num_quartoDropDown(Sender: TObject);
 begin
-dm.t_despertador.Last;
+with dm.q_quarto do
+begin
+  Close;
+  SQL.Clear;
+  SQL.Add('select distinct(numero) from quarto order by numero');
+  Open;
+  db_num_quarto.Clear;
+  while not EOF do
+  begin
+    db_num_quarto.Items.Add(Fields[0].AsString);
+    Next;
+  end;
+end;
 end;
 
 procedure Tf_despertador.dt_diaChange(Sender: TObject);
 begin
   if (p_num_quarto.Text <> '') then
   begin
-  with dm.q_dispertador do
+  with dm.q_despertador do
   begin
   Close;
   SQL.Clear;
@@ -111,7 +121,7 @@ begin
   if (p_num_quarto.Text = '') then
   begin
 
-  with dm.q_dispertador do
+  with dm.q_despertador do
   begin
   Close;
   SQL.Clear;
@@ -123,9 +133,17 @@ begin
 
 end;
 
+procedure Tf_despertador.FormShow(Sender: TObject);
+begin
+db_num_quarto.Enabled:=false;
+db_hora.Enabled:=false;
+b_salvar.Enabled:=false;
+b_cancelar.Enabled:=false;
+end;
+
 procedure Tf_despertador.grid_despertadorCellClick(Column: TColumn);
 begin
-resultado := dm.q_dispertador.fieldbyname('id').AsInteger;
+resultado := dm.q_despertador.fieldbyname('id').AsInteger;
 dm.t_despertador.Locate('id', resultado,[]);
 end;
 
@@ -133,7 +151,7 @@ procedure Tf_despertador.p_num_quartoChange(Sender: TObject);
 begin
 if p_num_quarto.Text <> '' then
 begin
-  with dm.q_dispertador do
+  with dm.q_despertador do
   begin
   Close;
   SQL.Clear;
@@ -145,7 +163,7 @@ begin
 end
 else
 begin
-  with dm.q_dispertador do
+  with dm.q_despertador do
   begin
   Close;
   SQL.Clear;
@@ -157,30 +175,30 @@ end;
 
 end;
 
-procedure Tf_despertador.b_alterarClick(Sender: TObject);
-begin
-dm.t_despertador.Edit;
-dm.q_dispertador.Close;
-dm.q_dispertador.Open;
-end;
-
-procedure Tf_despertador.b_anteriorClick(Sender: TObject);
-begin
-dm.t_despertador.Prior;
-end;
-
 procedure Tf_despertador.b_cancelarClick(Sender: TObject);
 begin
 dm.t_despertador.Cancel;
-dm.q_dispertador.Close;
-dm.q_dispertador.Open;
+dm.q_despertador.Close;
+dm.q_despertador.Open;
 end;
 
 procedure Tf_despertador.b_excluirClick(Sender: TObject);
 begin
+If Application.MessageBox('Confirma Exclusão?','Atenção!',MB_YESNO +
+                           MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES Then
+begin
 dm.t_despertador.Delete;
-dm.q_dispertador.Close;
-dm.q_dispertador.Open;
+db_num_quarto.Enabled:=false;
+db_hora.Enabled:=false;
+  //atualizar grid
+  with dm.q_despertador do
+  begin
+  Close;
+  SQL.Clear;
+  sql.Add('select * from despertador order by num_quarto');
+  Open;
+  end;
+end;
 end;
 
 procedure Tf_despertador.b_fecharClick(Sender: TObject);
@@ -191,13 +209,13 @@ end;
 procedure Tf_despertador.b_finalizarClick(Sender: TObject);
 begin
 dm.t_despertador.Delete;
-dm.q_dispertador.Close;
-dm.q_dispertador.Open;
+dm.q_despertador.Close;
+dm.q_despertador.Open;
 end;
 
 procedure Tf_despertador.b_listar_todosClick(Sender: TObject);
 begin
-  with dm.q_dispertador do
+  with dm.q_despertador do
   begin
   Close;
   SQL.Clear;

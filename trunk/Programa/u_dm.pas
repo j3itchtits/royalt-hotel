@@ -47,16 +47,15 @@ type
     q_quadro: TADOQuery;
     ds_quadro_grid: TDataSource;
     ds_despertador_grid: TDataSource;
-    q_dispertador: TADOQuery;
-    t_despertadorid: TAutoIncField;
-    t_despertadornum_quarto: TIntegerField;
-    t_despertadordia: TDateTimeField;
-    t_despertadorhora: TWideStringField;
-    t_despertadorstatus: TWideStringField;
+    q_despertador: TADOQuery;
     q_relatorios: TADOQuery;
     rvproject: TRvProject;
     rvds: TRvDataSetConnection;
     rvsystem: TRvSystem;
+    t_despertadorid: TAutoIncField;
+    t_despertadornum_quarto: TIntegerField;
+    t_despertadorhora: TDateTimeField;
+    t_despertadorstatus: TWideStringField;
   private
     { Private declarations }
   public

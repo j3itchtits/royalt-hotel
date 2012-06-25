@@ -240,14 +240,9 @@ object dm: Tdm
     object t_despertadornum_quarto: TIntegerField
       FieldName = 'num_quarto'
     end
-    object t_despertadordia: TDateTimeField
-      FieldName = 'dia'
-      EditMask = '!00/00/0000;1;_'
-    end
-    object t_despertadorhora: TWideStringField
+    object t_despertadorhora: TDateTimeField
       FieldName = 'hora'
-      EditMask = '!00:00;1;_'
-      Size = 255
+      EditMask = '!99/99/00     !90:00;1;_'
     end
     object t_despertadorstatus: TWideStringField
       FieldName = 'status'
@@ -255,6 +250,7 @@ object dm: Tdm
     end
   end
   object ds_despertador: TDataSource
+    AutoEdit = False
     DataSet = t_despertador
     Left = 449
     Top = 71
@@ -275,11 +271,12 @@ object dm: Tdm
     Top = 336
   end
   object ds_despertador_grid: TDataSource
-    DataSet = q_dispertador
+    AutoEdit = False
+    DataSet = q_despertador
     Left = 456
     Top = 136
   end
-  object q_dispertador: TADOQuery
+  object q_despertador: TADOQuery
     Active = True
     Connection = conexao
     CursorType = ctStatic
