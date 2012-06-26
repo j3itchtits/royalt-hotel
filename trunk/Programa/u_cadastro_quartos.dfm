@@ -3412,4 +3412,31 @@ object f_cadastro_quartos: Tf_cadastro_quartos
     DataSource = dm.ds_quarto
     TabOrder = 4
   end
+  object gb_mensagem: TGroupBox
+    Left = 415
+    Top = 291
+    Width = 471
+    Height = 60
+    TabOrder = 6
+    object l_mensagem: TLabel
+      Left = 24
+      Top = 19
+      Width = 4
+      Height = 18
+      Color = clGreen
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Futura Md BT'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object timer: TTimer
+    Enabled = False
+    Interval = 3300
+    Left = 632
+    Top = 304
+  end
 end

@@ -34,6 +34,9 @@ type
     DBGrid1: TDBGrid;
     t_pesquisar: TEdit;
     Image1: TImage;
+    timer: TTimer;
+    gb_mensagem: TGroupBox;
+    l_mensagem: TLabel;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
     procedure b_alterarClick(Sender: TObject);
@@ -90,6 +93,9 @@ b_cancelar.Enabled:=true;
 //vai servir para o botão salvar saber se verifica se quarto já existe, ou apenas atualiza
 v_salvar := 2;
 //
+l_mensagem.Caption:='Alterando registro...';
+l_mensagem.Font.Color:=clOlive;
+timer.Enabled:=true;
 dm.t_quarto.Edit;
 end;
 
@@ -114,6 +120,9 @@ b_cancelar.Enabled:=false;
   sql.Add('select * from quarto order by numero');
   Open;
   end;
+l_mensagem.Caption:='Cancelado!';
+l_mensagem.Font.Color:=clGreen;
+timer.Enabled:=true;
 end;
 
 procedure Tf_cadastro_quartos.b_excluirClick(Sender: TObject);
@@ -122,6 +131,9 @@ If Application.MessageBox('Confirma Exclusão?','Atenção!',MB_YESNO +
                            MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES Then
 begin
 dm.t_quarto.Delete;
+l_mensagem.Caption:='Excluído com sucesso!';
+l_mensagem.Font.Color:=clRed;
+timer.Enabled:=true;
 db_tipo.Enabled:=false;
 db_diaria.Enabled:=false;
 db_andar.Enabled:=false;
@@ -181,6 +193,9 @@ b_cancelar.Enabled:=true;
 //vai servir para o botão salvar saber se verifica se quarto já existe, ou apenas atualiza
 v_salvar := 1;
 //
+l_mensagem.Caption:='Criando novo registro...';
+l_mensagem.Font.Color:=clBlue;
+timer.Enabled:=true;
 dm.t_quarto.cancel;
 dm.t_quarto.append;
 db_andar.SetFocus;
@@ -197,22 +212,30 @@ procedure Tf_cadastro_quartos.b_salvarClick(Sender: TObject);
 begin
 if (db_andar.Text = '') or (db_andar.Text = '0') then
   begin
-  showmessage('O número do andar deve estar entre 1 e 100!');
+l_mensagem.Caption:='O número do andar deve estar entre 1 e 100!';
+l_mensagem.Font.Color:=clRed;
+timer.Enabled:=true;
   exit;
   end;
 if (db_numero.text = '') or (db_numero.text = '0') then
   begin
-  showmessage('Número do quarto não pode ser vazio ou 0!');
+l_mensagem.Caption:='Número do quarto não pode ser vazio ou 0!';
+l_mensagem.Font.Color:=clRed;
+timer.Enabled:=true;
   exit;
   end;
 if (db_tipo.text = '') then
   begin
-  showmessage ('Escolha o tipo de acomodação!');
+l_mensagem.Caption:='Escolha o tipo de acomodação!';
+l_mensagem.Font.Color:=clRed;
+timer.Enabled:=true;
   exit
   end;
 if (db_diaria.text = '') or (db_diaria.text = '0') then
   begin
-  showmessage('Valor da diária não pode ser vazio ou R$ 0!');
+l_mensagem.Caption:='Valor da diária não pode ser vazio ou R$ 0!';
+l_mensagem.Font.Color:=clRed;
+timer.Enabled:=true;
   exit;
   end;
 //se veio do botão novo verifica se número do quarto já existe
@@ -228,7 +251,9 @@ with dm.q_quarto do
   end;
   if (conta_numero > 0) then
     begin
-    showmessage('Quarto já cadastrado!');
+    l_mensagem.Caption:='Quarto já cadastrado!';
+    l_mensagem.Font.Color:=clRed;
+    timer.Enabled:=true;
     exit
     end
     else
@@ -238,7 +263,9 @@ with dm.q_quarto do
     begin
 
     dm.t_quarto.Post;
-    showmessage('Quarto cadastrado com sucesso!');
+    l_mensagem.Caption:='Quarto cadastrado com sucesso!';
+    l_mensagem.Font.Color:=clGreen;
+    timer.Enabled:=true;
     db_tipo.Enabled:=false;
     db_info_add.Enabled:=false;
     db_diaria.Enabled:=false;
@@ -278,14 +305,18 @@ with dm.q_quarto do
   end;
   if (conta_numero > 0) then
     begin
-    showmessage('Quarto já cadastrado!');
+    l_mensagem.Caption:='Quarto já cadastrado!';
+    l_mensagem.Font.Color:=clRed;
+    timer.Enabled:=true;
     exit
     end
     else
         begin
 
     dm.t_quarto.Post;
-    Application.MessageBox('Quarto alterado com sucesso', 'Confirmação!', mb_iconinformation + mb_ok);
+    l_mensagem.Caption:='Quarto alterado com sucesso!';
+    l_mensagem.Font.Color:=clGreen;
+    timer.Enabled:=true;
       db_tipo.Enabled:=false;
       db_info_add.Enabled:=false;
       db_diaria.Enabled:=false;
