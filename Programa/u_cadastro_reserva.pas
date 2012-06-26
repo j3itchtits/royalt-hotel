@@ -99,6 +99,9 @@ b_cancelar.Enabled:=true;
 v_salvar := 2;
 id := dm.t_reserva.FieldByName('id').asstring;
 //
+l_mensagem.Caption:='Alterando registro...';
+l_mensagem.Font.Color:=clOlive;
+timer.Enabled:=true;
 dm.t_reserva.Edit;
 end;
 
@@ -195,6 +198,9 @@ b_cancelar.Enabled:=true;
 //vai servir para o botão salvar saber se
 v_salvar := 1;
 //
+l_mensagem.Caption:='Criando novo registro...';
+l_mensagem.Font.Color:=clBlue;
+timer.Enabled:=true;
 dm.t_reserva.cancel;
 dm.t_reserva.append;
 db_cpf.SetFocus;
