@@ -42,6 +42,9 @@ type
     Label8: TLabel;
     l_cpf: TLabel;
     db_cpf2: TDBText;
+    gb_mensagem: TGroupBox;
+    l_mensagem: TLabel;
+    timer: TTimer;
     procedure b_fecharClick(Sender: TObject);
     procedure b_cancelarClick(Sender: TObject);
     procedure b_excluirClick(Sender: TObject);
@@ -59,6 +62,7 @@ type
     procedure g_reserva_cellClick(Column: TColumn);
     procedure PngSpeedButton1Click(Sender: TObject);
     procedure t_nomeChange(Sender: TObject);
+    procedure timerTimer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -101,6 +105,9 @@ end;
 procedure Tf_cadastro_reserva.b_cancelarClick(Sender: TObject);
 begin
 dm.t_reserva.Cancel;
+l_mensagem.Caption:='Cancelado com sucesso!';
+l_mensagem.Font.Color:=clGreen;
+timer.Enabled:=true;
 db_cpf.Enabled:=false;
 db_check_in.Enabled:=false;
 db_check_out.Enabled:=false;
@@ -126,6 +133,9 @@ If Application.MessageBox('Confirma Exclusão?','Atenção!',MB_YESNO +
                            MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES Then
 begin
 dm.t_reserva.Delete;
+l_mensagem.Caption:='Reserva excluida com sucesso!';
+l_mensagem.Font.Color:=clGreen;
+timer.Enabled:=true;
 db_cpf.Enabled:=false;
 db_check_in.Enabled:=false;
 db_check_out.Enabled:=false;
@@ -194,7 +204,9 @@ procedure Tf_cadastro_reserva.b_salvarClick(Sender: TObject);
 begin
 if db_cpf.text = '' then
   begin
-  showmessage('CPF não poder ser vazio!');
+  l_mensagem.Caption:='CPF não pode ser vazio!';
+  l_mensagem.Font.Color:=clRed;
+  timer.Enabled:=true;
   exit;
   end;
 with dm.q_cliente do
@@ -207,22 +219,30 @@ with dm.q_cliente do
   end;
 if contar_cpf = 0 then
   begin
-  showmessage('CPF não está cadastrado!');
+  l_mensagem.Caption:='CPF não está cadastrado!';
+  l_mensagem.Font.Color:=clRed;
+  timer.Enabled:=true;
   exit;
   end;
 if db_check_in.text = '' then
   begin
-  showmessage('Data de Entrada não poder ser vazio!');
+  l_mensagem.Caption:='Data de Entrada não pode ser vazio!';
+  l_mensagem.Font.Color:=clRed;
+  timer.Enabled:=true;
   exit;
   end;
 if db_check_in.text = '' then
   begin
-  showmessage('Data de Saída não poder ser vazio!');
+  l_mensagem.Caption:='Data de Saída não pode ser vazio!';
+  l_mensagem.Font.Color:=clRed;
+  timer.Enabled:=true;
   exit;
   end;
 if db_combo_box.Text = '' then
   begin
-  showmessage('Selecione o número do quarto!');
+  l_mensagem.Caption:='Selecione o número do quarto!';
+  l_mensagem.Font.Color:=clRed;
+  timer.Enabled:=true;
   exit;
   end;
 if v_salvar = 1 then
@@ -239,7 +259,9 @@ with dm.q_reserva do
   end;
   if (contar_reserva > 0) then
     begin
-    showmessage('Quarto já está reservado!');
+    l_mensagem.Caption:='Quarto já está reservado!';
+    l_mensagem.Font.Color:=clRed;
+    timer.Enabled:=true;
     exit;
     end
     else
@@ -249,7 +271,9 @@ with dm.q_reserva do
     begin
 
     dm.t_reserva.Post;
-    showmessage('Reserva efetuada com sucesso!');
+    l_mensagem.Caption:='Reserva efetuada com sucesso!';
+    l_mensagem.Font.Color:=clGreen;
+    timer.Enabled:=true;
     db_cpf.Enabled:=false;
     db_check_in.Enabled:=false;
     db_check_out.Enabled:=false;
@@ -287,7 +311,9 @@ with dm.q_reserva do
   end;
   if (contar_reserva > 0) then
     begin
-    showmessage('Quarto já está reservado!');
+    l_mensagem.Caption:='Quarto já está reservado!';
+    l_mensagem.Font.Color:=clRed;
+    timer.Enabled:=true;
     exit;
     end
     else
@@ -295,7 +321,9 @@ with dm.q_reserva do
                            MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES Then
     begin
     dm.t_reserva.Post;
-    showmessage('Reserva alterada com sucesso!');
+    l_mensagem.Caption:='Reserva alterada com sucesso!';
+    l_mensagem.Font.Color:=clGreen;
+    timer.Enabled:=true;
     db_cpf.Enabled:=false;
     db_check_in.Enabled:=false;
     db_check_out.Enabled:=false;
@@ -480,6 +508,13 @@ db_cidade.Caption:='';
 db_cpf2.Caption:='';
 gb_cliente.Visible:=false;
 end;
+end;
+
+procedure Tf_cadastro_reserva.timerTimer(Sender: TObject);
+begin
+l_mensagem.caption:='';
+l_mensagem.Font.Color:=clBlack;
+timer.Enabled:=false;
 end;
 
 procedure Tf_cadastro_reserva.t_nomeChange(Sender: TObject);

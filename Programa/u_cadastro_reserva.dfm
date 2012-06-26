@@ -3423,7 +3423,7 @@ object f_cadastro_reserva: Tf_cadastro_reserva
     end
   end
   object db_check_in: TDBEdit
-    Left = 123
+    Left = 120
     Top = 257
     Width = 109
     Height = 21
@@ -3433,9 +3433,9 @@ object f_cadastro_reserva: Tf_cadastro_reserva
     TabOrder = 1
   end
   object db_check_out: TDBEdit
-    Left = 123
+    Left = 120
     Top = 289
-    Width = 121
+    Width = 109
     Height = 21
     DataField = 'check_out'
     DataSource = dm.ds_reserva
@@ -3572,5 +3572,33 @@ object f_cadastro_reserva: Tf_cadastro_reserva
       TabOrder = 0
       OnChange = t_nomeChange
     end
+  end
+  object gb_mensagem: TGroupBox
+    Left = 264
+    Top = 284
+    Width = 471
+    Height = 60
+    TabOrder = 6
+    object l_mensagem: TLabel
+      Left = 24
+      Top = 19
+      Width = 4
+      Height = 18
+      Color = clGreen
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Futura Md BT'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object timer: TTimer
+    Enabled = False
+    Interval = 3300
+    OnTimer = timerTimer
+    Left = 448
+    Top = 296
   end
 end
