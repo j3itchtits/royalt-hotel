@@ -137,7 +137,7 @@ If Application.MessageBox('Confirma Exclusão?','Atenção!',MB_YESNO +
 begin
 dm.t_reserva.Delete;
 l_mensagem.Caption:='Reserva excluida com sucesso!';
-l_mensagem.Font.Color:=clGreen;
+l_mensagem.Font.Color:=clRed;
 timer.Enabled:=true;
 db_cpf.Enabled:=false;
 db_check_in.Enabled:=false;
