@@ -105,7 +105,7 @@ end;
 procedure Tf_cadastro_reserva.b_cancelarClick(Sender: TObject);
 begin
 dm.t_reserva.Cancel;
-l_mensagem.Caption:='Cancelado com sucesso!';
+l_mensagem.Caption:='Cancelado!';
 l_mensagem.Font.Color:=clGreen;
 timer.Enabled:=true;
 db_cpf.Enabled:=false;
