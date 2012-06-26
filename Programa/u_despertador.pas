@@ -25,6 +25,8 @@ type
     b_excluir: TPngSpeedButton;
     b_fechar: TPngSpeedButton;
     RadioGroup1: TRadioGroup;
+    Label1: TLabel;
+    Label2: TLabel;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
     procedure b_excluirClick(Sender: TObject);
@@ -47,7 +49,7 @@ type
 
 var
   f_despertador: Tf_despertador;
-  resultado : integer;
+  resultado: integer;
 
 implementation
 
@@ -74,6 +76,16 @@ end;
 
 procedure Tf_despertador.b_salvarClick(Sender: TObject);
 begin
+if (db_num_quarto.Text = '') then
+  begin
+  showmessage('O número do quarto não pode ser vazio!');
+  exit;
+  end;
+if (db_hora.Text = '  /  /           :  ') then
+  begin
+  showmessage('O data e a hora devem estar preenchidas corretamente!');
+  exit;
+  end;
 db_num_quarto.Enabled:=false;
 db_hora.Enabled:=false;
 b_novo.Enabled:=true;
@@ -105,32 +117,16 @@ end;
 
 procedure Tf_despertador.dt_diaChange(Sender: TObject);
 begin
-  if (p_num_quarto.Text <> '') then
-  begin
-  with dm.q_despertador do
-  begin
-  Close;
-  SQL.Clear;
-  SQL.Add('select * from despertador where dia = :date and num_quarto like :cp');
-  parameters.parambyname('cp').value := p_num_quarto.Text + '%';
-  parameters.parambyname('date').value := datetostr(dt_dia.date);
-  Open;
-  end;
-  end;
-
-  if (p_num_quarto.Text = '') then
-  begin
-
-  with dm.q_despertador do
-  begin
-  Close;
-  SQL.Clear;
-  SQL.Add('select * from despertador where dia = :date');
-  parameters.parambyname('date').value := datetostr(dt_dia.date);
-  Open;
-  end;
-  end;
-
+with dm.q_despertador do
+begin
+Close;
+SQL.Clear;
+sql.Add('select * from despertador where hora between (:date - 5000) and (:date + 5000)');
+parameters.parambyname('date').value := dt_dia.date;
+Open;
+resultado := dm.q_despertador.fieldbyname('id').asinteger;
+dm.t_despertador.Locate('id',resultado,[loCaseInsensitive, loPartialKey]);
+end;
 end;
 
 procedure Tf_despertador.FormShow(Sender: TObject);
@@ -139,6 +135,15 @@ db_num_quarto.Enabled:=false;
 db_hora.Enabled:=false;
 b_salvar.Enabled:=false;
 b_cancelar.Enabled:=false;
+ // atualizar grid
+ with dm.q_despertador do
+ begin
+ Close;
+ SQL.Clear;
+ sql.Add('select * from despertador order by num_quarto');
+ Open;
+ end;
+
 end;
 
 procedure Tf_despertador.grid_despertadorCellClick(Column: TColumn);
@@ -149,34 +154,51 @@ end;
 
 procedure Tf_despertador.p_num_quartoChange(Sender: TObject);
 begin
-if p_num_quarto.Text <> '' then
+if p_num_quarto.text <> '' then
 begin
-  with dm.q_despertador do
-  begin
-  Close;
-  SQL.Clear;
-  SQL.Add('select * from despertador where dia = :date and num_quarto like :cp');
-  parameters.parambyname('cp').value := p_num_quarto.text + '%';
-  parameters.parambyname('date').value := datetostr(dt_dia.date);
-  Open;
-  end;
+ with dm.q_despertador do
+ begin
+ Close;
+ SQL.Clear;
+ sql.Add('select * from despertador where num_quarto like '''+p_num_quarto.text+'%'' order by num_quarto');
+ Open;
+ resultado := dm.q_despertador.fieldbyname('id').asinteger;
+ dm.t_despertador.Locate('id',resultado,[loCaseInsensitive, loPartialKey]);
+ end;
 end
 else
 begin
-  with dm.q_despertador do
-  begin
-  Close;
-  SQL.Clear;
-  sql.Add('select * from despertador where dia = :date');
-  parameters.parambyname('date').value := datetostr(dt_dia.date);
-  Open;
-  end;
+ with dm.q_despertador do
+ begin
+ Close;
+ SQL.Clear;
+ sql.Add('select * from despertador order by num_quarto');
+ Open;
+ end;
 end;
-
 end;
 
 procedure Tf_despertador.b_cancelarClick(Sender: TObject);
 begin
+dm.t_despertador.Cancel;
+db_num_quarto.Enabled:=false;
+db_hora.Enabled:=false;
+b_novo.Enabled:=false;
+b_salvar.Enabled:=false;
+b_cancelar.Enabled:=false;
+b_excluir.Enabled:=true;
+b_salvar.Enabled:=false;
+b_novo.Enabled:=true;
+  //atualizar grid
+  with dm.q_despertador do
+  begin
+  Close;
+  SQL.Clear;
+  sql.Add('select * from despertador order by num_quarto');
+  Open;
+  end;
+
+
 dm.t_despertador.Cancel;
 dm.q_despertador.Close;
 dm.q_despertador.Open;
@@ -215,13 +237,12 @@ end;
 
 procedure Tf_despertador.b_listar_todosClick(Sender: TObject);
 begin
-  with dm.q_despertador do
-  begin
-  Close;
-  SQL.Clear;
-  SQL.Add('select * from despertador order by dia');
-  Open;
-  end;
+with dm.q_despertador do
+begin
+Close;
+SQL.Clear;
+sql.Add('select * from despertador order by num_quarto');
+Open;
 end;
-
+end;
 end.

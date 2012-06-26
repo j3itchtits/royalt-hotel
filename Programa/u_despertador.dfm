@@ -2304,6 +2304,7 @@ object f_despertador: Tf_despertador
     Font.Style = []
     Layout = blGlyphTop
     ParentFont = False
+    OnClick = b_cancelarClick
     PngImage.Data = {
       89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
       F4000000097048597300000B1300000B1301009A9C1800000A4F694343505068
@@ -2784,14 +2785,14 @@ object f_despertador: Tf_despertador
     Height = 21
     DataField = 'hora'
     DataSource = dm.ds_despertador
-    MaxLength = 18
+    MaxLength = 20
     TabOrder = 1
   end
   object gb_grid: TGroupBox
-    Left = 264
-    Top = 312
+    Left = 272
+    Top = 304
     Width = 649
-    Height = 289
+    Height = 312
     TabOrder = 2
     object b_listar_todos: TPngSpeedButton
       Left = 544
@@ -2966,20 +2967,31 @@ object f_despertador: Tf_despertador
         3C8486FFB7895AEE999953E081006EFF3737E70D32F39ECD07C8CFF961DCF11B
         EE66EB7F6B1F11FD1777C0730000000049454E44AE426082}
     end
+    object Label1: TLabel
+      Left = 28
+      Top = 56
+      Width = 27
+      Height = 13
+      Caption = 'Data:'
+    end
+    object Label2: TLabel
+      Left = 28
+      Top = 104
+      Width = 66
+      Height = 13
+      Caption = 'N'#176' do quarto:'
+    end
     object RadioGroup1: TRadioGroup
-      Left = 67
-      Top = 16
-      Width = 254
-      Height = 105
+      Left = 268
+      Top = 24
+      Width = 270
+      Height = 122
       Caption = 'Pesquisar despertador por:'
-      Items.Strings = (
-        'Data'
-        'N'#176' do quarto')
       TabOrder = 3
     end
     object grid_despertador: TDBGrid
       Left = 19
-      Top = 144
+      Top = 168
       Width = 606
       Height = 129
       DataSource = dm.ds_despertador_grid
@@ -2999,15 +3011,9 @@ object f_despertador: Tf_despertador
         end
         item
           Expanded = False
-          FieldName = 'dia'
-          Title.Caption = 'Dia'
-          Visible = True
-        end
-        item
-          Expanded = False
           FieldName = 'hora'
-          Title.Caption = 'Hora'
-          Width = 80
+          Title.Caption = 'Data e Hora'
+          Width = 130
           Visible = True
         end
         item
@@ -3019,8 +3025,8 @@ object f_despertador: Tf_despertador
         end>
     end
     object dt_dia: TDateTimePicker
-      Left = 178
-      Top = 40
+      Left = 122
+      Top = 56
       Width = 97
       Height = 21
       Date = 41078.804273217590000000
@@ -3029,8 +3035,8 @@ object f_despertador: Tf_despertador
       OnChange = dt_diaChange
     end
     object p_num_quarto: TEdit
-      Left = 178
-      Top = 88
+      Left = 122
+      Top = 104
       Width = 121
       Height = 21
       TabOrder = 2
@@ -3042,6 +3048,7 @@ object f_despertador: Tf_despertador
     Top = 200
     Width = 123
     Height = 21
+    Style = csDropDownList
     DataField = 'num_quarto'
     DataSource = dm.ds_despertador
     TabOrder = 0
