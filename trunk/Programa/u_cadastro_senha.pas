@@ -14,8 +14,12 @@ type
     Label2: TLabel;
     b_salvar: TPngSpeedButton;
     Image1: TImage;
+    timer: TTimer;
+    gb_mensagem: TGroupBox;
+    l_mensagem: TLabel;
     procedure b_salvarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure timerTimer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,7 +53,9 @@ begin
     SQL.Clear;
     sql.Add('update senha set senha = '''+t_senha_nova.text+''' where senha = '''+t_senha_atual.text+''' ');
     ExecSQL;
-    showmessage('Senha alterada com sucesso!');
+    l_mensagem.Caption:='Senha alterada com sucesso!';
+    l_mensagem.Font.Color:=clBlue;
+    timer.Enabled:=true;
     end;
 
   end;
@@ -63,6 +69,13 @@ procedure Tf_cadastro_senha.FormShow(Sender: TObject);
 begin
 t_senha_nova.text := '';
 t_senha_atual.text := '';
+end;
+
+procedure Tf_cadastro_senha.timerTimer(Sender: TObject);
+begin
+l_mensagem.caption:='';
+l_mensagem.Font.Color:=clBlack;
+timer.Enabled:=false;
 end;
 
 end.
