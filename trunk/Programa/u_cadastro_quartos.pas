@@ -49,6 +49,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure t_pesquisarChange(Sender: TObject);
+    procedure timerTimer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -380,6 +381,13 @@ b_cancelar.Enabled:=false;
   Open;
   end;
 
+end;
+
+procedure Tf_cadastro_quartos.timerTimer(Sender: TObject);
+begin
+l_mensagem.caption:='';
+l_mensagem.Font.Color:=clBlack;
+timer.Enabled:=false;
 end;
 
 procedure Tf_cadastro_quartos.t_pesquisarChange(Sender: TObject);

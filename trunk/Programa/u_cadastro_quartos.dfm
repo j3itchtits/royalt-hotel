@@ -3436,6 +3436,7 @@ object f_cadastro_quartos: Tf_cadastro_quartos
   object timer: TTimer
     Enabled = False
     Interval = 3300
+    OnTimer = timerTimer
     Left = 632
     Top = 304
   end
