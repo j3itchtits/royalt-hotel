@@ -27,6 +27,9 @@ type
     RadioGroup1: TRadioGroup;
     Label1: TLabel;
     Label2: TLabel;
+    gb_mensagem: TGroupBox;
+    l_mensagem: TLabel;
+    timer: TTimer;
     procedure b_novoClick(Sender: TObject);
     procedure b_salvarClick(Sender: TObject);
     procedure b_excluirClick(Sender: TObject);
@@ -40,6 +43,7 @@ type
     procedure dt_diaChange(Sender: TObject);
     procedure db_num_quartoDropDown(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure timerTimer(Sender: TObject);
 
   private
     { Private declarations }
@@ -58,6 +62,9 @@ implementation
 
 procedure Tf_despertador.b_novoClick(Sender: TObject);
 begin
+l_mensagem.Caption:='Criando novo registro...';
+l_mensagem.Font.Color:=clBlue;
+timer.Enabled:=true;
 db_num_quarto.Enabled:=true;
 db_hora.Enabled:=true;
 b_novo.Enabled:=false;
@@ -78,12 +85,16 @@ procedure Tf_despertador.b_salvarClick(Sender: TObject);
 begin
 if (db_num_quarto.Text = '') then
   begin
-  showmessage('O número do quarto não pode ser vazio!');
+  l_mensagem.Caption:='O número do quarto não pode ser vazio!';
+  l_mensagem.Font.Color:=clRed;
+  timer.Enabled:=true;
   exit;
   end;
 if (db_hora.Text = '  /  /           :  ') then
   begin
-  showmessage('O data e a hora devem estar preenchidas corretamente!');
+  l_mensagem.Caption:='O data e a hora devem estar preenchidas corretamente!';
+  l_mensagem.Font.Color:=clRed;
+  timer.Enabled:=true;
   exit;
   end;
 db_num_quarto.Enabled:=false;
@@ -96,6 +107,9 @@ b_listar_todos.Enabled:=true;
 dm.t_despertador.Post;
 dm.q_despertador.Close;
 dm.q_despertador.Open;
+l_mensagem.Caption:='Despertador cadastrado com sucesso!';
+l_mensagem.Font.Color:=clGreen;
+timer.Enabled:=true;
 end;
 
 procedure Tf_despertador.db_num_quartoDropDown(Sender: TObject);
@@ -121,8 +135,9 @@ with dm.q_despertador do
 begin
 Close;
 SQL.Clear;
-sql.Add('select * from despertador where hora between (:date - 5000) and (:date + 5000)');
-parameters.parambyname('date').value := dt_dia.date;
+sql.Add('select * from despertador where hora > :date1 and hora < :date2');
+parameters.parambyname('date1').value := datetostr(dt_dia.date);
+parameters.parambyname('date2').value := datetostr(dt_dia.date + 1);
 Open;
 resultado := dm.q_despertador.fieldbyname('id').asinteger;
 dm.t_despertador.Locate('id',resultado,[loCaseInsensitive, loPartialKey]);
@@ -131,6 +146,8 @@ end;
 
 procedure Tf_despertador.FormShow(Sender: TObject);
 begin
+l_mensagem.Caption:='';
+l_mensagem.Color:=clblack;
 db_num_quarto.Enabled:=false;
 db_hora.Enabled:=false;
 b_salvar.Enabled:=false;
@@ -178,6 +195,13 @@ begin
 end;
 end;
 
+procedure Tf_despertador.timerTimer(Sender: TObject);
+begin
+l_mensagem.caption:='';
+l_mensagem.Font.Color:=clBlack;
+timer.Enabled:=false;
+end;
+
 procedure Tf_despertador.b_cancelarClick(Sender: TObject);
 begin
 dm.t_despertador.Cancel;
@@ -189,6 +213,9 @@ b_cancelar.Enabled:=false;
 b_excluir.Enabled:=true;
 b_salvar.Enabled:=false;
 b_novo.Enabled:=true;
+l_mensagem.Caption:='Cancelado!';
+l_mensagem.Font.Color:=clGreen;
+timer.Enabled:=true;
   //atualizar grid
   with dm.q_despertador do
   begin
@@ -212,6 +239,9 @@ begin
 dm.t_despertador.Delete;
 db_num_quarto.Enabled:=false;
 db_hora.Enabled:=false;
+l_mensagem.Caption:='Excluído com sucesso!';
+l_mensagem.Font.Color:=clRed;
+timer.Enabled:=true;
   //atualizar grid
   with dm.q_despertador do
   begin

@@ -1938,7 +1938,7 @@ object f_despertador: Tf_despertador
   end
   object l_hora: TLabel
     Left = 272
-    Top = 248
+    Top = 243
     Width = 62
     Height = 13
     Caption = 'Data e Hora:'
@@ -2780,7 +2780,7 @@ object f_despertador: Tf_despertador
   end
   object db_hora: TDBEdit
     Left = 368
-    Top = 245
+    Top = 240
     Width = 132
     Height = 21
     DataField = 'hora'
@@ -2790,9 +2790,9 @@ object f_despertador: Tf_despertador
   end
   object gb_grid: TGroupBox
     Left = 272
-    Top = 304
+    Top = 376
     Width = 649
-    Height = 312
+    Height = 240
     TabOrder = 2
     object b_listar_todos: TPngSpeedButton
       Left = 544
@@ -2968,32 +2968,32 @@ object f_despertador: Tf_despertador
         EE66EB7F6B1F11FD1777C0730000000049454E44AE426082}
     end
     object Label1: TLabel
-      Left = 28
-      Top = 56
+      Left = 35
+      Top = 50
       Width = 27
       Height = 13
       Caption = 'Data:'
     end
     object Label2: TLabel
-      Left = 28
-      Top = 104
+      Left = 35
+      Top = 85
       Width = 66
       Height = 13
       Caption = 'N'#176' do quarto:'
     end
     object RadioGroup1: TRadioGroup
-      Left = 268
-      Top = 24
+      Left = 24
+      Top = 27
       Width = 270
-      Height = 122
+      Height = 98
       Caption = 'Pesquisar despertador por:'
       TabOrder = 3
     end
     object grid_despertador: TDBGrid
-      Left = 19
-      Top = 168
+      Left = 24
+      Top = 131
       Width = 606
-      Height = 129
+      Height = 97
       DataSource = dm.ds_despertador_grid
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
@@ -3025,8 +3025,8 @@ object f_despertador: Tf_despertador
         end>
     end
     object dt_dia: TDateTimePicker
-      Left = 122
-      Top = 56
+      Left = 129
+      Top = 53
       Width = 97
       Height = 21
       Date = 41078.804273217590000000
@@ -3035,8 +3035,8 @@ object f_despertador: Tf_despertador
       OnChange = dt_diaChange
     end
     object p_num_quarto: TEdit
-      Left = 122
-      Top = 104
+      Left = 129
+      Top = 88
       Width = 121
       Height = 21
       TabOrder = 2
@@ -3053,5 +3053,34 @@ object f_despertador: Tf_despertador
     DataSource = dm.ds_despertador
     TabOrder = 0
     OnDropDown = db_num_quartoDropDown
+  end
+  object gb_mensagem: TGroupBox
+    Left = 307
+    Top = 289
+    Width = 471
+    Height = 60
+    TabOrder = 3
+    object l_mensagem: TLabel
+      Left = 24
+      Top = 16
+      Width = 90
+      Height = 19
+      Caption = 'l_mensagem'
+      Color = clGreen
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object timer: TTimer
+    Enabled = False
+    Interval = 3300
+    OnTimer = timerTimer
+    Left = 552
+    Top = 304
   end
 end
