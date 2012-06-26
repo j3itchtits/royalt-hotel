@@ -2479,7 +2479,7 @@ object f_pagamentos: Tf_pagamentos
   end
   object PngSpeedButton1: TPngSpeedButton
     Left = 368
-    Top = 214
+    Top = 189
     Width = 66
     Height = 41
     Caption = '...'
@@ -2716,7 +2716,7 @@ object f_pagamentos: Tf_pagamentos
   end
   object gb_cliente: TGroupBox
     Left = 488
-    Top = 214
+    Top = 189
     Width = 305
     Height = 129
     Caption = 'Pesquisar cliente'
@@ -2824,5 +2824,33 @@ object f_pagamentos: Tf_pagamentos
       TabOrder = 0
       OnChange = t_nomeChange
     end
+  end
+  object gb_mensagem: TGroupBox
+    Left = 394
+    Top = 324
+    Width = 471
+    Height = 60
+    TabOrder = 3
+    object l_mensagem: TLabel
+      Left = 24
+      Top = 19
+      Width = 4
+      Height = 18
+      Color = clGreen
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Futura Md BT'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object timer: TTimer
+    Enabled = False
+    Interval = 3300
+    OnTimer = timerTimer
+    Left = 608
+    Top = 336
   end
 end

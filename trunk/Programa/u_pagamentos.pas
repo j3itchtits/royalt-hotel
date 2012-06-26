@@ -29,12 +29,16 @@ type
     b_voltar: TPngSpeedButton;
     Image1: TImage;
     PngSpeedButton1: TPngSpeedButton;
+    timer: TTimer;
+    gb_mensagem: TGroupBox;
+    l_mensagem: TLabel;
     procedure b_listar_todosClick(Sender: TObject);
     procedure b_pagarClick(Sender: TObject);
     procedure formShow(Sender: TObject);
     procedure t_nomeChange(Sender: TObject);
     procedure PngSpeedButton1Click(Sender: TObject);
     procedure b_voltarClick(Sender: TObject);
+    procedure timerTimer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,7 +61,9 @@ procedure Tf_pagamentos.b_listar_todosClick(Sender: TObject);
 begin
 if t_cpf.text = '' then
   begin
-  showmessage('CPF não poder ser vazio!');
+  l_mensagem.Caption:='CPF não poder ser vazio!';
+  l_mensagem.Font.Color:=clRed;
+  timer.Enabled:=true;
   exit;
   end;
 with dm.q_reserva do
@@ -69,7 +75,9 @@ with dm.q_reserva do
   Open;
   if RecordCount = 0 then
     begin
-    showmessage('CPF não possui reserva aberta!');
+    l_mensagem.Caption:='CPF não possui reserva aberta!';
+    l_mensagem.Font.Color:=clRed;
+    timer.Enabled:=true;
     exit;
     end;
   end;
@@ -97,12 +105,16 @@ procedure Tf_pagamentos.b_pagarClick(Sender: TObject);
 begin
 if t_cpf.text = '' then
   begin
-  showmessage('CPF não poder ser vazio!');
+  l_mensagem.Caption:='CPF não poder ser vazio!';
+  l_mensagem.Font.Color:=clRed;
+  timer.Enabled:=true;
   exit;
   end;
 if ver <> 1 then
   begin
-  showmessage('Pesquise e Calcule o preço antes de efetuar o pagamento!');
+  l_mensagem.Caption:='Pesquise e Calcule o preço antes de efetuar o pagamento!';
+  l_mensagem.Font.Color:=clRed;
+  timer.Enabled:=true;
   exit;
   end;
 with dm.q_pagamento do
@@ -112,7 +124,9 @@ with dm.q_pagamento do
   sql.Add('update reserva set status = "fechada" where reserva.cpf_cliente = :cp');
   parameters.parambyname('cp').value := t_cpf.text;
   ExecSQL;
-  showmessage('Pagamento efetuado com sucesso!');
+  l_mensagem.Caption:='Pagamento efetuado com sucesso!';
+  l_mensagem.Font.Color:=clGreen;
+  timer.Enabled:=true;
   ver := 0;
   end;
 t_cpf.Text := '';
@@ -154,6 +168,13 @@ db_cidade.Caption:='';
 db_cpf2.Caption:='';
 gb_cliente.Visible:=false;
 end;
+end;
+
+procedure Tf_pagamentos.timerTimer(Sender: TObject);
+begin
+l_mensagem.caption:='';
+l_mensagem.Font.Color:=clBlack;
+timer.Enabled:=false;
 end;
 
 procedure Tf_pagamentos.t_nomeChange(Sender: TObject);
