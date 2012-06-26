@@ -2146,4 +2146,32 @@ object f_cadastro_senha: Tf_cadastro_senha
     PasswordChar = '*'
     TabOrder = 1
   end
+  object gb_mensagem: TGroupBox
+    Left = 410
+    Top = 166
+    Width = 319
+    Height = 60
+    TabOrder = 2
+    object l_mensagem: TLabel
+      Left = 64
+      Top = 19
+      Width = 4
+      Height = 18
+      Color = clGreen
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Futura Md BT'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object timer: TTimer
+    Enabled = False
+    Interval = 3300
+    OnTimer = timerTimer
+    Left = 672
+    Top = 176
+  end
 end
