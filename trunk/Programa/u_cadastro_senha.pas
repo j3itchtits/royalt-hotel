@@ -44,7 +44,9 @@ begin
   Open;
   if RecordCount = 0 then
     begin
-    showmessage('Senha atual está errada!');
+    l_mensagem.Caption:='Senha atual está errada!';
+    l_mensagem.Font.Color:=clRed;
+    timer.Enabled:=true;
     exit
     end
     else
@@ -54,7 +56,7 @@ begin
     sql.Add('update senha set senha = '''+t_senha_nova.text+''' where senha = '''+t_senha_atual.text+''' ');
     ExecSQL;
     l_mensagem.Caption:='Senha alterada com sucesso!';
-    l_mensagem.Font.Color:=clBlue;
+    l_mensagem.Font.Color:=clGreen;
     timer.Enabled:=true;
     end;
 
