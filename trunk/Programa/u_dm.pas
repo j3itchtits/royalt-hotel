@@ -56,6 +56,7 @@ type
     t_despertadornum_quarto: TIntegerField;
     t_despertadorhora: TDateTimeField;
     t_despertadorstatus: TWideStringField;
+    q_aviso_despertador: TADOQuery;
   private
     { Private declarations }
   public

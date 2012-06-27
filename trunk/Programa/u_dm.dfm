@@ -242,7 +242,7 @@ object dm: Tdm
     end
     object t_despertadorhora: TDateTimeField
       FieldName = 'hora'
-      EditMask = '!99/99/00     !90:00;1;_'
+      EditMask = '!99/99/0000     !90:00;1;_'
     end
     object t_despertadorstatus: TWideStringField
       FieldName = 'status'
@@ -726,5 +726,15 @@ object dm: Tdm
     SystemPrinter.UnitsFactor = 1.000000000000000000
     Left = 232
     Top = 504
+  end
+  object q_aviso_despertador: TADOQuery
+    Active = True
+    Connection = conexao
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from despertador')
+    Left = 488
+    Top = 280
   end
 end

@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, PngSpeedButton, ComCtrls, Menus, u_dm, ExtCtrls, pngimage;
+  Dialogs, Buttons, PngSpeedButton, ComCtrls, Menus, u_dm, ExtCtrls, pngimage,
+  StdCtrls;
 
 type
   Tf_principal = class(TForm)
@@ -33,6 +34,12 @@ type
     StatusBar1: TStatusBar;
     Image1: TImage;
     m_c_despertador: TMenuItem;
+    gb_despertador: TGroupBox;
+    l_datahora: TLabel;
+    l_num_quarto: TLabel;
+    b_finalizar: TPngSpeedButton;
+    timer: TTimer;
+    l_sem_fim: TLabel;
     procedure b_cadastro_clienteClick(Sender: TObject);
     procedure m_c_clienteClick(Sender: TObject);
     procedure b_cadastro_reservaClick(Sender: TObject);
@@ -53,6 +60,9 @@ type
     procedure b_despertadorClick(Sender: TObject);
     procedure m_c_despertadorClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure timerTimer(Sender: TObject);
+    procedure b_finalizarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,6 +71,7 @@ type
 
 var
   f_principal: Tf_principal;
+  conta_alarme: integer;
 
 implementation
 
@@ -90,6 +101,22 @@ begin
 f_despertador.show;
 end;
 
+procedure Tf_principal.b_finalizarClick(Sender: TObject);
+begin
+with dm.q_cliente do
+ begin
+ Active := False;
+ SQL.Text := 'SELECT  day(hora), month(hora) , year(hora), hour(hora) , minute(hora) from  despertador where day(now()) = day(hora) and month(now()) = month(hora) and year(now()) = year(hora) and hour(now()) = hour(hora) and minute(now()) = minute(hora)';
+ Active := True;
+ conta_alarme := RecordCount;
+ end;
+ if (conta_alarme > 0) then
+   begin
+   showmessage('encontrou');
+   exit
+   end;
+end;
+
 procedure Tf_principal.b_pagamentosClick(Sender: TObject);
 begin
 f_pagamentos.show;
@@ -113,6 +140,17 @@ end;
 procedure Tf_principal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 application.Terminate;
+end;
+
+procedure Tf_principal.FormShow(Sender: TObject);
+begin
+b_finalizar.Enabled:=true;
+l_datahora.caption:='';
+timer.Enabled:=false;
+l_num_quarto.caption:='';
+timer.Enabled:=false;
+l_sem_fim.caption:='';
+timer.Enabled:=false;
 end;
 
 procedure Tf_principal.m_a_quadro_ocupacaoClick(Sender: TObject);
@@ -163,6 +201,22 @@ end;
 procedure Tf_principal.PngSpeedButton7Click(Sender: TObject);
 begin
 f_cadastro_senha.show;
+end;
+
+procedure Tf_principal.timerTimer(Sender: TObject);
+begin
+with dm.q_cliente do
+ begin
+ Active := False;
+ SQL.Text := 'SELECT  day(hora), month(hora) , year(hora), hour(hora) , minute(hora) from  despertador where day(now()) = day(hora) and month(now()) = month(hora) and year(now()) = year(hora) and hour(now()) = hour(hora) and minute(now()) = minute(hora)';
+ Active := True;
+ conta_alarme := RecordCount;
+ end;
+ if (conta_alarme > 0) then
+   begin
+   showmessage('encontrou');
+   exit
+   end;
 end;
 
 procedure Tf_principal.m_c_senhaClick(Sender: TObject);
