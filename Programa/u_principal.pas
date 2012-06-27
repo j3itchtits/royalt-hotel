@@ -27,7 +27,6 @@ type
     m_a_status_limpeza: TMenuItem;
     m_relatorios: TMenuItem;
     m_c_senha: TMenuItem;
-    m_sobre: TMenuItem;
     m_c_quartos: TMenuItem;
     N1: TMenuItem;
     m_c_sair: TMenuItem;
@@ -39,7 +38,11 @@ type
     l_num_quarto: TLabel;
     b_finalizar: TPngSpeedButton;
     timer: TTimer;
-    l_sem_fim: TLabel;
+    hadespertador2: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    hadespertador1: TLabel;
+    bt_ver: TPngSpeedButton;
     procedure b_cadastro_clienteClick(Sender: TObject);
     procedure m_c_clienteClick(Sender: TObject);
     procedure b_cadastro_reservaClick(Sender: TObject);
@@ -63,6 +66,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure timerTimer(Sender: TObject);
     procedure b_finalizarClick(Sender: TObject);
+    procedure bt_verClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -71,7 +75,8 @@ type
 
 var
   f_principal: Tf_principal;
-  conta_alarme: integer;
+  conta_alarme, conta_alarme2: integer;
+  id_despertador : integer;
 
 implementation
 
@@ -80,6 +85,11 @@ uses u_cadastro_cliente, u_cadastro_reserva, u_quadro_apartamentos,
   u_cadastro_senha, u_sobre, u_despertador;
 
 {$R *.dfm}
+
+procedure Tf_principal.bt_verClick(Sender: TObject);
+begin
+f_despertador.show;
+end;
 
 procedure Tf_principal.b_cadastro_clienteClick(Sender: TObject);
 begin
@@ -103,18 +113,15 @@ end;
 
 procedure Tf_principal.b_finalizarClick(Sender: TObject);
 begin
-with dm.q_cliente do
+with dm.q_despertador do
  begin
- Active := False;
- SQL.Text := 'SELECT  day(hora), month(hora) , year(hora), hour(hora) , minute(hora) from  despertador where day(now()) = day(hora) and month(now()) = month(hora) and year(now()) = year(hora) and hour(now()) = hour(hora) and minute(now()) = minute(hora)';
- Active := True;
- conta_alarme := RecordCount;
+ Close;
+ SQL.Clear;
+ sql.Add('delete from despertador where id = :id');
+ parameters.parambyname('id').value := id_despertador;
+ ExecSQL;
  end;
- if (conta_alarme > 0) then
-   begin
-   showmessage('encontrou');
-   exit
-   end;
+ timer.OnTimer(self);
 end;
 
 procedure Tf_principal.b_pagamentosClick(Sender: TObject);
@@ -144,13 +151,9 @@ end;
 
 procedure Tf_principal.FormShow(Sender: TObject);
 begin
-b_finalizar.Enabled:=true;
 l_datahora.caption:='';
-timer.Enabled:=false;
 l_num_quarto.caption:='';
-timer.Enabled:=false;
-l_sem_fim.caption:='';
-timer.Enabled:=false;
+timer.OnTimer(self);
 end;
 
 procedure Tf_principal.m_a_quadro_ocupacaoClick(Sender: TObject);
@@ -205,18 +208,66 @@ end;
 
 procedure Tf_principal.timerTimer(Sender: TObject);
 begin
-with dm.q_cliente do
+with dm.q_aviso_despertador do
  begin
  Active := False;
- SQL.Text := 'SELECT  day(hora), month(hora) , year(hora), hour(hora) , minute(hora) from  despertador where day(now()) = day(hora) and month(now()) = month(hora) and year(now()) = year(hora) and hour(now()) = hour(hora) and minute(now()) = minute(hora)';
+ SQL.Text := 'SELECT  id, num_quarto, hora from  despertador where day(now()) = day(hora) and month(now()) = month(hora) and year(now()) = year(hora) and hour(now()) = hour(hora) and minute(now()) = minute(hora)';
  Active := True;
  conta_alarme := RecordCount;
  end;
  if (conta_alarme > 0) then
    begin
-   showmessage('encontrou');
-   exit
+   gb_despertador.Visible:=true;
+   l_num_quarto.caption := dm.q_aviso_despertador.fieldbyname('num_quarto').asstring;
+   l_datahora.caption := dm.q_aviso_despertador.fieldbyname('hora').asstring;
+   id_despertador := dm.q_aviso_despertador.fieldbyname('id').asinteger;
+   b_finalizar.Visible:=true;
+   end
+   else
+   begin
+   l_datahora.caption:='';
+   l_num_quarto.caption:='';
+   b_finalizar.Visible:=false;
+   gb_despertador.Visible:=false;
    end;
+with dm.q_aviso_despertador do
+begin
+ Active := False;
+ SQL.Text := 'SELECT * from despertador where now() > hora and id <> :id';
+ if conta_alarme > 0 then
+ begin
+ parameters.parambyname('id').value := id_despertador;
+ end
+ else
+ begin
+ parameters.parambyname('id').value := 0;
+ end;
+ Active := True;
+ conta_alarme2 := RecordCount;
+ end;
+ if (conta_alarme2 > 0) then
+   begin
+   gb_despertador.Visible:=true;
+   hadespertador1.Visible:=true;
+   hadespertador2.Visible:=true;
+   bt_ver.Visible:=true;
+    if (conta_alarme = 0) then
+   begin
+   l_datahora.caption:='';
+   l_num_quarto.caption:='';
+   end;
+   end
+   else
+   begin
+   hadespertador1.Visible:=false;
+   hadespertador2.Visible:=false;
+   bt_ver.Visible:=false;
+   if conta_alarme = 0 then
+   begin
+   gb_despertador.Visible:=false;
+   end;
+
+end;
 end;
 
 procedure Tf_principal.m_c_senhaClick(Sender: TObject);

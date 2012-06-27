@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, u_dm, db, StdCtrls, DBCtrls, Buttons, PngSpeedButton, Grids, DBGrids,
-  ADODB, Mask, ComCtrls, pngimage, ExtCtrls;
+  ADODB, Mask, ComCtrls, pngimage, ExtCtrls, u_principal;
 
 type
   Tf_despertador = class(TForm)
@@ -44,6 +44,7 @@ type
     procedure db_num_quartoDropDown(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure timerTimer(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
     { Private declarations }
@@ -142,6 +143,11 @@ Open;
 resultado := dm.q_despertador.fieldbyname('id').asinteger;
 dm.t_despertador.Locate('id',resultado,[loCaseInsensitive, loPartialKey]);
 end;
+end;
+
+procedure Tf_despertador.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+f_principal.timer.OnTimer(self);
 end;
 
 procedure Tf_despertador.FormShow(Sender: TObject);

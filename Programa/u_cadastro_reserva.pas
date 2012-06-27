@@ -358,7 +358,7 @@ with dm.q_quarto do
 begin
   Close;
   SQL.Clear;
-  SQL.Add('select distinct(numero) from quarto');
+  SQL.Add('select distinct(numero) from quarto order by numero');
   Open;
   db_combo_box.Clear;
   while not EOF do

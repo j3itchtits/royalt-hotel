@@ -77,9 +77,6 @@
 			<DCCReference Include="u_relatorios.pas">
 				<Form>f_relatorios</Form>
 			</DCCReference>
-			<DCCReference Include="u_sobre.pas">
-				<Form>f_sobre</Form>
-			</DCCReference>
 			<DCCReference Include="u_dm.pas">
 				<Form>dm</Form>
 				<DesignClass>TDataModule</DesignClass>
