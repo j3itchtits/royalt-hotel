@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, Buttons, PngSpeedButton, DBCtrls, ComCtrls, db,
-   u_dm;
+   u_dm, pngimage;
 
 type
   Tf_relatorios = class(TForm)
@@ -44,6 +44,7 @@ type
     rb_ordenar_checkin: TRadioButton;
     rb_ordenar_checkout: TRadioButton;
     bt_ok: TPngSpeedButton;
+    Image1: TImage;
     procedure bt_okClick(Sender: TObject);
     procedure PngSpeedButton1Click(Sender: TObject);
     procedure t_nomeChange(Sender: TObject);
@@ -52,6 +53,7 @@ type
     procedure dtp3Click(Sender: TObject);
     procedure cb_tipoClick(Sender: TObject);
     procedure t_quartoClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -207,6 +209,13 @@ end;
 procedure Tf_relatorios.dtp3Click(Sender: TObject);
 begin
 rb_data_entre.Checked:=true;
+end;
+
+procedure Tf_relatorios.FormShow(Sender: TObject);
+begin
+dtp1.Date:= date();
+dtp2.Date:= date();
+dtp3.Date:= date();
 end;
 
 procedure Tf_relatorios.PngSpeedButton1Click(Sender: TObject);

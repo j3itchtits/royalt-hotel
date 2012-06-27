@@ -11,7 +11,6 @@ uses
   u_pagamentos in 'u_pagamentos.pas' {f_pagamentos},
   u_cadastro_senha in 'u_cadastro_senha.pas' {f_cadastro_senha},
   u_relatorios in 'u_relatorios.pas' {f_relatorios},
-  u_sobre in 'u_sobre.pas' {f_sobre},
   u_dm in 'u_dm.pas' {dm: TDataModule},
   u_login in 'u_login.pas' {f_login},
   u_despertador in 'u_despertador.pas' {f_despertador};
@@ -31,7 +30,6 @@ begin
   Application.CreateForm(Tf_pagamentos, f_pagamentos);
   Application.CreateForm(Tf_cadastro_senha, f_cadastro_senha);
   Application.CreateForm(Tf_relatorios, f_relatorios);
-  Application.CreateForm(Tf_sobre, f_sobre);
   Application.CreateForm(Tdm, dm);
   Application.CreateForm(Tf_despertador, f_despertador);
   Application.Run;
