@@ -2136,14 +2136,6 @@ object f_status_limpeza: Tf_status_limpeza
         Title.Caption = 'Data '#250'ltima limpeza'
         Width = 180
         Visible = True
-      end
-      item
-        Alignment = taRightJustify
-        Expanded = False
-        FieldName = 'ocupado'
-        Title.Caption = 'Ocupado'
-        Width = 70
-        Visible = True
       end>
   end
   object rg_quartos: TRadioGroup

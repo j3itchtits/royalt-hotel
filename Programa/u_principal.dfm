@@ -5994,7 +5994,7 @@ object f_principal: Tf_principal
     end
     object b_finalizar: TPngSpeedButton
       Left = 200
-      Top = 26
+      Top = 39
       Width = 57
       Height = 57
       Caption = '&Finalizar'
